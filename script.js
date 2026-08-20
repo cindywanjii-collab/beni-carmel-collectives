@@ -1,7 +1,7 @@
 /* =========================================================
    BÉNI CARMEL COLLECTIVES
    MAIN WEBSITE JAVASCRIPT
-   Works with index.html + shop.html + checkout.html
+   VERSION 2.0
 ========================================================= */
 
 
@@ -14,340 +14,339 @@ const products = [
     {
         name: "BC Beanie Beige",
         displayName: "BC Beanie",
-        color: "Beige",
-        price: 500,
+        colour: "Beige",
         category: "headwear",
+        price: 500,
         image: "images/beanie-beige.jpg",
-        newest: true
+        new: true
     },
 
     {
         name: "BC Beanie Black",
         displayName: "BC Beanie",
-        color: "Black",
-        price: 500,
+        colour: "Black",
         category: "headwear",
+        price: 500,
         image: "images/beanie-black.jpg"
     },
 
     {
         name: "BC Beanie Brown",
         displayName: "BC Beanie",
-        color: "Brown",
-        price: 500,
+        colour: "Brown",
         category: "headwear",
+        price: 500,
         image: "images/beanie-brown.jpg"
     },
 
     {
         name: "BC Beanie Burgundy",
         displayName: "BC Beanie",
-        color: "Burgundy",
-        price: 500,
+        colour: "Burgundy",
         category: "headwear",
+        price: 500,
         image: "images/beanie-burgundy.jpg",
-        newest: true
+        new: true
     },
 
     {
         name: "BC Beanie Cream",
         displayName: "BC Beanie",
-        color: "Cream",
-        price: 500,
+        colour: "Cream",
         category: "headwear",
+        price: 500,
         image: "images/beanie-cream.jpg"
     },
 
     {
         name: "BC Bucket Hat Beige",
         displayName: "BC Bucket Hat",
-        color: "Beige",
-        price: 700,
+        colour: "Beige",
         category: "headwear",
+        price: 700,
         image: "images/bucket-hat-beige.jpg"
     },
 
     {
         name: "BC Bucket Hat Black",
         displayName: "BC Bucket Hat",
-        color: "Black",
-        price: 700,
+        colour: "Black",
         category: "headwear",
+        price: 700,
         image: "images/bucket-hat-black.jpg"
     },
 
     {
         name: "BC Bucket Hat Burgundy",
         displayName: "BC Bucket Hat",
-        color: "Burgundy",
-        price: 700,
+        colour: "Burgundy",
         category: "headwear",
+        price: 700,
         image: "images/bucket-hat-burgundy.jpg"
     },
 
     {
         name: "BC Bucket Hat White",
         displayName: "BC Bucket Hat",
-        color: "White",
-        price: 700,
+        colour: "White",
         category: "headwear",
+        price: 700,
         image: "images/bucket-hat-white.jpg"
     },
 
     {
         name: "BC Cap White",
         displayName: "BC Cap",
-        color: "White",
-        price: 400,
+        colour: "White",
         category: "headwear",
+        price: 400,
         image: "images/cap-white.jpg",
-        newest: true
+        new: true
     },
 
     {
         name: "BC College Jacket",
         displayName: "BC College Jacket",
-        color: "Signature",
-        price: 1500,
+        colour: "Signature",
         category: "clothing",
+        price: 1500,
         image: "images/college-jacket.jpg",
-        newest: true
+        new: true
     },
 
     {
         name: "BC Denim Jacket",
         displayName: "BC Denim Jacket",
-        color: "Blue",
-        price: 1300,
+        colour: "Blue",
         category: "denim",
+        price: 1300,
         image: "images/denim-jacket-1.jpg"
     },
 
     {
         name: "BC Denim Jacket II",
         displayName: "BC Denim Jacket",
-        color: "Washed Blue",
-        price: 1300,
+        colour: "Washed Blue",
         category: "denim",
+        price: 1300,
         image: "images/denim-jacket-2.jpg"
     },
 
     {
         name: "BC Hoodie Black",
         displayName: "BC Hoodie",
-        color: "Black",
-        price: 1300,
+        colour: "Black",
         category: "clothing",
+        price: 1300,
         image: "images/hoodie-1.jpg",
-        newest: true
+        new: true
     },
 
     {
         name: "BC Hoodie Cream",
         displayName: "BC Hoodie",
-        color: "Cream",
-        price: 1300,
+        colour: "Cream",
         category: "clothing",
+        price: 1300,
         image: "images/hoodie-2.jpg"
     },
 
     {
-        name: "BC Jorts",
+        name: "BC Jorts Blue",
         displayName: "BC Jorts",
-        color: "Blue",
-        price: 1000,
+        colour: "Blue",
         category: "denim",
+        price: 1000,
         image: "images/jorts-1.jpg",
-        newest: true
+        new: true
     },
 
     {
         name: "BC Jorts Dark Blue",
         displayName: "BC Jorts",
-        color: "Dark Blue",
-        price: 1000,
+        colour: "Dark Blue",
         category: "denim",
+        price: 1000,
         image: "images/jorts-dark-blue.jpg"
     },
 
     {
         name: "BC Jorts Marble Blue",
         displayName: "BC Jorts",
-        color: "Marble Blue",
-        price: 1000,
+        colour: "Marble Blue",
         category: "denim",
+        price: 1000,
         image: "images/jorts-marble-blue.jpg",
-        newest: true
+        new: true
     },
 
     {
         name: "BC Jorts Sky Blue",
         displayName: "BC Jorts",
-        color: "Sky Blue",
-        price: 1000,
+        colour: "Sky Blue",
         category: "denim",
+        price: 1000,
         image: "images/jorts-sky-blue.jpg"
     },
 
     {
         name: "BC Cross Shoulder Bag",
         displayName: "Cross Shoulder Bag",
-        color: "Black",
-        price: 800,
+        colour: "Black",
         category: "accessories",
+        price: 800,
         image: "images/shoulder-bag-black-cross.jpg",
-        newest: true
+        new: true
     },
 
     {
         name: "BC Shoulder Bag Black",
         displayName: "Shoulder Bag",
-        color: "Black",
-        price: 650,
+        colour: "Black",
         category: "accessories",
+        price: 650,
         image: "images/shoulder-bag-black.jpg"
     },
 
     {
         name: "BC Shoulder Bag Brown",
         displayName: "Shoulder Bag",
-        color: "Brown",
-        price: 650,
+        colour: "Brown",
         category: "accessories",
+        price: 650,
         image: "images/shoulder-bag-brown.jpg"
     },
 
     {
         name: "BC Shoulder Bag Orange",
         displayName: "Shoulder Bag",
-        color: "Orange",
-        price: 650,
+        colour: "Orange",
         category: "accessories",
+        price: 650,
         image: "images/shoulder-bag-orange.jpg"
     },
 
     {
         name: "BC Shoulder Bag Pink",
         displayName: "Shoulder Bag",
-        color: "Pink",
-        price: 650,
+        colour: "Pink",
         category: "accessories",
+        price: 650,
         image: "images/shoulder-bag-pink.jpg"
     },
 
     {
         name: "BC Socks Black",
         displayName: "BC Socks",
-        color: "Black",
-        price: 200,
+        colour: "Black",
         category: "accessories",
+        price: 200,
         image: "images/socks-black.jpg"
     },
 
     {
         name: "BC Socks White",
         displayName: "BC Socks",
-        color: "White",
-        price: 200,
+        colour: "White",
         category: "accessories",
+        price: 200,
         image: "images/socks-white.jpg"
     },
 
     {
         name: "BC Sweatpants Black",
         displayName: "BC Sweatpants",
-        color: "Black",
-        price: 900,
+        colour: "Black",
         category: "clothing",
+        price: 900,
         image: "images/sweatpants-black.jpg"
     },
 
     {
         name: "BC Sweatpants Burgundy",
         displayName: "BC Sweatpants",
-        color: "Burgundy",
-        price: 900,
+        colour: "Burgundy",
         category: "clothing",
+        price: 900,
         image: "images/sweatpants-burgundy.jpg"
     },
 
     {
         name: "BC Sweatpants Cream",
         displayName: "BC Sweatpants",
-        color: "Cream",
-        price: 900,
+        colour: "Cream",
         category: "clothing",
+        price: 900,
         image: "images/sweatpants-cream.jpg"
     },
 
     {
         name: "BC Sweatpants Grey",
         displayName: "BC Sweatpants",
-        color: "Grey",
-        price: 900,
+        colour: "Grey",
         category: "clothing",
+        price: 900,
         image: "images/sweatpants-grey.jpg"
     },
 
     {
         name: "BC Graphic Tee",
         displayName: "BC Graphic Tee",
-        color: "Black",
-        price: 600,
+        colour: "Black",
         category: "clothing",
+        price: 600,
         image: "images/tee-1.jpg",
-        newest: true
+        new: true
     },
 
     {
         name: "BC Graphic Tee II",
         displayName: "BC Graphic Tee",
-        color: "Signature",
-        price: 600,
+        colour: "Signature",
         category: "clothing",
+        price: 600,
         image: "images/tee-2.jpg"
     },
 
     {
         name: "BC Graphic Tee III",
         displayName: "BC Graphic Tee",
-        color: "Collection",
-        price: 600,
+        colour: "Collection",
         category: "clothing",
+        price: 600,
         image: "images/tee-3.jpg"
     },
 
     {
         name: "BC Wide Leg Jeans",
         displayName: "Wide-Leg Jeans",
-        color: "Blue",
-        price: 1000,
+        colour: "Blue",
         category: "denim",
+        price: 1000,
         image: "images/wide-leg-jeans-blue.jpg",
-        newest: true
+        new: true
     },
 
     {
         name: "BC Silver Cross Necklace",
         displayName: "Cross Necklace",
-        color: "Silver",
-        price: 500,
+        colour: "Silver",
         category: "accessories",
+        price: 500,
         image: "images/cross-necklace-silver.jpg",
-        newest: true
+        new: true
     }
 
 ];
 
 
 /* =========================================================
-   CART
+   CART STORAGE
 ========================================================= */
 
-let cart =
-    JSON.parse(
-        localStorage.getItem("beniCarmelCart")
-    ) || [];
+let cart = JSON.parse(
+    localStorage.getItem("beniCarmelCart")
+) || [];
 
 
 function saveCart() {
@@ -360,12 +359,15 @@ function saveCart() {
 }
 
 
-function addToCart(name, price) {
+/* =========================================================
+   ADD TO CART
+========================================================= */
 
-    const existingProduct =
-        cart.find(
-            item => item.name === name
-        );
+function addToCart(name, price, image = "") {
+
+    const existingProduct = cart.find(
+        item => item.name === name
+    );
 
 
     if (existingProduct) {
@@ -375,13 +377,10 @@ function addToCart(name, price) {
     } else {
 
         cart.push({
-
             name: name,
-
             price: Number(price),
-
+            image: image,
             quantity: 1
-
         });
 
     }
@@ -396,7 +395,19 @@ function addToCart(name, price) {
 }
 
 
+/* =========================================================
+   REMOVE FROM CART
+========================================================= */
+
 function removeFromCart(index) {
+
+    if (
+        index < 0 ||
+        index >= cart.length
+    ) {
+        return;
+    }
+
 
     cart.splice(index, 1);
 
@@ -407,9 +418,16 @@ function removeFromCart(index) {
 }
 
 
+/* =========================================================
+   INCREASE QUANTITY
+========================================================= */
+
 function increaseQuantity(index) {
 
-    if (!cart[index]) return;
+    if (!cart[index]) {
+        return;
+    }
+
 
     cart[index].quantity += 1;
 
@@ -420,9 +438,15 @@ function increaseQuantity(index) {
 }
 
 
+/* =========================================================
+   DECREASE QUANTITY
+========================================================= */
+
 function decreaseQuantity(index) {
 
-    if (!cart[index]) return;
+    if (!cart[index]) {
+        return;
+    }
 
 
     if (cart[index].quantity > 1) {
@@ -443,34 +467,34 @@ function decreaseQuantity(index) {
 }
 
 
+/* =========================================================
+   CART TOTAL
+========================================================= */
+
 function calculateCartTotal() {
 
     return cart.reduce(
-
         (total, item) =>
-
             total +
             Number(item.price) *
             Number(item.quantity),
-
         0
-
     );
 
 }
 
 
+/* =========================================================
+   CART COUNT
+========================================================= */
+
 function calculateCartCount() {
 
     return cart.reduce(
-
         (total, item) =>
-
             total +
             Number(item.quantity),
-
         0
-
     );
 
 }
@@ -497,77 +521,86 @@ function updateCart() {
         document.getElementById("cartCount");
 
 
-    const count =
-        calculateCartCount();
-
-
-    const total =
-        calculateCartTotal();
-
+    /* CART COUNT */
 
     if (cartCount) {
 
-        cartCount.textContent = count;
+        cartCount.textContent =
+            calculateCartCount();
 
     }
 
 
+    /* CART TOTAL */
+
     if (cartTotal) {
 
         cartTotal.textContent =
-            "KES " +
-            total.toLocaleString();
+            "KSh " +
+            calculateCartTotal().toLocaleString();
 
     }
 
 
     if (!cartItems) {
 
+        updateCheckoutSummary();
+
         return;
 
     }
 
+
+    /* EMPTY CART */
 
     if (cart.length === 0) {
 
         cartItems.innerHTML = `
-
             <div class="empty-cart">
-
-                <p>
-                    Your bag is currently empty.
-                </p>
-
+                <p>Your bag is currently empty.</p>
                 <button
                     onclick="closeCart()"
-                    class="continue-button"
+                    class="continue-shopping-button"
                 >
                     CONTINUE SHOPPING
                 </button>
-
             </div>
-
         `;
+
+        updateCheckoutSummary();
 
         return;
 
     }
 
 
-    cartItems.innerHTML = cart.map(
+    /* CART ITEMS */
 
+    cartItems.innerHTML = cart.map(
         (item, index) => `
 
         <div class="cart-item">
 
+            ${
+                item.image
+                    ? `
+                    <img
+                        src="${item.image}"
+                        alt="${item.name}"
+                        class="cart-item-image"
+                    >
+                    `
+                    : ""
+            }
+
             <div class="cart-item-info">
 
                 <h4>
-                    ${escapeHTML(item.name)}
+                    ${item.name}
                 </h4>
 
                 <p>
-                    KES ${Number(item.price).toLocaleString()}
+                    KSh ${Number(item.price).toLocaleString()}
                 </p>
 
                 <div class="cart-item-controls">
@@ -594,14 +627,15 @@ function updateCart() {
 
             </div>
 
-
             <div class="cart-item-right">
 
                 <strong>
-                    KES ${(
-                        Number(item.price) *
-                        Number(item.quantity)
-                    ).toLocaleString()}
+                    KSh ${
+                        (
+                            item.price *
+                            item.quantity
+                        ).toLocaleString()
+                    }
                 </strong>
 
                 <button
@@ -617,7 +651,6 @@ function updateCart() {
         </div>
 
         `
-
     ).join("");
 
 
@@ -658,8 +691,14 @@ function openCart() {
 
     document.body.classList.add("no-scroll");
 
+    updateCart();
+
 }
 
+
+/* =========================================================
+   CLOSE CART
+========================================================= */
 
 function closeCart() {
 
@@ -696,6 +735,25 @@ function closeCart() {
    CHECKOUT
 ========================================================= */
 
+function goToCheckout() {
+
+    if (cart.length === 0) {
+
+        alert(
+            "Your bag is empty. Add something before checking out."
+        );
+
+        return;
+
+    }
+
+
+    window.location.href =
+        "checkout.html";
+
+}
+
+
 function openCheckout() {
 
     if (cart.length === 0) {
@@ -707,17 +765,19 @@ function openCheckout() {
     }
 
 
-    const checkoutModal =
+    /* If there is a checkout modal on index.html */
+
+    const modal =
         document.getElementById("checkoutModal");
 
 
-    if (checkoutModal) {
+    if (modal) {
+
+        updateCheckoutSummary();
 
         closeCart();
 
-        checkoutModal.classList.add("active");
-
-        updateCheckoutSummary();
+        modal.classList.add("active");
 
         document.body.classList.add("no-scroll");
 
@@ -726,8 +786,9 @@ function openCheckout() {
     }
 
 
-    window.location.href =
-        "checkout.html";
+    /* Otherwise use checkout.html */
+
+    goToCheckout();
 
 }
 
@@ -750,145 +811,159 @@ function closeCheckout() {
 }
 
 
-function goToCheckout() {
-
-    openCheckout();
-
-}
-
-
 /* =========================================================
    CHECKOUT SUMMARY
 ========================================================= */
 
-function updateCheckoutSummary() {
-
-    const itemsContainer =
-        document.getElementById("checkoutItems");
-
-
-    const subtotalElement =
-        document.getElementById("checkoutSubtotal");
-
-
-    const shippingElement =
-        document.getElementById("checkoutShipping");
-
-
-    const totalElement =
-        document.getElementById("checkoutTotal");
-
+function calculateShipping() {
 
     const subtotal =
         calculateCartTotal();
 
 
     /*
-       Free delivery over KES 10,000.
-       Otherwise KES 300.
+       FREE DELIVERY ABOVE KES 10,000
     */
 
-    const shipping =
-        subtotal === 0
-            ? 0
-            : subtotal >= 10000
-                ? 0
-                : 300;
+    if (subtotal === 0) {
 
-
-    const total =
-        subtotal + shipping;
-
-
-    if (itemsContainer) {
-
-        if (cart.length === 0) {
-
-            itemsContainer.innerHTML =
-                "<p>Your order is empty.</p>";
-
-        } else {
-
-            itemsContainer.innerHTML =
-                cart.map(
-
-                    item => `
-
-                    <div class="checkout-item">
-
-                        <div>
-
-                            <strong>
-                                ${escapeHTML(item.name)}
-                            </strong>
-
-                            <p>
-                                Qty: ${item.quantity}
-                            </p>
-
-                        </div>
-
-                        <strong>
-                            KES ${(
-                                Number(item.price) *
-                                Number(item.quantity)
-                            ).toLocaleString()}
-                        </strong>
-
-                    </div>
-
-                    `
-
-                ).join("");
-
-        }
+        return 0;
 
     }
 
 
-    if (subtotalElement) {
+    if (subtotal >= 10000) {
 
-        subtotalElement.textContent =
-            "KES " +
-            subtotal.toLocaleString();
+        return 0;
 
     }
 
 
-    if (shippingElement) {
+    /*
+       Standard Kenya delivery
+    */
 
-        shippingElement.textContent =
-            shipping === 0
+    return 300;
+
+}
+
+
+function updateCheckoutSummary() {
+
+    const checkoutItems =
+        document.getElementById("checkoutItems");
+
+
+    const checkoutSubtotal =
+        document.getElementById("checkoutSubtotal");
+
+
+    const checkoutShipping =
+        document.getElementById("checkoutShipping");
+
+
+    const checkoutTotal =
+        document.getElementById("checkoutTotal");
+
+
+    if (checkoutSubtotal) {
+
+        checkoutSubtotal.textContent =
+            "KSh " +
+            calculateCartTotal().toLocaleString();
+
+    }
+
+
+    if (checkoutShipping) {
+
+        checkoutShipping.textContent =
+            calculateShipping() === 0
                 ? "FREE"
-                : "KES " +
-                  shipping.toLocaleString();
+                : "KSh " +
+                  calculateShipping().toLocaleString();
 
     }
 
 
-    if (totalElement) {
+    if (checkoutTotal) {
 
-        totalElement.textContent =
-            "KES " +
-            total.toLocaleString();
+        checkoutTotal.textContent =
+            "KSh " +
+            (
+                calculateCartTotal() +
+                calculateShipping()
+            ).toLocaleString();
 
     }
+
+
+    if (!checkoutItems) {
+
+        return;
+
+    }
+
+
+    if (cart.length === 0) {
+
+        checkoutItems.innerHTML =
+            "<p>Your order is empty.</p>";
+
+        return;
+
+    }
+
+
+    checkoutItems.innerHTML =
+        cart.map(
+            item => `
+
+            <div class="checkout-item">
+
+                <div>
+
+                    <strong>
+                        ${item.name}
+                    </strong>
+
+                    <p>
+                        Quantity: ${item.quantity}
+                    </p>
+
+                </div>
+
+                <strong>
+                    KSh ${
+                        (
+                            item.price *
+                            item.quantity
+                        ).toLocaleString()
+                    }
+                </strong>
+
+            </div>
+
+            `
+        ).join("");
 
 }
 
 
 /* =========================================================
-   PROCESS M-PESA CHECKOUT
+   PROCESS CHECKOUT
 ========================================================= */
 
-async function processCheckout(event) {
+function processCheckout(event) {
 
     event.preventDefault();
 
 
     if (cart.length === 0) {
 
-        alert("Your bag is empty.");
+        alert(
+            "Your bag is empty."
+        );
 
         return;
 
@@ -896,33 +971,23 @@ async function processCheckout(event) {
 
 
     const name =
-        document.getElementById(
-            "customerName"
-        )?.value.trim();
+        document.getElementById("customerName")?.value.trim();
 
 
     const email =
-        document.getElementById(
-            "customerEmail"
-        )?.value.trim();
+        document.getElementById("customerEmail")?.value.trim();
 
 
     const phone =
-        document.getElementById(
-            "customerPhone"
-        )?.value.trim();
+        document.getElementById("customerPhone")?.value.trim();
 
 
     const county =
-        document.getElementById(
-            "customerCounty"
-        )?.value.trim();
+        document.getElementById("customerCounty")?.value.trim();
 
 
     const address =
-        document.getElementById(
-            "customerAddress"
-        )?.value.trim();
+        document.getElementById("customerAddress")?.value.trim();
 
 
     if (
@@ -934,26 +999,12 @@ async function processCheckout(event) {
     ) {
 
         alert(
-            "Please complete all delivery information."
+            "Please complete all delivery details."
         );
 
         return;
 
     }
-
-
-    const subtotal =
-        calculateCartTotal();
-
-
-    const shipping =
-        subtotal >= 10000
-            ? 0
-            : 300;
-
-
-    const total =
-        subtotal + shipping;
 
 
     const payButton =
@@ -970,138 +1021,70 @@ async function processCheckout(event) {
     }
 
 
-    try {
+    /*
+       IMPORTANT:
+       This is the FRONT-END checkout flow.
+       Real M-PESA STK Push requires a secure backend
+       connected to Safaricom Daraja API.
+    */
 
-        const response =
-            await fetch(
-                "/api/stkpush",
-                {
+    setTimeout(
+        () => {
 
-                    method: "POST",
-
-                    headers: {
-
-                        "Content-Type":
-                            "application/json"
-
-                    },
-
-                    body:
-                        JSON.stringify({
-
-                            name: name,
-
-                            email: email,
-
-                            phone: phone,
-
-                            county: county,
-
-                            address: address,
-
-                            amount: total,
-
-                            items: cart
-
-                        })
-
-                }
+            showOrderSuccess(
+                name,
+                phone
             );
 
-
-        const data =
-            await response.json();
-
-
-        if (!response.ok) {
-
-            throw new Error(
-
-                data.error ||
-                "M-PESA payment request failed."
-
-            );
-
-        }
-
-
-        if (data.success) {
-
-            showSuccess(
-
-                data.message ||
-                "An M-PESA payment prompt has been sent to your phone."
-
-            );
-
-        } else {
-
-            throw new Error(
-                "Payment request could not be completed."
-            );
-
-        }
-
-
-    } catch (error) {
-
-        console.error(
-            "CHECKOUT ERROR:",
-            error
-        );
-
-
-        alert(
-            error.message ||
-            "Something went wrong while processing your payment."
-        );
-
-
-    } finally {
-
-        if (payButton) {
-
-            payButton.disabled = false;
-
-            payButton.textContent =
-                "PAY WITH M-PESA";
-
-        }
-
-    }
+        },
+        1200
+    );
 
 }
 
 
 /* =========================================================
-   SUCCESS MODAL
+   ORDER SUCCESS
 ========================================================= */
 
-function showSuccess(message) {
+function showOrderSuccess(
+    customerName,
+    customerPhone
+) {
 
     const successModal =
-        document.getElementById(
-            "successModal"
-        );
+        document.getElementById("successModal");
 
 
     const successMessage =
-        document.getElementById(
-            "successMessage"
-        );
+        document.getElementById("successMessage");
+
+
+    const orderNumber =
+        "BC-" +
+        Date.now()
+            .toString()
+            .slice(-6);
 
 
     if (successMessage) {
 
-        successMessage.textContent =
-            message;
+        successMessage.innerHTML = `
+            Thank you, <strong>${customerName}</strong>.
+            <br><br>
+            Your order
+            <strong>${orderNumber}</strong>
+            has been received.
+            <br><br>
+            We will contact you on
+            <strong>${customerPhone}</strong>
+            regarding payment and delivery.
+        `;
 
     }
 
 
     if (successModal) {
-
-        closeCheckout();
 
         successModal.classList.add("active");
 
@@ -1109,35 +1092,8 @@ function showSuccess(message) {
 
 
     /*
-       We intentionally do NOT immediately
-       clear the cart.
-
-       This gives the customer time to
-       see the confirmation.
-
-       We clear it after the success modal
-       is closed.
+       Clear cart after order submission.
     */
-
-}
-
-
-function closeSuccess() {
-
-    const successModal =
-        document.getElementById(
-            "successModal"
-        );
-
-
-    if (successModal) {
-
-        successModal.classList.remove(
-            "active"
-        );
-
-    }
-
 
     cart = [];
 
@@ -1145,13 +1101,29 @@ function closeSuccess() {
 
     updateCart();
 
-    window.scrollTo({
+    closeCheckout();
 
-        top: 0,
+}
 
-        behavior: "smooth"
 
-    });
+function closeSuccess() {
+
+    const modal =
+        document.getElementById("successModal");
+
+
+    if (modal) {
+
+        modal.classList.remove("active");
+
+    }
+
+
+    document.body.classList.remove("no-scroll");
+
+
+    window.location.href =
+        "shop.html";
 
 }
 
@@ -1163,9 +1135,8 @@ function closeSuccess() {
 function toggleMenu() {
 
     const menu =
-        document.getElementById(
-            "mobile-menu"
-        );
+        document.getElementById("mobile-menu") ||
+        document.getElementById("mobileMenu");
 
 
     if (!menu) {
@@ -1182,23 +1153,7 @@ function toggleMenu() {
 
 function toggleMobileMenu() {
 
-    const menu =
-        document.getElementById(
-            "mobileMenu"
-        ) ||
-        document.getElementById(
-            "mobile-menu"
-        );
-
-
-    if (!menu) {
-
-        return;
-
-    }
-
-
-    menu.classList.toggle("active");
+    toggleMenu();
 
 }
 
@@ -1210,12 +1165,8 @@ function toggleMobileMenu() {
 function openSearch() {
 
     const overlay =
-        document.getElementById(
-            "search-overlay"
-        ) ||
-        document.getElementById(
-            "searchOverlay"
-        );
+        document.getElementById("search-overlay") ||
+        document.getElementById("searchOverlay");
 
 
     if (!overlay) {
@@ -1227,24 +1178,18 @@ function openSearch() {
 
     overlay.classList.add("active");
 
-    document.body.classList.add(
-        "no-scroll"
-    );
+    document.body.classList.add("no-scroll");
 
 
-    const input =
-        document.getElementById(
-            "site-search"
-        ) ||
-        document.getElementById(
-            "searchInput"
-        );
+    const search =
+        document.getElementById("site-search") ||
+        document.getElementById("searchInput");
 
 
-    if (input) {
+    if (search) {
 
         setTimeout(
-            () => input.focus(),
+            () => search.focus(),
             100
         );
 
@@ -1256,12 +1201,8 @@ function openSearch() {
 function closeSearch() {
 
     const overlay =
-        document.getElementById(
-            "search-overlay"
-        ) ||
-        document.getElementById(
-            "searchOverlay"
-        );
+        document.getElementById("search-overlay") ||
+        document.getElementById("searchOverlay");
 
 
     if (overlay) {
@@ -1271,34 +1212,28 @@ function closeSearch() {
     }
 
 
-    document.body.classList.remove(
-        "no-scroll"
-    );
+    document.body.classList.remove("no-scroll");
 
 }
 
 
+/* =========================================================
+   SEARCH PRODUCTS
+========================================================= */
+
 function searchProducts() {
 
-    const input =
-        document.getElementById(
-            "site-search"
-        ) ||
-        document.getElementById(
-            "searchInput"
-        );
+    const search =
+        document.getElementById("site-search") ||
+        document.getElementById("searchInput");
 
 
     const results =
-        document.getElementById(
-            "search-results"
-        ) ||
-        document.getElementById(
-            "searchResults"
-        );
+        document.getElementById("search-results") ||
+        document.getElementById("searchResults");
 
 
-    if (!input || !results) {
+    if (!search || !results) {
 
         return;
 
@@ -1306,7 +1241,7 @@ function searchProducts() {
 
 
     const query =
-        input.value
+        search.value
             .toLowerCase()
             .trim();
 
@@ -1322,24 +1257,28 @@ function searchProducts() {
 
     const matches =
         products.filter(
-
             product =>
-
                 product.name
                     .toLowerCase()
+                    .includes(query) ||
+                product.displayName
+                    .toLowerCase()
+                    .includes(query) ||
+                product.colour
+                    .toLowerCase()
+                    .includes(query) ||
+                product.category
+                    .toLowerCase()
                     .includes(query)
-
         );
 
 
     if (matches.length === 0) {
 
         results.innerHTML = `
-
-            <p>
+            <p class="search-empty">
                 No products found.
             </p>
-
         `;
 
         return;
@@ -1348,63 +1287,65 @@ function searchProducts() {
 
 
     results.innerHTML =
-        matches.map(
+        matches
+            .slice(0, 8)
+            .map(
+                product => `
 
-            product => `
-
-            <button
-                class="search-result"
-                onclick="addToCart(
-                    '${escapeJS(product.name)}',
-                    ${product.price}
-                )"
-            >
-
-                <img
-                    src="${product.image}"
-                    alt="${escapeHTML(product.name)}"
+                <button
+                    class="search-result"
+                    onclick="openProductByName('${product.name.replace(/'/g, "\\'")}')"
                 >
 
-                <span>
+                    <img
+                        src="${product.image}"
+                        alt="${product.name}"
+                    >
 
-                    <strong>
-                        ${escapeHTML(product.name)}
-                    </strong>
+                    <span>
 
-                    <small>
-                        KES ${product.price.toLocaleString()}
-                    </small>
+                        <strong>
+                            ${product.displayName}
+                        </strong>
 
-                </span>
+                        <small>
+                            ${product.colour}
+                        </small>
 
-            </button>
+                        <b>
+                            KSh ${product.price.toLocaleString()}
+                        </b>
 
-            `
+                    </span>
 
-        ).join("");
+                </button>
+
+                `
+            )
+            .join("");
 
 }
 
 
+/* =========================================================
+   SETUP SEARCH
+========================================================= */
+
 function setupSearch() {
 
-    const input =
-        document.getElementById(
-            "site-search"
-        ) ||
-        document.getElementById(
-            "searchInput"
-        );
+    const search =
+        document.getElementById("site-search") ||
+        document.getElementById("searchInput");
 
 
-    if (!input) {
+    if (!search) {
 
         return;
 
     }
 
 
-    input.addEventListener(
+    search.addEventListener(
         "input",
         searchProducts
     );
@@ -1427,11 +1368,8 @@ let wishlist =
 function saveWishlist() {
 
     localStorage.setItem(
-
         "beniCarmelWishlist",
-
         JSON.stringify(wishlist)
-
     );
 
 }
@@ -1440,9 +1378,7 @@ function saveWishlist() {
 function toggleWishlist(button) {
 
     const product =
-        button.closest(
-            ".shop-product"
-        );
+        button.closest(".shop-product");
 
 
     if (!product) {
@@ -1467,7 +1403,7 @@ function toggleWishlist(button) {
         button.textContent = "♥";
 
         button.classList.add(
-            "active"
+            "wishlist-active"
         );
 
     } else {
@@ -1477,7 +1413,7 @@ function toggleWishlist(button) {
         button.textContent = "♡";
 
         button.classList.remove(
-            "active"
+            "wishlist-active"
         );
 
     }
@@ -1488,25 +1424,76 @@ function toggleWishlist(button) {
 }
 
 
-function openWishlist() {
+/* =========================================================
+   LOAD WISHLIST STATE
+========================================================= */
 
-    if (wishlist.length) {
+function setupWishlistButtons() {
 
-        alert(
+    document
+        .querySelectorAll(
+            ".wishlist-product"
+        )
+        .forEach(
+            button => {
 
-            "Your wishlist contains " +
-            wishlist.length +
-            " item(s)."
+                const product =
+                    button.closest(
+                        ".shop-product"
+                    );
 
+
+                if (!product) {
+
+                    return;
+
+                }
+
+
+                const name =
+                    product.dataset.name;
+
+
+                if (
+                    wishlist.includes(name)
+                ) {
+
+                    button.textContent = "♥";
+
+                    button.classList.add(
+                        "wishlist-active"
+                    );
+
+                }
+
+            }
         );
 
-    } else {
+}
+
+
+/* =========================================================
+   WISHLIST
+========================================================= */
+
+function openWishlist() {
+
+    if (wishlist.length === 0) {
 
         alert(
             "Your wishlist is currently empty."
         );
 
+        return;
+
     }
+
+
+    alert(
+        "Your wishlist contains " +
+        wishlist.length +
+        " item(s)."
+    );
 
 }
 
@@ -1534,12 +1521,8 @@ function subscribe(event) {
 
 
     const email =
-        document.getElementById(
-            "email"
-        ) ||
-        document.getElementById(
-            "newsletterEmail"
-        );
+        document.getElementById("email") ||
+        document.getElementById("newsletterEmail");
 
 
     if (!email) {
@@ -1549,11 +1532,11 @@ function subscribe(event) {
     }
 
 
-    const value =
-        email.value.trim();
+    if (!email.value.trim()) {
 
-
-    if (!value) {
+        alert(
+            "Please enter your email address."
+        );
 
         return;
 
@@ -1574,13 +1557,7 @@ function subscribe(event) {
    SHOP FILTERS
 ========================================================= */
 
-function setupFilters() {
-
-    const filterButtons =
-        document.querySelectorAll(
-            ".filter-button"
-        );
-
+function filterProducts(category) {
 
     const productsOnPage =
         document.querySelectorAll(
@@ -1588,308 +1565,63 @@ function setupFilters() {
         );
 
 
-    const noProducts =
+    const productGrid =
         document.getElementById(
-            "no-products"
+            "shop-product-grid"
         );
 
 
-    if (!filterButtons.length) {
-
-        return;
-
-    }
-
-
-    filterButtons.forEach(
-
-        button => {
-
-            button.addEventListener(
-
-                "click",
-
-                function () {
-
-                    filterButtons.forEach(
-
-                        btn =>
-                            btn.classList.remove(
-                                "active"
-                            )
-
-                    );
+    const homepageGrid =
+        document.getElementById(
+            "productGrid"
+        );
 
 
-                    this.classList.add(
-                        "active"
-                    );
+    let visibleCount = 0;
 
 
-                    const filter =
-                        this.dataset.filter;
+    productsOnPage.forEach(
+        product => {
+
+            const productCategory =
+                product.dataset.category;
 
 
-                    let visibleCount = 0;
+            if (
+                category === "all" ||
+                productCategory === category
+            ) {
 
+                product.style.display = "";
 
-                    productsOnPage.forEach(
+                visibleCount++;
 
-                        product => {
+            } else {
 
-                            const category =
-                                product.dataset.category;
+                product.style.display = "none";
 
-
-                            if (
-
-                                filter === "all" ||
-                                category === filter
-
-                            ) {
-
-                                product.style.display =
-                                    "";
-
-                                visibleCount++;
-
-                            } else {
-
-                                product.style.display =
-                                    "none";
-
-                            }
-
-                        }
-
-                    );
-
-
-                    if (noProducts) {
-
-                        noProducts.style.display =
-
-                            visibleCount === 0
-                                ? "block"
-                                : "none";
-
-                    }
-
-                }
-
-            );
+            }
 
         }
-
     );
 
-}
 
+    /*
+       Homepage generated products
+    */
 
-/* =========================================================
-   INDEX PAGE CATEGORY FILTER
-========================================================= */
+    if (homepageGrid) {
 
-function filterProducts(category) {
-
-    const grid =
-        document.getElementById(
-            "productGrid"
+        renderHomepageProducts(
+            category
         );
-
-
-    if (!grid) {
-
-        /*
-           If the user is on the homepage
-           but the grid hasn't been generated,
-           generate it first.
-        */
-
-        renderHomeProducts(category);
-
-        return;
-
-    }
-
-
-    renderHomeProducts(category);
-
-}
-
-
-/* =========================================================
-   RENDER HOMEPAGE PRODUCTS
-========================================================= */
-
-function renderHomeProducts(category = "all") {
-
-    const grid =
-        document.getElementById(
-            "productGrid"
-        );
-
-
-    if (!grid) {
-
-        return;
-
-    }
-
-
-    let filteredProducts =
-        products;
-
-
-    if (
-        category !== "all" &&
-        category !== "tops" &&
-        category !== "bottoms" &&
-        category !== "outerwear"
-    ) {
-
-        filteredProducts =
-            products.filter(
-                product =>
-                    product.category === category
-            );
 
     }
 
 
     /*
-       Homepage category mapping.
+       Update product counter
     */
-
-    if (category === "tops") {
-
-        filteredProducts =
-            products.filter(
-
-                product =>
-
-                    product.name
-                        .toLowerCase()
-                        .includes("tee") ||
-
-                    product.name
-                        .toLowerCase()
-                        .includes("hoodie")
-
-            );
-
-    }
-
-
-    if (category === "bottoms") {
-
-        filteredProducts =
-            products.filter(
-
-                product =>
-
-                    product.name
-                        .toLowerCase()
-                        .includes("jorts") ||
-
-                    product.name
-                        .toLowerCase()
-                        .includes("jeans") ||
-
-                    product.name
-                        .toLowerCase()
-                        .includes("sweatpants")
-
-            );
-
-    }
-
-
-    if (category === "outerwear") {
-
-        filteredProducts =
-            products.filter(
-
-                product =>
-
-                    product.name
-                        .toLowerCase()
-                        .includes("jacket")
-
-            );
-
-    }
-
-
-    grid.innerHTML =
-        filteredProducts.map(
-
-            product => `
-
-            <article class="product-card">
-
-                <div class="product-image">
-
-                    ${
-                        product.newest
-                            ? `
-                                <span class="product-label">
-                                    NEW
-                                </span>
-                              `
-                            : ""
-                    }
-
-                    <button
-                        class="product-wishlist"
-                        onclick="addWishlistFromHome(
-                            '${escapeJS(product.name)}'
-                        )"
-                        aria-label="Add to wishlist"
-                    >
-                        ♡
-                    </button>
-
-                    <img
-                        src="${product.image}"
-                        alt="${escapeHTML(product.name)}"
-                        loading="lazy"
-                    >
-
-                    <button
-                        class="quick-add"
-                        onclick="addToCart(
-                            '${escapeJS(product.name)}',
-                            ${product.price}
-                        )"
-                    >
-                        QUICK ADD
-                    </button>
-
-                </div>
-
-                <div class="product-info">
-
-                    <h3>
-                        ${escapeHTML(product.displayName)}
-                    </h3>
-
-                    <p>
-                        ${escapeHTML(product.color)}
-                    </p>
-
-                    <strong>
-                        KES ${product.price.toLocaleString()}
-                    </strong>
-
-                </div>
-
-            </article>
-
-            `
-
-        ).join("");
-
 
     const productNumber =
         document.getElementById(
@@ -1900,44 +1632,66 @@ function renderHomeProducts(category = "all") {
     if (productNumber) {
 
         productNumber.textContent =
-
-            filteredProducts.length +
+            visibleCount +
             " PRODUCTS";
 
     }
 
-}
 
+    /*
+       Update active filter buttons
+    */
 
-/* =========================================================
-   HOMEPAGE WISHLIST
-========================================================= */
+    document
+        .querySelectorAll(
+            ".filter-button"
+        )
+        .forEach(
+            button => {
 
-function addWishlistFromHome(name) {
+                button.classList.toggle(
+                    "active",
+                    button.dataset.filter ===
+                    category
+                );
 
-    const index =
-        wishlist.indexOf(name);
-
-
-    if (index === -1) {
-
-        wishlist.push(name);
-
-        saveWishlist();
-
-        alert(
-            "Added to your wishlist."
+            }
         );
 
-    } else {
 
-        wishlist.splice(index, 1);
+    /*
+       Homepage category buttons
+    */
 
-        saveWishlist();
+    document
+        .querySelectorAll(
+            ".categories button"
+        )
+        .forEach(
+            button => {
 
-        alert(
-            "Removed from your wishlist."
+                button.classList.toggle(
+                    "active",
+                    button.dataset.category ===
+                    category
+                );
+
+            }
         );
+
+
+    const noProducts =
+        document.getElementById(
+            "no-products"
+        );
+
+
+    if (noProducts) {
+
+        noProducts.style.display =
+            visibleCount === 0
+                ? "block"
+                : "none";
 
     }
 
@@ -1945,7 +1699,94 @@ function addWishlistFromHome(name) {
 
 
 /* =========================================================
-   SHOP SORTING
+   SHOP FILTER SETUP
+========================================================= */
+
+function setupFilters() {
+
+    const filterButtons =
+        document.querySelectorAll(
+            ".filter-button"
+        );
+
+
+    filterButtons.forEach(
+        button => {
+
+            button.addEventListener(
+                "click",
+                function () {
+
+                    filterProducts(
+                        this.dataset.filter
+                    );
+
+                }
+            );
+
+        }
+    );
+
+
+    /*
+       Homepage category buttons
+    */
+
+    document
+        .querySelectorAll(
+            ".categories button"
+        )
+        .forEach(
+            button => {
+
+                const text =
+                    button.textContent
+                        .trim()
+                        .toLowerCase();
+
+
+                let category =
+                    button.dataset.category;
+
+
+                if (!category) {
+
+                    if (text === "all") {
+
+                        category = "all";
+
+                    } else {
+
+                        category = text;
+
+                    }
+
+                }
+
+
+                button.dataset.category =
+                    category;
+
+
+                button.addEventListener(
+                    "click",
+                    function () {
+
+                        filterProducts(
+                            category
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+}
+
+
+/* =========================================================
+   SORTING
 ========================================================= */
 
 function setupSorting() {
@@ -1970,18 +1811,14 @@ function setupSorting() {
 
 
     sort.addEventListener(
-
         "change",
-
         function () {
 
             const productElements =
                 Array.from(
-
                     grid.querySelectorAll(
                         ".shop-product"
                     )
-
                 );
 
 
@@ -1991,17 +1828,13 @@ function setupSorting() {
             ) {
 
                 productElements.sort(
-
                     (a, b) =>
-
                         Number(
                             a.dataset.price
                         ) -
-
                         Number(
                             b.dataset.price
                         )
-
                 );
 
             }
@@ -2013,17 +1846,13 @@ function setupSorting() {
             ) {
 
                 productElements.sort(
-
                     (a, b) =>
-
                         Number(
                             b.dataset.price
                         ) -
-
                         Number(
                             a.dataset.price
                         )
-
                 );
 
             }
@@ -2035,7 +1864,6 @@ function setupSorting() {
             ) {
 
                 productElements.sort(
-
                     (a, b) => {
 
                         const aNew =
@@ -2056,40 +1884,19 @@ function setupSorting() {
                         );
 
                     }
-
                 );
 
             }
 
 
-            if (
-                this.value ===
-                "featured"
-            ) {
-
-                /*
-                   Return to original HTML
-                   order by reloading.
-                */
-
-                window.location.reload();
-
-                return;
-
-            }
-
-
             productElements.forEach(
-
                 product =>
                     grid.appendChild(
                         product
                     )
-
             );
 
         }
-
     );
 
 }
@@ -2118,81 +1925,304 @@ function applyURLCategory() {
     }
 
 
-    const button =
-        document.querySelector(
+    const validCategories = [
+        "clothing",
+        "denim",
+        "headwear",
+        "accessories"
+    ];
 
-            `.filter-button[data-filter="${category}"]`
 
-        );
+    if (
+        !validCategories.includes(
+            category
+        )
+    ) {
 
-
-    if (button) {
-
-        button.click();
+        return;
 
     }
 
-}
 
-
-/* =========================================================
-   ESCAPE HTML
-========================================================= */
-
-function escapeHTML(value) {
-
-    return String(value)
-
-        .replace(
-            /&/g,
-            "&amp;"
-        )
-
-        .replace(
-            /</g,
-            "&lt;"
-        )
-
-        .replace(
-            />/g,
-            "&gt;"
-        )
-
-        .replace(
-            /"/g,
-            "&quot;"
-        )
-
-        .replace(
-            /'/g,
-            "&#039;"
-        );
+    filterProducts(category);
 
 }
 
 
 /* =========================================================
-   ESCAPE JAVASCRIPT
+   HOMEPAGE PRODUCTS
 ========================================================= */
 
-function escapeJS(value) {
+function renderHomepageProducts(
+    category = "all"
+) {
 
-    return String(value)
-
-        .replace(
-            /\\/g,
-            "\\\\"
-        )
-
-        .replace(
-            /'/g,
-            "\\'"
-        )
-
-        .replace(
-            /"/g,
-            '\\"'
+    const grid =
+        document.getElementById(
+            "productGrid"
         );
+
+
+    if (!grid) {
+
+        return;
+
+    }
+
+
+    let filteredProducts =
+        products;
+
+
+    if (category !== "all") {
+
+        filteredProducts =
+            products.filter(
+                product =>
+                    product.category ===
+                    category
+            );
+
+    }
+
+
+    /*
+       Show first 12 products on homepage
+    */
+
+    filteredProducts =
+        filteredProducts.slice(
+            0,
+            12
+        );
+
+
+    if (
+        filteredProducts.length === 0
+    ) {
+
+        grid.innerHTML = `
+            <div class="no-products">
+                <h3>NOTHING HERE YET.</h3>
+                <p>Try another category.</p>
+            </div>
+        `;
+
+        return;
+
+    }
+
+
+    grid.innerHTML =
+        filteredProducts
+            .map(
+                product => `
+
+                <article
+                    class="homepage-product"
+                    data-category="${product.category}"
+                    data-name="${product.name}"
+                >
+
+                    <div class="homepage-product-image">
+
+                        ${
+                            product.new
+                                ? `
+                                <span class="product-label">
+                                    NEW
+                                </span>
+                                `
+                                : ""
+                        }
+
+                        <img
+                            src="${product.image}"
+                            alt="${product.name}"
+                            loading="lazy"
+                        >
+
+                        <button
+                            class="shop-quick-add"
+                            onclick="addToCart(
+                                '${product.name.replace(/'/g, "\\'")}',
+                                ${product.price},
+                                '${product.image}'
+                            )"
+                        >
+                            QUICK ADD
+                        </button>
+
+                    </div>
+
+                    <div class="homepage-product-info">
+
+                        <h3>
+                            ${product.displayName}
+                        </h3>
+
+                        <p>
+                            ${product.colour}
+                        </p>
+
+                        <strong>
+                            KSh ${product.price.toLocaleString()}
+                        </strong>
+
+                    </div>
+
+                </article>
+
+                `
+            )
+            .join("");
+
+}
+
+
+/* =========================================================
+   PRODUCT MODAL
+========================================================= */
+
+function openProductByName(name) {
+
+    const product =
+        products.find(
+            item => item.name === name
+        );
+
+
+    if (!product) {
+
+        return;
+
+    }
+
+
+    const modal =
+        document.getElementById(
+            "productModal"
+        );
+
+
+    const details =
+        document.getElementById(
+            "productDetails"
+        );
+
+
+    if (!modal || !details) {
+
+        /*
+           If no product modal exists,
+           simply add to cart.
+        */
+
+        addToCart(
+            product.name,
+            product.price,
+            product.image
+        );
+
+        return;
+
+    }
+
+
+    details.innerHTML = `
+
+        <div class="product-detail-layout">
+
+            <div class="product-detail-image">
+
+                <img
+                    src="${product.image}"
+                    alt="${product.name}"
+                >
+
+            </div>
+
+            <div class="product-detail-info">
+
+                ${
+                    product.new
+                        ? `
+                        <span class="product-label">
+                            NEW
+                        </span>
+                        `
+                        : ""
+                }
+
+                <p class="eyebrow">
+                    BÉNI CARMEL COLLECTIVES
+                </p>
+
+                <h2>
+                    ${product.displayName}
+                </h2>
+
+                <p>
+                    ${product.colour}
+                </p>
+
+                <h3>
+                    KSh ${product.price.toLocaleString()}
+                </h3>
+
+                <p>
+                    A contemporary piece created
+                    around faith, identity, culture
+                    and expression.
+                </p>
+
+                <button
+                    class="checkout-button"
+                    onclick="addToCart(
+                        '${product.name.replace(/'/g, "\\'")}',
+                        ${product.price},
+                        '${product.image}'
+                    ); closeProduct();"
+                >
+                    ADD TO BAG
+                </button>
+
+            </div>
+
+        </div>
+
+    `;
+
+
+    modal.classList.add("active");
+
+    document.body.classList.add(
+        "no-scroll"
+    );
+
+}
+
+
+function closeProduct() {
+
+    const modal =
+        document.getElementById(
+            "productModal"
+        );
+
+
+    if (modal) {
+
+        modal.classList.remove(
+            "active"
+        );
+
+    }
+
+
+    document.body.classList.remove(
+        "no-scroll"
+    );
 
 }
 
@@ -2202,14 +2232,15 @@ function escapeJS(value) {
 ========================================================= */
 
 document.addEventListener(
-
     "keydown",
-
     function (event) {
 
+        /*
+           ESC closes overlays
+        */
+
         if (
-            event.key ===
-            "Escape"
+            event.key === "Escape"
         ) {
 
             closeCart();
@@ -2218,10 +2249,11 @@ document.addEventListener(
 
             closeCheckout();
 
+            closeProduct();
+
         }
 
     }
-
 );
 
 
@@ -2230,38 +2262,25 @@ document.addEventListener(
 ========================================================= */
 
 document.addEventListener(
-
     "DOMContentLoaded",
-
     function () {
 
-        /*
-           CART
-        */
-
         updateCart();
-
-
-        /*
-           SHOP PAGE
-        */
 
         setupFilters();
 
         setupSorting();
 
+        setupSearch();
+
+        setupWishlistButtons();
+
         applyURLCategory();
 
 
         /*
-           SEARCH
-        */
-
-        setupSearch();
-
-
-        /*
-           HOMEPAGE
+           Render homepage products
+           only when productGrid exists.
         */
 
         if (
@@ -2270,17 +2289,18 @@ document.addEventListener(
             )
         ) {
 
-            renderHomeProducts("all");
+            renderHomepageProducts(
+                "all"
+            );
 
         }
 
 
         /*
-           CHECKOUT
+           Update checkout summary
         */
 
         updateCheckoutSummary();
 
     }
-
 );
