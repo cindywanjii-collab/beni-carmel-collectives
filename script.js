@@ -5,8 +5,8 @@
 
 
 /* =========================================================
-   PRODUCT PRICES
-   These MUST match the prices in shop.html
+   OFFICIAL PRODUCT PRICES
+   THESE MATCH shop.html EXACTLY
    ========================================================= */
 
 const PRODUCT_PRICES = {
@@ -74,18 +74,16 @@ function getCart() {
 
 
     /*
-       IMPORTANT:
-
-       This updates old cart items so that if you previously
-       had the wrong/higher prices saved in your browser,
-       they will automatically be corrected.
+       ALWAYS replace the stored price
+       with the official shop price.
     */
 
     cart = cart.map(item => {
 
         if (PRODUCT_PRICES[item.name] !== undefined) {
 
-            item.price = PRODUCT_PRICES[item.name];
+            item.price =
+                PRODUCT_PRICES[item.name];
 
         }
 
@@ -94,11 +92,7 @@ function getCart() {
     });
 
 
-    localStorage.setItem(
-        "beniCarmelCart",
-        JSON.stringify(cart)
-    );
-
+    saveCart(cart);
 
     return cart;
 }
@@ -128,10 +122,8 @@ function addToCart(productName, productPrice) {
 
 
     /*
-       Use the official price from PRODUCT_PRICES.
-
-       This prevents another script or old price from
-       changing the amount.
+       NEVER trust an old price.
+       Use PRODUCT_PRICES first.
     */
 
     const price =
@@ -150,6 +142,8 @@ function addToCart(productName, productPrice) {
 
         existingItem.quantity += 1;
 
+        existingItem.price = price;
+
     } else {
 
         cart.push({
@@ -167,20 +161,9 @@ function addToCart(productName, productPrice) {
 
     saveCart(cart);
 
-
     updateCart();
 
-
-    /*
-       Open the cart after adding the product
-    */
-
     openCart();
-
-
-    /*
-       Small confirmation
-    */
 
     showAddedMessage(productName);
 
@@ -213,8 +196,6 @@ function updateCart() {
     }
 
 
-    /* EMPTY CART */
-
     if (cart.length === 0) {
 
         cartItems.innerHTML = `
@@ -239,8 +220,6 @@ function updateCart() {
     }
 
 
-    /* CART ITEMS */
-
     let total = 0;
 
     let quantityTotal = 0;
@@ -248,6 +227,12 @@ function updateCart() {
 
     cartItems.innerHTML = cart.map(
         (item, index) => {
+
+            /*
+               IMPORTANT:
+               Get the price directly from the
+               official PRODUCT_PRICES object.
+            */
 
             const itemPrice =
                 PRODUCT_PRICES[item.name] !== undefined
@@ -369,7 +354,6 @@ function changeQuantity(index, change) {
 
     saveCart(cart);
 
-
     updateCart();
 
 }
@@ -393,7 +377,6 @@ function removeFromCart(index) {
 
 
     saveCart(cart);
-
 
     updateCart();
 
@@ -484,8 +467,7 @@ function goToCheckout() {
 
 
     /*
-       Make absolutely sure the correct prices
-       are saved before going to checkout.
+       FINAL PRICE CHECK BEFORE CHECKOUT
     */
 
     cart.forEach(item => {
@@ -537,7 +519,8 @@ function showAddedMessage(productName) {
 
 
     message.textContent =
-        productName + " added to your bag";
+        productName +
+        " added to your bag";
 
 
     document.body.appendChild(message);
@@ -696,9 +679,9 @@ function searchProducts() {
         ) {
 
             const price =
-                PRODUCT_PRICES[name] ||
-                Number(product.dataset.price) ||
-                0;
+                PRODUCT_PRICES[name] !== undefined
+                    ? PRODUCT_PRICES[name]
+                    : Number(product.dataset.price) || 0;
 
 
             results.innerHTML += `
@@ -1016,12 +999,19 @@ function setupSorting() {
 
 
 /* =========================================================
-   SEARCH EVENT
+   INITIALIZE WEBSITE
    ========================================================= */
 
 document.addEventListener(
     "DOMContentLoaded",
     function () {
+
+        /*
+           This automatically corrects any
+           old prices saved in the browser.
+        */
+
+        getCart();
 
         updateCart();
 
@@ -1050,7 +1040,7 @@ document.addEventListener(
 
 
 /* =========================================================
-   CLOSE SEARCH WITH ESCAPE
+   CLOSE SEARCH / CART WITH ESCAPE
    ========================================================= */
 
 document.addEventListener(
