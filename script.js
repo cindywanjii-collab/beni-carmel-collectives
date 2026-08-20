@@ -598,3 +598,24 @@ document.addEventListener(
 
     }
 );
+
+/* =========================================
+   CHECKOUT
+========================================= */
+
+function goToCheckout() {
+
+    if (cart.length === 0) {
+
+        alert(
+            "Your bag is empty. Add something before checkout."
+        );
+
+        return;
+    }
+
+
+    window.location.href =
+        "checkout.html";
+
+}
