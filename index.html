@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Béni Carmel Collectives</title>
+    <title>Béni Carmel Collectives | Faith. Identity. Culture.</title>
 
     <meta
         name="description"
@@ -16,318 +16,282 @@
 
 <body>
 
-    <!-- ANNOUNCEMENT BAR -->
-    <div class="announcement">
-        WELCOME TO THE COLLECTIVE — WEAR YOUR PURPOSE.
+<!-- =========================
+     ANNOUNCEMENT BAR
+========================= -->
+
+<div class="announcement">
+    FREE DELIVERY ON ORDERS OVER KES 10,000
+</div>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header class="header">
+
+    <div class="menu-button" onclick="toggleMobileMenu()">
+        ☰
     </div>
 
+    <a href="#" class="logo-link">
+        <img src="images/logo.png" class="logo" alt="Béni Carmel Collectives">
+    </a>
 
-    <!-- NAVIGATION -->
-    <header class="header">
+    <nav class="desktop-nav">
 
-        <div class="mobile-menu-button" onclick="toggleMenu()">
-            ☰
-        </div>
+        <a href="#shop">SHOP</a>
 
-        <a href="index.html" class="logo">
-            <img src="images/logo.png" alt="Béni Carmel Collectives">
+        <a href="#new">NEW IN</a>
+
+        <a href="#collections">COLLECTIONS</a>
+
+        <a href="#about">ABOUT</a>
+
+    </nav>
+
+    <div class="header-actions">
+
+        <button onclick="openSearch()" aria-label="Search">
+            🔍
+        </button>
+
+        <button onclick="openCart()" aria-label="Shopping bag">
+            🛍️
+            <span id="cartCount">0</span>
+        </button>
+
+    </div>
+
+</header>
+
+
+<!-- =========================
+     MOBILE MENU
+========================= -->
+
+<div id="mobileMenu" class="mobile-menu">
+
+    <button onclick="toggleMobileMenu()" class="close-mobile">
+        ×
+    </button>
+
+    <a href="#shop" onclick="toggleMobileMenu()">SHOP</a>
+
+    <a href="#new" onclick="toggleMobileMenu()">NEW IN</a>
+
+    <a href="#collections" onclick="toggleMobileMenu()">COLLECTIONS</a>
+
+    <a href="#about" onclick="toggleMobileMenu()">ABOUT</a>
+
+</div>
+
+
+<!-- =========================
+     SEARCH
+========================= -->
+
+<div id="searchOverlay" class="search-overlay">
+
+    <button class="close-search" onclick="closeSearch()">×</button>
+
+    <div class="search-box">
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search Béni Carmel..."
+            oninput="searchProducts()"
+        >
+
+        <div id="searchResults"></div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <p class="eyebrow">
+            BÉNI CARMEL COLLECTIVES
+        </p>
+
+        <h1>
+            WEAR<br>
+            YOUR<br>
+            PURPOSE.
+        </h1>
+
+        <p>
+            Faith. Identity. Culture.
+            <br>
+            Contemporary Kenyan fashion.
+        </p>
+
+        <a href="#shop" class="hero-button">
+            SHOP THE COLLECTION
         </a>
 
-        <nav class="desktop-nav">
+    </div>
 
-            <a href="#new-in">NEW IN</a>
-
-            <a href="shop.html?category=clothing">CLOTHING</a>
-
-            <a href="shop.html?category=denim">DENIM</a>
-
-            <a href="shop.html?category=accessories">ACCESSORIES</a>
-
-            <a href="shop.html?category=headwear">HEADWEAR</a>
-
-            <a href="#collections">COLLECTIONS</a>
-
-        </nav>
-
-        <div class="nav-icons">
-
-            <button onclick="openSearch()" aria-label="Search">
-                ⌕
-            </button>
-
-            <button onclick="openWishlist()" aria-label="Wishlist">
-                ♡
-            </button>
-
-            <button onclick="openAccount()" aria-label="Account">
-                ♙
-            </button>
-
-            <button onclick="openCart()" aria-label="Shopping bag">
-                🛍
-                <span id="cart-count">0</span>
-            </button>
-
-        </div>
-
-    </header>
+</section>
 
 
-    <!-- MOBILE NAVIGATION -->
-    <div id="mobile-menu" class="mobile-menu">
+<!-- =========================
+     MARQUEE
+========================= -->
 
-        <a href="#new-in" onclick="closeMenu()">NEW IN</a>
+<div class="marquee">
 
-        <a href="#shop" onclick="closeMenu()">CLOTHING</a>
+    <div class="marquee-inner">
 
-        <a href="#denim" onclick="closeMenu()">DENIM</a>
+        BÉNI CARMEL ✦ FAITH ✦ IDENTITY ✦ CULTURE ✦ NAIROBI ✦
 
-        <a href="#accessories" onclick="closeMenu()">ACCESSORIES</a>
-
-        <a href="#headwear" onclick="closeMenu()">HEADWEAR</a>
-
-        <a href="#collections" onclick="closeMenu()">COLLECTIONS</a>
-
-        <a href="#story" onclick="closeMenu()">OUR STORY</a>
+        BÉNI CARMEL ✦ FAITH ✦ IDENTITY ✦ CULTURE ✦ NAIROBI ✦
 
     </div>
 
+</div>
 
-    <!-- HERO -->
-    <section class="hero">
 
-        <div class="hero-overlay"></div>
+<!-- =========================
+     CATEGORY NAV
+========================= -->
 
-        <div class="hero-content">
+<section class="category-section">
+
+    <div class="category-title">
+
+        <p>SHOP BÉNI CARMEL</p>
+
+        <h2>FIND YOUR PIECE.</h2>
+
+    </div>
+
+    <div class="categories">
+
+        <button onclick="filterProducts('all')">
+            ALL
+        </button>
+
+        <button onclick="filterProducts('tops')">
+            TOPS
+        </button>
+
+        <button onclick="filterProducts('bottoms')">
+            BOTTOMS
+        </button>
+
+        <button onclick="filterProducts('outerwear')">
+            OUTERWEAR
+        </button>
+
+        <button onclick="filterProducts('headwear')">
+            HEADWEAR
+        </button>
+
+        <button onclick="filterProducts('accessories')">
+            ACCESSORIES
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     SHOP
+========================= -->
+
+<section id="shop" class="shop-section">
+
+    <div class="section-heading">
+
+        <div>
 
             <p class="eyebrow">
-                BÉNI CARMEL COLLECTIVES
+                THE COLLECTION
             </p>
 
-            <h1>
-                WEAR YOUR<br>
-                PURPOSE.
-            </h1>
-
-            <p class="hero-description">
-                Faith. Identity. Culture. Expression.
-            </p>
-
-            <a href="#new-in" class="primary-button">
-                SHOP NEW ARRIVALS
-            </a>
+            <h2>
+                SHOP ALL
+            </h2>
 
         </div>
 
-    </section>
+        <span id="productNumber">
+            0 PRODUCTS
+        </span>
 
+    </div>
 
-    <!-- NEW IN -->
-    <section class="section" id="new-in">
+    <div id="productGrid" class="product-grid"></div>
 
-        <div class="section-heading">
+</section>
 
-            <div>
-                <p class="small-heading">
-                    THE LATEST
-                </p>
 
-                <h2>
-                    NEW IN
-                </h2>
-            </div>
+<!-- =========================
+     COLLECTION BANNER
+========================= -->
 
-            <a href="shop.html" class="view-all">
-    VIEW ALL →
-</a>
+<section id="collections" class="collection-banner">
 
-        </div>
+    <div>
 
-
-        <div class="product-grid">
-
-            <!-- PRODUCT 1 -->
-            <article class="product-card">
-
-                <div class="product-image">
-
-                    <img
-                        src="images/hoodie-1.jpg"
-                        alt="Béni Carmel Hoodie"
-                    >
-
-                    <button class="wishlist">
-                        ♡
-                    </button>
-
-                    <button
-                        class="quick-add"
-                        onclick="addToCart('BC Hoodie', 5500)"
-                    >
-                        QUICK ADD
-                    </button>
-
-                </div>
-
-                <div class="product-details">
-
-                    <h3>
-                        BC Hoodie
-                    </h3>
-
-                    <p>
-                        Black
-                    </p>
-
-                    <strong>
-                        KSh 5,500
-                    </strong>
-
-                </div>
-
-            </article>
-
-
-            <!-- PRODUCT 2 -->
-            <article class="product-card">
-
-                <div class="product-image">
-
-                    <img
-                        src="images/jorts-marble-blue.jpg"
-                        alt="Marble Blue Jorts"
-                    >
-
-                    <button class="wishlist">
-                        ♡
-                    </button>
-
-                    <button
-                        class="quick-add"
-                        onclick="addToCart('Marble Blue Jorts', 4500)"
-                    >
-                        QUICK ADD
-                    </button>
-
-                </div>
-
-                <div class="product-details">
-
-                    <h3>
-                        Marble Blue Jorts
-                    </h3>
-
-                    <p>
-                        Marble Blue
-                    </p>
-
-                    <strong>
-                        KSh 4,500
-                    </strong>
-
-                </div>
-
-            </article>
-
-
-            <!-- PRODUCT 3 -->
-            <article class="product-card">
-
-                <div class="product-image">
-
-                    <img
-                        src="images/college-jacket.jpg"
-                        alt="BC College Jacket"
-                    >
-
-                    <button class="wishlist">
-                        ♡
-                    </button>
-
-                    <button
-                        class="quick-add"
-                        onclick="addToCart('BC College Jacket', 7500)"
-                    >
-                        QUICK ADD
-                    </button>
-
-                </div>
-
-                <div class="product-details">
-
-                    <h3>
-                        BC College Jacket
-                    </h3>
-
-                    <p>
-                        Signature
-                    </p>
-
-                    <strong>
-                        KSh 7,500
-                    </strong>
-
-                </div>
-
-            </article>
-
-
-            <!-- PRODUCT 4 -->
-            <article class="product-card">
-
-                <div class="product-image">
-
-                    <img
-                        src="images/beanie-burgundy.jpg"
-                        alt="Burgundy BC Beanie"
-                    >
-
-                    <button class="wishlist">
-                        ♡
-                    </button>
-
-                    <button
-                        class="quick-add"
-                        onclick="addToCart('Burgundy BC Beanie', 2000)"
-                    >
-                        QUICK ADD
-                    </button>
-
-                </div>
-
-                <div class="product-details">
-
-                    <h3>
-                        BC Beanie
-                    </h3>
-
-                    <p>
-                        Burgundy
-                    </p>
-
-                    <strong>
-                        KSh 2,000
-                    </strong>
-
-                </div>
-
-            </article>
-
-        </div>
-
-    </section>
-
-
-    <!-- BRAND STATEMENT -->
-    <section class="brand-section">
-
-        <p class="small-heading">
-            THE COLLECTIVE
+        <p class="eyebrow">
+            BC-001
         </p>
 
         <h2>
-            MORE THAN<br>
-            CLOTHING.
+            BLESSED.
+        </h2>
+
+        <p>
+            Built around gratitude, identity,
+            purpose and becoming.
+        </p>
+
+        <button onclick="filterProducts('all')">
+            SHOP BC-001
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     ABOUT
+========================= -->
+
+<section id="about" class="about-section">
+
+    <div class="about-image">
+
+        <img
+            src="images/tee-1.jpg"
+            alt="Béni Carmel Collectives"
+        >
+
+    </div>
+
+    <div class="about-text">
+
+        <p class="eyebrow">
+            BÉNI CARMEL COLLECTIVES
+        </p>
+
+        <h2>
+            THE CLOTHING IS THE MEDIUM.
+            THE COLLECTIVE IS THE CULTURE.
         </h2>
 
         <p>
@@ -336,551 +300,399 @@
             culture and creative expression.
         </p>
 
-        <a href="#story" class="light-button">
-            DISCOVER THE COLLECTIVE
-        </a>
-
-    </section>
-
-
-    <!-- SHOP BY CATEGORY -->
-    <section class="section" id="shop">
-
-        <div class="section-heading">
-
-            <div>
-                <p class="small-heading">
-                    EXPLORE
-                </p>
-
-                <h2>
-                    SHOP BY CATEGORY
-                </h2>
-            </div>
-
-        </div>
-
-
-        <div class="category-grid">
-
-            <a href="shop.html?category=clothing" class="category-card">
-
-                <img
-                    src="images/hoodie-2.jpg"
-                    alt="BC Clothing"
-                >
-
-                <div>
-                    <h3>CLOTHING</h3>
-                    <span>SHOP CLOTHING →</span>
-                </div>
-
-            </a>
-
-
-            <a href="shop.html?category=denim" class="category-card">
-
-                <img
-                    src="images/jorts-dark-blue.jpg"
-                    alt="BC Denim"
-                >
-
-                <div>
-                    <h3>DENIM</h3>
-                    <span>SHOP DENIM →</span>
-                </div>
-
-            </a>
-
-
-            <a href="shop.html?category=headwear" class="category-card">
-
-                <img
-                    src="images/beanie-black.jpg"
-                    alt="BC Headwear"
-                >
-
-                <div>
-                    <h3>HEADWEAR</h3>
-                    <span>SHOP HEADWEAR →</span>
-                </div>
-
-            </a>
-
-
-            <a href="shop.html?category=accessories" class="category-card">
-
-                <img
-                    src="images/shoulder-bag-black.jpg"
-                    alt="BC Accessories"
-                >
-
-                <div>
-                    <h3>ACCESSORIES</h3>
-                    <span>SHOP ACCESSORIES →</span>
-                </div>
-
-            </a>
-
-        </div>
-
-    </section>
-
-
-    <!-- FEATURED PRODUCTS -->
-    <section class="section featured-section">
-
-        <div class="section-heading">
-
-            <div>
-                <p class="small-heading">
-                    BC ESSENTIALS
-                </p>
-
-                <h2>
-                    THE EVERYDAY EDIT
-                </h2>
-            </div>
-
-        </div>
-
-
-        <div class="product-grid">
-
-            <article class="product-card">
-
-                <div class="product-image">
-
-                    <img
-                        src="images/tee-1.jpg"
-                        alt="BC Graphic Tee"
-                    >
-
-                    <button class="wishlist">
-                        ♡
-                    </button>
-
-                    <button
-                        class="quick-add"
-                        onclick="addToCart('BC Graphic Tee', 3500)"
-                    >
-                        QUICK ADD
-                    </button>
-
-                </div>
-
-                <div class="product-details">
-
-                    <h3>BC Graphic Tee</h3>
-                    <p>Black</p>
-                    <strong>KSh 3,500</strong>
-
-                </div>
-
-            </article>
-
-
-            <article class="product-card">
-
-                <div class="product-image">
-
-                    <img
-                        src="images/sweatpants-cream.jpg"
-                        alt="BC Sweatpants"
-                    >
-
-                    <button class="wishlist">
-                        ♡
-                    </button>
-
-                    <button
-                        class="quick-add"
-                        onclick="addToCart('BC Sweatpants', 5000)"
-                    >
-                        QUICK ADD
-                    </button>
-
-                </div>
-
-                <div class="product-details">
-
-                    <h3>BC Sweatpants</h3>
-                    <p>Cream</p>
-                    <strong>KSh 5,000</strong>
-
-                </div>
-
-            </article>
-
-
-            <article class="product-card">
-
-                <div class="product-image">
-
-                    <img
-                        src="images/wide-leg-jeans-blue.jpg"
-                        alt="BC Wide Leg Jeans"
-                    >
-
-                    <button class="wishlist">
-                        ♡
-                    </button>
-
-                    <button
-                        class="quick-add"
-                        onclick="addToCart('BC Wide-Leg Jeans', 6000)"
-                    >
-                        QUICK ADD
-                    </button>
-
-                </div>
-
-                <div class="product-details">
-
-                    <h3>BC Wide-Leg Jeans</h3>
-                    <p>Blue</p>
-                    <strong>KSh 6,000</strong>
-
-                </div>
-
-            </article>
-
-
-            <article class="product-card">
-
-                <div class="product-image">
-
-                    <img
-                        src="images/cross-necklace-silver.jpg"
-                        alt="Silver Cross Necklace"
-                    >
-
-                    <button class="wishlist">
-                        ♡
-                    </button>
-
-                    <button
-                        class="quick-add"
-                        onclick="addToCart('Silver Cross Necklace', 2500)"
-                    >
-                        QUICK ADD
-                    </button>
-
-                </div>
-
-                <div class="product-details">
-
-                    <h3>Silver Cross Necklace</h3>
-                    <p>Silver</p>
-                    <strong>KSh 2,500</strong>
-
-                </div>
-
-            </article>
-
-        </div>
-
-    </section>
-
-
-    <!-- STORY -->
-    <section class="story-section" id="story">
-
-        <div class="story-image">
-
-            <img
-                src="images/denim-jacket-1.jpg"
-                alt="Béni Carmel Collectives"
-            >
-
-        </div>
-
-        <div class="story-content">
-
-            <p class="small-heading">
-                OUR STORY
-            </p>
-
-            <h2>
-                BLESSED TO<br>
-                BECOME.
-            </h2>
-
-            <p>
-                Béni means blessed. Carmel carries the symbolism
-                of abundance and fruitfulness.
-            </p>
-
-            <p>
-                Béni Carmel Collectives was created around the
-                belief that clothing can carry identity,
-                conviction, culture and purpose.
-            </p>
-
-            <a href="#collections">
-                READ OUR STORY →
-            </a>
-
-        </div>
-
-    </section>
-
-
-    <!-- COLLECTIONS -->
-    <section class="collections-section" id="collections">
-
-        <p class="small-heading">
-            THE WORLD OF BC
+        <p>
+            Designed for a generation that wants its clothing
+            to carry meaning without sacrificing style.
         </p>
 
-        <h2>
-            COLLECTIONS
-        </h2>
+    </div>
+
+</section>
 
 
-        <div class="collection-grid">
+<!-- =========================
+     NEWSLETTER
+========================= -->
 
-            <div class="collection-card">
+<section class="newsletter">
 
-                <img
-                    src="images/tee-2.jpg"
-                    alt="BC-001 Blessed"
-                >
+    <p class="eyebrow">
+        JOIN THE COLLECTIVE
+    </p>
 
-                <div class="collection-overlay">
+    <h2>
+        STAY IN THE KNOW.
+    </h2>
 
-                    <p>BC-001</p>
+    <p>
+        New drops. New collections.
+        Stories from the collective.
+    </p>
 
-                    <h3>BLESSED</h3>
+    <form onsubmit="subscribe(event)">
 
-                    <a href="#shop">
-                        EXPLORE →
-                    </a>
+        <input
+            type="email"
+            id="newsletterEmail"
+            placeholder="Your email address"
+            required
+        >
 
-                </div>
+        <button type="submit">
+            JOIN
+        </button>
 
-            </div>
+    </form>
 
-
-            <div class="collection-card">
-
-                <img
-                    src="images/tee-3.jpg"
-                    alt="BC-002 The Saints"
-                >
-
-                <div class="collection-overlay">
-
-                    <p>BC-002</p>
-
-                    <h3>THE SAINTS</h3>
-
-                    <a href="#shop">
-                        EXPLORE →
-                    </a>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
+</section>
 
 
-    <!-- NEWSLETTER -->
-    <section class="newsletter">
+<!-- =========================
+     FOOTER
+========================= -->
 
-        <p class="small-heading">
-            JOIN THE COLLECTIVE
-        </p>
+<footer>
 
-        <h2>
-            STAY IN THE KNOW.
-        </h2>
+    <div class="footer-brand">
+
+        <img src="images/logo.png" alt="BC">
 
         <p>
-            Be the first to know about new drops,
-            collections and BC stories.
+            Faith. Identity. Culture.
         </p>
 
-        <form onsubmit="subscribe(event)">
+    </div>
 
-            <input
-                type="email"
-                id="email"
-                placeholder="ENTER YOUR EMAIL"
-                required
-            >
+    <div>
 
-            <button type="submit">
-                JOIN →
-            </button>
+        <h4>SHOP</h4>
 
-        </form>
+        <a href="#shop">All Products</a>
 
-    </section>
+        <a href="#shop">New In</a>
 
+        <a href="#shop">Collections</a>
 
-    <!-- FOOTER -->
-    <footer>
+    </div>
 
-        <div class="footer-brand">
+    <div>
 
-            <img
-                src="images/logo.png"
-                alt="Béni Carmel Collectives"
-            >
+        <h4>HELP</h4>
 
-            <p>
-                WEAR YOUR PURPOSE.
-            </p>
+        <a href="#">Shipping</a>
 
-        </div>
+        <a href="#">Returns</a>
 
+        <a href="#">Contact</a>
 
-        <div class="footer-links">
+    </div>
 
-            <div>
+    <div>
 
-                <h4>SHOP</h4>
+        <h4>FOLLOW</h4>
 
-                <a href="#shop">All Products</a>
-                <a href="#new-in">New In</a>
-                <a href="#denim">Denim</a>
-                <a href="#headwear">Headwear</a>
-                <a href="#accessories">Accessories</a>
+        <a href="#">Instagram</a>
 
-            </div>
+        <a href="#">TikTok</a>
+
+    </div>
+
+</footer>
 
 
-            <div>
+<!-- =========================
+     CART DRAWER
+========================= -->
 
-                <h4>ABOUT</h4>
+<div id="cartOverlay" class="cart-overlay" onclick="closeCart()"></div>
 
-                <a href="#story">Our Story</a>
-                <a href="#collections">Collections</a>
-                <a href="#story">The Collective</a>
+<aside id="cartDrawer" class="cart-drawer">
 
-            </div>
+    <div class="cart-header">
 
+        <h2>
+            YOUR BAG
+        </h2>
 
-            <div>
+        <button onclick="closeCart()">
+            ×
+        </button>
 
-                <h4>HELP</h4>
+    </div>
 
-                <a href="#">Contact</a>
-                <a href="#">Shipping</a>
-                <a href="#">Returns</a>
-                <a href="#">Size Guide</a>
+    <div id="cartItems" class="cart-items"></div>
 
-            </div>
+    <div class="cart-footer">
 
+        <div class="cart-total-row">
 
-            <div>
+            <span>
+                SUBTOTAL
+            </span>
 
-                <h4>FOLLOW</h4>
-
-                <a href="#">Instagram</a>
-                <a href="#">TikTok</a>
-                <a href="#">Pinterest</a>
-
-            </div>
+            <strong id="cartTotal">
+                KES 0
+            </strong>
 
         </div>
 
-
-        <div class="footer-bottom">
-
-            <p>
-                © 2026 BÉNI CARMEL COLLECTIVES
-            </p>
-
-            <p>
-                KENYA
-            </p>
-
-        </div>
-
-    </footer>
-
-
-    <!-- SEARCH OVERLAY -->
-    <div id="search-overlay" class="overlay">
+        <p class="shipping-note">
+            Shipping calculated at checkout.
+        </p>
 
         <button
-            class="close-overlay"
-            onclick="closeSearch()"
+            class="checkout-button"
+            onclick="openCheckout()"
+        >
+            CHECKOUT
+        </button>
+
+        <button
+            class="continue-button"
+            onclick="closeCart()"
+        >
+            CONTINUE SHOPPING
+        </button>
+
+    </div>
+
+</aside>
+
+
+<!-- =========================
+     PRODUCT MODAL
+========================= -->
+
+<div id="productModal" class="modal">
+
+    <div class="product-modal-content">
+
+        <button
+            class="modal-close"
+            onclick="closeProduct()"
         >
             ×
         </button>
 
-        <div class="search-box">
-
-            <p>
-                SEARCH BÉNI CARMEL
-            </p>
-
-            <input
-                type="text"
-                placeholder="What are you looking for?"
-                autofocus
-            >
-
-        </div>
+        <div id="productDetails"></div>
 
     </div>
 
+</div>
 
-    <!-- CART DRAWER -->
-    <div id="cart-drawer" class="cart-drawer">
 
-        <div class="cart-header">
+<!-- =========================
+     CHECKOUT MODAL
+========================= -->
 
-            <h2>
-                YOUR BAG
-            </h2>
+<div id="checkoutModal" class="modal">
 
-            <button onclick="closeCart()">
-                ×
-            </button>
+    <div class="checkout-content">
 
-        </div>
+        <button
+            class="modal-close"
+            onclick="closeCheckout()"
+        >
+            ×
+        </button>
 
-        <div id="cart-items">
+        <div class="checkout-layout">
 
-            <p class="empty-cart">
-                Your bag is currently empty.
-            </p>
+            <div class="checkout-form">
 
-        </div>
+                <p class="eyebrow">
+                    CHECKOUT
+                </p>
 
-        <div class="cart-footer">
+                <h2>
+                    COMPLETE YOUR ORDER
+                </h2>
 
-            <div>
-                <span>SUBTOTAL</span>
-                <strong id="cart-total">
-                    KSh 0
-                </strong>
+                <form
+                    id="checkoutForm"
+                    onsubmit="processCheckout(event)"
+                >
+
+                    <label>
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="customerName"
+                        required
+                    >
+
+                    <label>
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="customerEmail"
+                        required
+                    >
+
+                    <label>
+                        Phone Number
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="customerPhone"
+                        placeholder="07XXXXXXXX"
+                        required
+                    >
+
+                    <label>
+                        County
+                    </label>
+
+                    <input
+                        type="text"
+                        id="customerCounty"
+                        placeholder="Nairobi"
+                        required
+                    >
+
+                    <label>
+                        Delivery Address
+                    </label>
+
+                    <textarea
+                        id="customerAddress"
+                        rows="4"
+                        required
+                    ></textarea>
+
+                    <h3>
+                        PAYMENT
+                    </h3>
+
+                    <div class="payment-option selected">
+
+                        <input
+                            type="radio"
+                            checked
+                        >
+
+                        <span>
+                            M-PESA
+                        </span>
+
+                    </div>
+
+                    <p class="payment-help">
+
+                        After clicking "PAY WITH M-PESA",
+                        an M-PESA prompt will be sent to
+                        the phone number above.
+
+                    </p>
+
+                    <button
+                        type="submit"
+                        class="pay-button"
+                        id="payButton"
+                    >
+                        PAY WITH M-PESA
+                    </button>
+
+                </form>
+
             </div>
 
-            <button class="checkout-button">
-                CHECKOUT
-            </button>
+            <div class="checkout-summary">
+
+                <h3>
+                    YOUR ORDER
+                </h3>
+
+                <div id="checkoutItems"></div>
+
+                <div class="summary-line">
+
+                    <span>
+                        Subtotal
+                    </span>
+
+                    <strong id="checkoutSubtotal">
+                        KES 0
+                    </strong>
+
+                </div>
+
+                <div class="summary-line">
+
+                    <span>
+                        Delivery
+                    </span>
+
+                    <strong id="checkoutShipping">
+                        KES 0
+                    </strong>
+
+                </div>
+
+                <div class="summary-total">
+
+                    <span>
+                        TOTAL
+                    </span>
+
+                    <strong id="checkoutTotal">
+                        KES 0
+                    </strong>
+
+                </div>
+
+            </div>
 
         </div>
 
     </div>
 
-
-    <div
-        id="cart-background"
-        class="cart-background"
-        onclick="closeCart()"
-    ></div>
+</div>
 
 
-    <script src="script.js"></script>
+<!-- =========================
+     SUCCESS MODAL
+========================= -->
+
+<div id="successModal" class="modal">
+
+    <div class="success-content">
+
+        <div class="success-icon">
+            ✓
+        </div>
+
+        <p class="eyebrow">
+            ORDER RECEIVED
+        </p>
+
+        <h2>
+            THANK YOU.
+        </h2>
+
+        <p id="successMessage">
+            Your order has been received.
+        </p>
+
+        <button onclick="closeSuccess()">
+            CONTINUE SHOPPING
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script src="script.js"></script>
 
 </body>
 </html>
