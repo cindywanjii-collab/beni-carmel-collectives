@@ -1,335 +1,860 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Béni Carmel Collectives | Faith. Identity. Culture.</title>
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Béni Carmel Collectives | Faith. Identity. Culture.
+    </title>
 
     <meta
         name="description"
         content="Béni Carmel Collectives — a contemporary Kenyan fashion collective merging faith, identity, culture and creative expression."
     >
 
-    <link rel="stylesheet" href="style.css">
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
 </head>
+
 
 <body>
 
-<!-- =========================
+
+<!-- ==================================================
      ANNOUNCEMENT BAR
-========================= -->
+================================================== -->
 
 <div class="announcement">
+
     FREE DELIVERY ON ORDERS OVER KES 10,000
+
 </div>
 
 
-<!-- =========================
+
+<!-- ==================================================
      HEADER
-========================= -->
+================================================== -->
 
 <header class="header">
 
-    <div class="menu-button" onclick="toggleMobileMenu()">
-        ☰
-    </div>
 
-    <a href="#" class="logo-link">
-        <img src="images/logo.png" class="logo" alt="Béni Carmel Collectives">
+    <!-- MOBILE MENU BUTTON -->
+
+    <button
+        class="menu-button"
+        onclick="toggleMobileMenu()"
+        aria-label="Open menu"
+        type="button"
+    >
+        ☰
+    </button>
+
+
+    <!-- LOGO -->
+
+    <a
+        href="index.html"
+        class="logo-link"
+    >
+
+        <img
+            src="images/logo.png"
+            class="logo"
+            alt="Béni Carmel Collectives"
+        >
+
     </a>
+
+
+    <!-- DESKTOP NAVIGATION -->
 
     <nav class="desktop-nav">
 
-        <a href="#shop">SHOP</a>
+        <a href="shop.html">
+            SHOP
+        </a>
 
-        <a href="#new">NEW IN</a>
+        <a href="shop.html?sort=newest">
+            NEW IN
+        </a>
 
-        <a href="#collections">COLLECTIONS</a>
+        <a href="index.html#collections">
+            COLLECTIONS
+        </a>
 
-        <a href="#about">ABOUT</a>
+        <a href="index.html#about">
+            ABOUT
+        </a>
 
     </nav>
 
+
+    <!-- HEADER ACTIONS -->
+
     <div class="header-actions">
 
-        <button onclick="openSearch()" aria-label="Search">
+
+        <button
+            onclick="openSearch()"
+            aria-label="Search"
+            type="button"
+        >
             🔍
         </button>
 
-        <button onclick="openCart()" aria-label="Shopping bag">
+
+        <button
+            onclick="openCart()"
+            aria-label="Shopping bag"
+            type="button"
+        >
+
             🛍️
-            <span id="cartCount">0</span>
+
+            <span id="cartCount">
+                0
+            </span>
+
         </button>
+
 
     </div>
 
 </header>
 
 
-<!-- =========================
+
+<!-- ==================================================
      MOBILE MENU
-========================= -->
+================================================== -->
 
-<div id="mobileMenu" class="mobile-menu">
+<div
+    id="mobileMenu"
+    class="mobile-menu"
+>
 
-    <button onclick="toggleMobileMenu()" class="close-mobile">
+
+    <button
+        onclick="toggleMobileMenu()"
+        class="close-mobile"
+        type="button"
+        aria-label="Close menu"
+    >
         ×
     </button>
 
-    <a href="#shop" onclick="toggleMobileMenu()">SHOP</a>
 
-    <a href="#new" onclick="toggleMobileMenu()">NEW IN</a>
+    <a
+        href="index.html"
+        onclick="toggleMobileMenu()"
+    >
+        HOME
+    </a>
 
-    <a href="#collections" onclick="toggleMobileMenu()">COLLECTIONS</a>
 
-    <a href="#about" onclick="toggleMobileMenu()">ABOUT</a>
+    <a
+        href="shop.html"
+        onclick="toggleMobileMenu()"
+    >
+        SHOP
+    </a>
+
+
+    <a
+        href="shop.html?sort=newest"
+        onclick="toggleMobileMenu()"
+    >
+        NEW IN
+    </a>
+
+
+    <a
+        href="index.html#collections"
+        onclick="toggleMobileMenu()"
+    >
+        COLLECTIONS
+    </a>
+
+
+    <a
+        href="index.html#about"
+        onclick="toggleMobileMenu()"
+    >
+        ABOUT
+    </a>
 
 </div>
 
 
-<!-- =========================
-     SEARCH
-========================= -->
 
-<div id="searchOverlay" class="search-overlay">
+<!-- ==================================================
+     SEARCH OVERLAY
+================================================== -->
 
-    <button class="close-search" onclick="closeSearch()">×</button>
+<div
+    id="searchOverlay"
+    class="search-overlay"
+>
+
+
+    <button
+        class="close-search"
+        onclick="closeSearch()"
+        type="button"
+        aria-label="Close search"
+    >
+        ×
+    </button>
+
 
     <div class="search-box">
+
 
         <input
             type="text"
             id="searchInput"
             placeholder="Search Béni Carmel..."
             oninput="searchProducts()"
+            autocomplete="off"
         >
 
+
         <div id="searchResults"></div>
+
 
     </div>
 
 </div>
 
 
-<!-- =========================
+
+<!-- ==================================================
      HERO
-========================= -->
+================================================== -->
 
 <section class="hero">
 
+
     <div class="hero-content">
+
 
         <p class="eyebrow">
             BÉNI CARMEL COLLECTIVES
         </p>
 
+
         <h1>
+
             WEAR<br>
             YOUR<br>
             PURPOSE.
+
         </h1>
 
+
         <p>
+
             Faith. Identity. Culture.
             <br>
             Contemporary Kenyan fashion.
+
         </p>
 
-        <a href="#shop" class="hero-button">
+
+        <a
+            href="shop.html"
+            class="hero-button"
+        >
             SHOP THE COLLECTION
         </a>
+
 
     </div>
 
 </section>
 
 
-<!-- =========================
+
+<!-- ==================================================
      MARQUEE
-========================= -->
+================================================== -->
 
 <div class="marquee">
 
+
     <div class="marquee-inner">
 
-        BÉNI CARMEL ✦ FAITH ✦ IDENTITY ✦ CULTURE ✦ PURPOSE ✦
+        BÉNI CARMEL ✦
+        FAITH ✦
+        IDENTITY ✦
+        CULTURE ✦
+        PURPOSE ✦
 
-        BÉNI CARMEL ✦ FAITH ✦ IDENTITY ✦ CULTURE ✦ PURPOSE ✦
+        BÉNI CARMEL ✦
+        FAITH ✦
+        IDENTITY ✦
+        CULTURE ✦
+        PURPOSE ✦
 
     </div>
+
 
 </div>
 
 
-<!-- =========================
-     CATEGORY NAV
-========================= -->
+
+<!-- ==================================================
+     CATEGORY NAVIGATION
+================================================== -->
 
 <section class="category-section">
 
+
     <div class="category-title">
 
-        <p>SHOP BÉNI CARMEL</p>
 
-        <h2>FIND YOUR PIECE.</h2>
+        <p>
+            SHOP BÉNI CARMEL
+        </p>
+
+
+        <h2>
+            FIND YOUR PIECE.
+        </h2>
+
 
     </div>
+
 
     <div class="categories">
 
-        <button onclick="filterProducts('all')">
+
+        <a
+            href="shop.html"
+            class="category-button"
+        >
             ALL
-        </button>
+        </a>
 
-        <button onclick="filterProducts('tops')">
-            TOPS
-        </button>
 
-        <button onclick="filterProducts('bottoms')">
-            BOTTOMS
-        </button>
+        <a
+            href="shop.html?category=clothing"
+            class="category-button"
+        >
+            CLOTHING
+        </a>
 
-        <button onclick="filterProducts('outerwear')">
-            OUTERWEAR
-        </button>
 
-        <button onclick="filterProducts('headwear')">
+        <a
+            href="shop.html?category=denim"
+            class="category-button"
+        >
+            DENIM
+        </a>
+
+
+        <a
+            href="shop.html?category=headwear"
+            class="category-button"
+        >
             HEADWEAR
-        </button>
+        </a>
 
-        <button onclick="filterProducts('accessories')">
+
+        <a
+            href="shop.html?category=accessories"
+            class="category-button"
+        >
             ACCESSORIES
-        </button>
+        </a>
+
 
     </div>
+
 
 </section>
 
 
-<!-- =========================
-     SHOP
-========================= -->
 
-<section id="shop" class="shop-section">
+<!-- ==================================================
+     FEATURED PRODUCTS
+================================================== -->
+
+<section
+    id="shop"
+    class="shop-section"
+>
+
 
     <div class="section-heading">
 
+
         <div>
+
 
             <p class="eyebrow">
                 THE COLLECTION
             </p>
 
+
             <h2>
-                SHOP ALL
+                FEATURED PIECES
             </h2>
+
 
         </div>
 
-        <span id="productNumber">
-            0 PRODUCTS
-        </span>
+
+        <a
+            href="shop.html"
+            class="view-all"
+        >
+            VIEW ALL →
+        </a>
+
 
     </div>
 
-    <div id="productGrid" class="product-grid"></div>
+
+
+    <div
+        id="productGrid"
+        class="product-grid"
+    >
+
+
+        <!-- PRODUCT 1 -->
+
+        <article
+            class="product-card"
+            data-category="headwear"
+        >
+
+            <div class="product-image">
+
+
+                <span class="product-label">
+                    NEW
+                </span>
+
+
+                <button
+                    class="wishlist-product"
+                    onclick="toggleWishlist(this)"
+                    type="button"
+                    aria-label="Add to wishlist"
+                >
+                    ♡
+                </button>
+
+
+                <img
+                    src="images/beanie-beige.jpg"
+                    alt="BC Beige Beanie"
+                >
+
+
+                <button
+                    class="quick-add"
+                    onclick="addToCart('BC Beanie Beige', 500)"
+                    type="button"
+                >
+                    QUICK ADD
+                </button>
+
+
+            </div>
+
+
+            <div class="product-info">
+
+
+                <h3>
+                    BC Beanie
+                </h3>
+
+
+                <p>
+                    Beige
+                </p>
+
+
+                <strong>
+                    KSh 500
+                </strong>
+
+
+            </div>
+
+        </article>
+
+
+
+        <!-- PRODUCT 2 -->
+
+        <article
+            class="product-card"
+            data-category="headwear"
+        >
+
+
+            <div class="product-image">
+
+
+                <button
+                    class="wishlist-product"
+                    onclick="toggleWishlist(this)"
+                    type="button"
+                    aria-label="Add to wishlist"
+                >
+                    ♡
+                </button>
+
+
+                <img
+                    src="images/beanie-black.jpg"
+                    alt="BC Black Beanie"
+                >
+
+
+                <button
+                    class="quick-add"
+                    onclick="addToCart('BC Beanie Black', 500)"
+                    type="button"
+                >
+                    QUICK ADD
+                </button>
+
+
+            </div>
+
+
+            <div class="product-info">
+
+
+                <h3>
+                    BC Beanie
+                </h3>
+
+
+                <p>
+                    Black
+                </p>
+
+
+                <strong>
+                    KSh 500
+                </strong>
+
+
+            </div>
+
+
+        </article>
+
+
+
+        <!-- PRODUCT 3 -->
+
+        <article
+            class="product-card"
+            data-category="clothing"
+        >
+
+
+            <div class="product-image">
+
+
+                <span class="product-label">
+                    NEW
+                </span>
+
+
+                <button
+                    class="wishlist-product"
+                    onclick="toggleWishlist(this)"
+                    type="button"
+                    aria-label="Add to wishlist"
+                >
+                    ♡
+                </button>
+
+
+                <img
+                    src="images/hoodie-1.jpg"
+                    alt="BC Black Hoodie"
+                >
+
+
+                <button
+                    class="quick-add"
+                    onclick="addToCart('BC Hoodie Black', 1300)"
+                    type="button"
+                >
+                    QUICK ADD
+                </button>
+
+
+            </div>
+
+
+            <div class="product-info">
+
+
+                <h3>
+                    BC Hoodie
+                </h3>
+
+
+                <p>
+                    Black
+                </p>
+
+
+                <strong>
+                    KSh 1,300
+                </strong>
+
+
+            </div>
+
+
+        </article>
+
+
+
+        <!-- PRODUCT 4 -->
+
+        <article
+            class="product-card"
+            data-category="denim"
+        >
+
+
+            <div class="product-image">
+
+
+                <button
+                    class="wishlist-product"
+                    onclick="toggleWishlist(this)"
+                    type="button"
+                    aria-label="Add to wishlist"
+                >
+                    ♡
+                </button>
+
+
+                <img
+                    src="images/wide-leg-jeans-blue.jpg"
+                    alt="BC Wide Leg Jeans"
+                >
+
+
+                <button
+                    class="quick-add"
+                    onclick="addToCart('BC Wide Leg Jeans', 1000)"
+                    type="button"
+                >
+                    QUICK ADD
+                </button>
+
+
+            </div>
+
+
+            <div class="product-info">
+
+
+                <h3>
+                    Wide-Leg Jeans
+                </h3>
+
+
+                <p>
+                    Blue
+                </p>
+
+
+                <strong>
+                    KSh 1,000
+                </strong>
+
+
+            </div>
+
+
+        </article>
+
+
+    </div>
+
+
+
+    <div class="shop-view-all">
+
+
+        <a
+            href="shop.html"
+            class="hero-button"
+        >
+            SHOP ALL PRODUCTS
+        </a>
+
+
+    </div>
+
 
 </section>
 
 
-<!-- =========================
-     COLLECTION BANNER
-========================= -->
 
-<section id="collections" class="collection-banner">
+<!-- ==================================================
+     COLLECTION BANNER
+================================================== -->
+
+<section
+    id="collections"
+    class="collection-banner"
+>
+
 
     <div>
+
 
         <p class="eyebrow">
             BC-001
         </p>
 
+
         <h2>
             BLESSED.
         </h2>
 
+
         <p>
-            Built around gratitude, identity,
-            purpose and becoming.
+            Built around gratitude,
+            identity, purpose and becoming.
         </p>
 
-        <button onclick="filterProducts('all')">
+
+        <a
+            href="shop.html"
+            class="hero-button"
+        >
             SHOP BC-001
-        </button>
+        </a>
+
 
     </div>
+
 
 </section>
 
 
-<!-- =========================
-     ABOUT
-========================= -->
 
-<section id="about" class="about-section">
+<!-- ==================================================
+     ABOUT
+================================================== -->
+
+<section
+    id="about"
+    class="about-section"
+>
+
 
     <div class="about-image">
 
+
         <img
             src="images/tee-1.jpg"
-            alt="Béni Carmel Collectives"
+            alt="Béni Carmel Collectives clothing"
         >
+
 
     </div>
 
+
     <div class="about-text">
+
 
         <p class="eyebrow">
             BÉNI CARMEL COLLECTIVES
         </p>
 
+
         <h2>
+
             THE CLOTHING IS THE MEDIUM.
             THE COLLECTIVE IS THE CULTURE.
+
         </h2>
 
-        <p>
-            Béni Carmel Collectives is a contemporary Kenyan
-            fashion collective merging faith, identity,
-            culture and creative expression.
-        </p>
 
         <p>
-            Designed for a generation that wants its clothing
-            to carry meaning without sacrificing style.
+
+            Béni Carmel Collectives is a contemporary
+            Kenyan fashion collective merging faith,
+            identity, culture and creative expression.
+
         </p>
+
+
+        <p>
+
+            Designed for a generation that wants its
+            clothing to carry meaning without
+            sacrificing style.
+
+        </p>
+
 
     </div>
+
 
 </section>
 
 
-<!-- =========================
+
+<!-- ==================================================
      NEWSLETTER
-========================= -->
+================================================== -->
 
 <section class="newsletter">
+
 
     <p class="eyebrow">
         JOIN THE COLLECTIVE
     </p>
 
+
     <h2>
         STAY IN THE KNOW.
     </h2>
 
+
     <p>
+
         New drops. New collections.
         Stories from the collective.
+
     </p>
 
-    <form onsubmit="subscribe(event)">
+
+    <form
+        onsubmit="subscribe(event)"
+    >
+
 
         <input
             type="email"
@@ -338,257 +863,424 @@
             required
         >
 
-        <button type="submit">
+
+        <button
+            type="submit"
+        >
             JOIN
         </button>
 
+
     </form>
+
 
 </section>
 
 
-<!-- =========================
+
+<!-- ==================================================
      FOOTER
-========================= -->
+================================================== -->
 
 <footer>
 
+
     <div class="footer-brand">
 
-        <img src="images/logo.png" alt="BC">
+
+        <img
+            src="images/logo.png"
+            alt="Béni Carmel Collectives"
+        >
+
 
         <p>
             Faith. Identity. Culture.
         </p>
 
+
     </div>
+
+
 
     <div>
 
-        <h4>SHOP</h4>
 
-        <a href="#shop">All Products</a>
+        <h4>
+            SHOP
+        </h4>
 
-        <a href="#shop">New In</a>
 
-        <a href="#shop">Collections</a>
+        <a href="shop.html">
+            All Products
+        </a>
+
+
+        <a href="shop.html?sort=newest">
+            New In
+        </a>
+
+
+        <a href="index.html#collections">
+            Collections
+        </a>
+
 
     </div>
+
+
 
     <div>
 
-        <h4>HELP</h4>
 
-        <a href="#">Shipping</a>
+        <h4>
+            HELP
+        </h4>
 
-        <a href="#">Returns</a>
 
-        <a href="#">Contact</a>
+        <a href="#">
+            Shipping
+        </a>
+
+
+        <a href="#">
+            Returns
+        </a>
+
+
+        <a href="#">
+            Contact
+        </a>
+
 
     </div>
+
+
 
     <div>
 
-        <h4>FOLLOW</h4>
 
-        <a href="#">Instagram</a>
+        <h4>
+            FOLLOW
+        </h4>
 
-        <a href="#">TikTok</a>
+
+        <a href="#">
+            Instagram
+        </a>
+
+
+        <a href="#">
+            TikTok
+        </a>
+
 
     </div>
+
 
 </footer>
 
 
-<!-- =========================
+
+<!-- ==================================================
+     CART OVERLAY
+================================================== -->
+
+<div
+    id="cartOverlay"
+    class="cart-overlay"
+    onclick="closeCart()"
+></div>
+
+
+
+<!-- ==================================================
      CART DRAWER
-========================= -->
+================================================== -->
 
-<div id="cartOverlay" class="cart-overlay" onclick="closeCart()"></div>
+<aside
+    id="cartDrawer"
+    class="cart-drawer"
+>
 
-<aside id="cartDrawer" class="cart-drawer">
 
     <div class="cart-header">
+
 
         <h2>
             YOUR BAG
         </h2>
 
-        <button onclick="closeCart()">
+
+        <button
+            onclick="closeCart()"
+            type="button"
+        >
             ×
         </button>
 
+
     </div>
 
-    <div id="cartItems" class="cart-items"></div>
+
+
+    <div
+        id="cartItems"
+        class="cart-items"
+    >
+
+        <p class="empty-cart">
+            Your bag is currently empty.
+        </p>
+
+    </div>
+
+
 
     <div class="cart-footer">
 
+
         <div class="cart-total-row">
+
 
             <span>
                 SUBTOTAL
             </span>
 
+
             <strong id="cartTotal">
                 KES 0
             </strong>
 
+
         </div>
 
+
         <p class="shipping-note">
+
             Shipping calculated at checkout.
+
         </p>
+
 
         <button
             class="checkout-button"
             onclick="openCheckout()"
+            type="button"
         >
             CHECKOUT
         </button>
 
+
         <button
             class="continue-button"
             onclick="closeCart()"
+            type="button"
         >
             CONTINUE SHOPPING
         </button>
 
+
     </div>
+
 
 </aside>
 
 
-<!-- =========================
-     PRODUCT MODAL
-========================= -->
 
-<div id="productModal" class="modal">
+<!-- ==================================================
+     PRODUCT MODAL
+================================================== -->
+
+<div
+    id="productModal"
+    class="modal"
+>
+
 
     <div class="product-modal-content">
+
 
         <button
             class="modal-close"
             onclick="closeProduct()"
+            type="button"
+            aria-label="Close product"
         >
             ×
         </button>
 
+
         <div id="productDetails"></div>
 
+
     </div>
+
 
 </div>
 
 
-<!-- =========================
-     CHECKOUT MODAL
-========================= -->
 
-<div id="checkoutModal" class="modal">
+<!-- ==================================================
+     CHECKOUT MODAL
+================================================== -->
+
+<div
+    id="checkoutModal"
+    class="modal"
+>
+
 
     <div class="checkout-content">
+
 
         <button
             class="modal-close"
             onclick="closeCheckout()"
+            type="button"
+            aria-label="Close checkout"
         >
             ×
         </button>
 
+
         <div class="checkout-layout">
 
+
+            <!-- CHECKOUT FORM -->
+
             <div class="checkout-form">
+
 
                 <p class="eyebrow">
                     CHECKOUT
                 </p>
 
+
                 <h2>
                     COMPLETE YOUR ORDER
                 </h2>
+
 
                 <form
                     id="checkoutForm"
                     onsubmit="processCheckout(event)"
                 >
 
-                    <label>
+
+                    <label for="customerName">
                         Full Name
                     </label>
+
 
                     <input
                         type="text"
                         id="customerName"
+                        name="name"
+                        autocomplete="name"
                         required
                     >
 
-                    <label>
+
+
+                    <label for="customerEmail">
                         Email Address
                     </label>
+
 
                     <input
                         type="email"
                         id="customerEmail"
+                        name="email"
+                        autocomplete="email"
                         required
                     >
 
-                    <label>
-                        Phone Number
+
+
+                    <label for="customerPhone">
+                        M-PESA Phone Number
                     </label>
+
 
                     <input
                         type="tel"
                         id="customerPhone"
+                        name="phone"
                         placeholder="07XXXXXXXX"
+                        autocomplete="tel"
                         required
                     >
 
-                    <label>
+
+
+                    <label for="customerCounty">
                         County
                     </label>
+
 
                     <input
                         type="text"
                         id="customerCounty"
+                        name="county"
                         placeholder="Nairobi"
                         required
                     >
 
-                    <label>
+
+
+                    <label for="customerAddress">
                         Delivery Address
                     </label>
 
+
                     <textarea
                         id="customerAddress"
+                        name="address"
                         rows="4"
+                        placeholder="Enter your delivery address"
                         required
                     ></textarea>
+
+
 
                     <h3>
                         PAYMENT
                     </h3>
 
+
+
                     <div class="payment-option selected">
+
 
                         <input
                             type="radio"
+                            name="payment"
+                            value="mpesa"
                             checked
                         >
+
 
                         <span>
                             M-PESA
                         </span>
 
+
                     </div>
+
+
 
                     <p class="payment-help">
 
-                        After clicking "PAY WITH M-PESA",
-                        an M-PESA prompt will be sent to
-                        the phone number above.
+                        After clicking
+                        "PAY WITH M-PESA",
+                        an M-PESA prompt will be
+                        sent to the phone number
+                        above.
 
                     </p>
+
+
 
                     <button
                         type="submit"
@@ -598,101 +1290,148 @@
                         PAY WITH M-PESA
                     </button>
 
+
                 </form>
+
 
             </div>
 
+
+
+            <!-- ORDER SUMMARY -->
+
             <div class="checkout-summary">
+
 
                 <h3>
                     YOUR ORDER
                 </h3>
 
+
                 <div id="checkoutItems"></div>
 
+
+
                 <div class="summary-line">
+
 
                     <span>
                         Subtotal
                     </span>
 
+
                     <strong id="checkoutSubtotal">
                         KES 0
                     </strong>
 
+
                 </div>
 
+
+
                 <div class="summary-line">
+
 
                     <span>
                         Delivery
                     </span>
 
+
                     <strong id="checkoutShipping">
                         KES 0
                     </strong>
 
+
                 </div>
 
+
+
                 <div class="summary-total">
+
 
                     <span>
                         TOTAL
                     </span>
 
+
                     <strong id="checkoutTotal">
                         KES 0
                     </strong>
 
+
                 </div>
+
 
             </div>
 
+
         </div>
 
+
     </div>
+
 
 </div>
 
 
-<!-- =========================
-     SUCCESS MODAL
-========================= -->
 
-<div id="successModal" class="modal">
+<!-- ==================================================
+     SUCCESS MODAL
+================================================== -->
+
+<div
+    id="successModal"
+    class="modal"
+>
+
 
     <div class="success-content">
+
 
         <div class="success-icon">
             ✓
         </div>
 
+
         <p class="eyebrow">
             ORDER RECEIVED
         </p>
+
 
         <h2>
             THANK YOU.
         </h2>
 
+
         <p id="successMessage">
+
             Your order has been received.
+
         </p>
 
-        <button onclick="closeSuccess()">
+
+        <button
+            onclick="closeSuccess()"
+            type="button"
+        >
             CONTINUE SHOPPING
         </button>
 
+
     </div>
+
 
 </div>
 
 
-<!-- =========================
+
+<!-- ==================================================
      JAVASCRIPT
-========================= -->
+================================================== -->
 
 <script src="script.js"></script>
 
+
 </body>
+
 </html>
