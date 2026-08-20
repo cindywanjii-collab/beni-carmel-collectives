@@ -1,72 +1,65 @@
 const axios = require("axios");
 
 
+// ==========================================
+// FORMAT KENYAN PHONE NUMBER
+// ==========================================
+
 function formatPhone(phone) {
 
-    let cleaned =
-        String(phone)
-            .replace(/\s+/g, "")
-            .replace(/-/g, "");
+    let cleaned = String(phone || "")
+        .trim()
+        .replace(/\s+/g, "")
+        .replace(/-/g, "");
 
+    // +254712345678 → 254712345678
     if (cleaned.startsWith("+254")) {
-
-        cleaned =
-            cleaned.substring(1);
-
+        cleaned = cleaned.substring(1);
     }
 
+    // 0712345678 → 254712345678
     if (cleaned.startsWith("07")) {
-
-        cleaned =
-            "254" +
-            cleaned.substring(1);
-
+        cleaned = "254" + cleaned.substring(1);
     }
 
+    // 0112345678 → 254112345678
     if (cleaned.startsWith("01")) {
-
-        cleaned =
-            "254" +
-            cleaned.substring(1);
-
+        cleaned = "254" + cleaned.substring(1);
     }
 
     return cleaned;
-
 }
 
+
+// ==========================================
+// GENERATE TIMESTAMP
+// ==========================================
 
 function getTimestamp() {
 
     const now = new Date();
 
-    const year =
-        now.getFullYear();
+    const year = now.getFullYear();
 
-    const month =
-        String(
-            now.getMonth() + 1
-        ).padStart(2, "0");
+    const month = String(
+        now.getMonth() + 1
+    ).padStart(2, "0");
 
-    const day =
-        String(
-            now.getDate()
-        ).padStart(2, "0");
+    const day = String(
+        now.getDate()
+    ).padStart(2, "0");
 
-    const hours =
-        String(
-            now.getHours()
-        ).padStart(2, "0");
+    const hours = String(
+        now.getHours()
+    ).padStart(2, "0");
 
-    const minutes =
-        String(
-            now.getMinutes()
-        ).padStart(2, "0");
+    const minutes = String(
+        now.getMinutes()
+    ).padStart(2, "0");
 
-    const seconds =
-        String(
-            now.getSeconds()
-        ).padStart(2, "0");
+    const seconds = String(
+        now.getSeconds()
+    ).padStart(2, "0");
 
     return (
         year +
@@ -76,15 +69,35 @@ function getTimestamp() {
         minutes +
         seconds
     );
-
 }
 
 
+// ==========================================
+// GET SAFARICOM ACCESS TOKEN
+// ==========================================
+
 async function getAccessToken() {
+
+    const consumerKey =
+        process.env.MPESA_CONSUMER_KEY;
+
+    const consumerSecret =
+        process.env.MPESA_CONSUMER_SECRET;
+
+
+    if (
+        !consumerKey ||
+        !consumerSecret
+    ) {
+        throw new Error(
+            "M-PESA API credentials are not configured."
+        );
+    }
+
 
     const credentials =
         Buffer.from(
-            `${process.env.MPESA_CONSUMER_KEY}:${process.env.MPESA_CONSUMER_SECRET}`
+            `${consumerKey}:${consumerSecret}`
         ).toString("base64");
 
 
@@ -92,27 +105,28 @@ async function getAccessToken() {
         await axios.get(
             "https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials",
             {
-
                 headers: {
-
                     Authorization:
                         `Basic ${credentials}`
-
                 }
-
             }
         );
 
 
     return response.data.access_token;
-
 }
 
+
+// ==========================================
+// STK PUSH API
+// ==========================================
 
 module.exports = async function handler(
     req,
     res
 ) {
+
+    // Only POST requests are allowed
 
     if (req.method !== "POST") {
 
@@ -128,6 +142,10 @@ module.exports = async function handler(
 
     try {
 
+        // ======================================
+        // GET CHECKOUT INFORMATION
+        // ======================================
+
         const {
             name,
             email,
@@ -136,29 +154,118 @@ module.exports = async function handler(
             address,
             amount,
             items
-        } = req.body;
+        } = req.body || {};
+
+
+        // ======================================
+        // VALIDATE CHECKOUT INFORMATION
+        // ======================================
+
+        if (!name) {
+
+            return res
+                .status(400)
+                .json({
+                    error:
+                        "Please enter your name."
+                });
+
+        }
+
+
+        if (!email) {
+
+            return res
+                .status(400)
+                .json({
+                    error:
+                        "Please enter your email."
+                });
+
+        }
+
+
+        if (!phone) {
+
+            return res
+                .status(400)
+                .json({
+                    error:
+                        "Please enter your M-PESA phone number."
+                });
+
+        }
+
+
+        if (!county) {
+
+            return res
+                .status(400)
+                .json({
+                    error:
+                        "Please select your county."
+                });
+
+        }
+
+
+        if (!address) {
+
+            return res
+                .status(400)
+                .json({
+                    error:
+                        "Please enter your delivery address."
+                });
+
+        }
 
 
         if (
-            !name ||
-            !email ||
-            !phone ||
-            !county ||
-            !address ||
-            !amount ||
-            !items ||
-            !items.length
+            !Array.isArray(items) ||
+            items.length === 0
         ) {
 
             return res
                 .status(400)
                 .json({
                     error:
-                        "Missing checkout information."
+                        "Your shopping bag is empty."
                 });
 
         }
 
+
+        // ======================================
+        // VALIDATE AMOUNT
+        // ======================================
+
+        const numericAmount =
+            Number(amount);
+
+
+        if (
+            !Number.isFinite(numericAmount) ||
+            numericAmount <= 0
+        ) {
+
+            return res
+                .status(400)
+                .json({
+                    error:
+                        "Invalid payment amount."
+                });
+
+        }
+
+
+        const paymentAmount =
+            Math.round(numericAmount);
+
+
+        // ======================================
+        // FORMAT PHONE NUMBER
+        // ======================================
 
         const formattedPhone =
             formatPhone(phone);
@@ -180,13 +287,48 @@ module.exports = async function handler(
         }
 
 
+        // ======================================
+        // CHECK M-PESA CONFIGURATION
+        // ======================================
+
+        if (
+            !process.env.MPESA_SHORTCODE ||
+            !process.env.MPESA_PASSKEY
+        ) {
+
+            console.error(
+                "M-PESA shortcode or passkey is missing."
+            );
+
+            return res
+                .status(500)
+                .json({
+                    error:
+                        "M-PESA payment configuration is incomplete."
+                });
+
+        }
+
+
+        // ======================================
+        // GET ACCESS TOKEN
+        // ======================================
+
         const token =
             await getAccessToken();
 
 
+        // ======================================
+        // GENERATE TIMESTAMP
+        // ======================================
+
         const timestamp =
             getTimestamp();
 
+
+        // ======================================
+        // GENERATE PASSWORD
+        // ======================================
 
         const password =
             Buffer.from(
@@ -194,11 +336,19 @@ module.exports = async function handler(
             ).toString("base64");
 
 
+        // ======================================
+        // CALLBACK URL
+        // ======================================
+
         const callbackUrl =
             process.env.MPESA_CALLBACK_URL;
 
 
         if (!callbackUrl) {
+
+            console.error(
+                "MPESA_CALLBACK_URL is missing."
+            );
 
             return res
                 .status(500)
@@ -209,6 +359,10 @@ module.exports = async function handler(
 
         }
 
+
+        // ======================================
+        // SEND STK PUSH
+        // ======================================
 
         const response =
             await axios.post(
@@ -230,9 +384,7 @@ module.exports = async function handler(
                         "CustomerPayBillOnline",
 
                     Amount:
-                        Math.round(
-                            Number(amount)
-                        ),
+                        paymentAmount,
 
                     PartyA:
                         formattedPhone,
@@ -271,6 +423,38 @@ module.exports = async function handler(
             );
 
 
+        // ======================================
+        // CHECK SAFARICOM RESPONSE
+        // ======================================
+
+        if (
+            !response.data ||
+            response.data.ResponseCode !== "0"
+        ) {
+
+            console.error(
+                "M-PESA STK PUSH FAILED:",
+                response.data
+            );
+
+            return res
+                .status(400)
+                .json({
+
+                    error:
+                        response.data?.ResponseDescription ||
+                        response.data?.errorMessage ||
+                        "M-PESA payment request could not be created."
+
+                });
+
+        }
+
+
+        // ======================================
+        // SUCCESS
+        // ======================================
+
         return res
             .status(200)
             .json({
@@ -278,7 +462,8 @@ module.exports = async function handler(
                 success: true,
 
                 message:
-                    response.data.CustomerMessage,
+                    response.data.CustomerMessage ||
+                    "Please check your phone and enter your M-PESA PIN.",
 
                 checkoutRequestId:
                     response.data.CheckoutRequestID,
@@ -292,7 +477,7 @@ module.exports = async function handler(
     } catch (error) {
 
         console.error(
-            "M-PESA ERROR:",
+            "M-PESA STK PUSH ERROR:",
             error.response?.data ||
             error.message
         );
@@ -305,6 +490,7 @@ module.exports = async function handler(
                 error:
                     error.response?.data?.errorMessage ||
                     error.response?.data?.ResponseDescription ||
+                    error.message ||
                     "M-PESA payment request failed."
 
             });
