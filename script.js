@@ -2,7 +2,9 @@
    SHOPPING CART
 ========================= */
 
-let cart = [];
+let cart = JSON.parse(
+    localStorage.getItem("bcCart")
+) || [];
 
 
 function addToCart(name, price) {
@@ -32,6 +34,11 @@ function addToCart(name, price) {
 
 
 function updateCart() {
+   
+       localStorage.setItem(
+        "bcCart",
+        JSON.stringify(cart)
+    );
 
     const cartItems = document.getElementById("cart-items");
 
@@ -574,3 +581,20 @@ function toggleWishlist(button) {
     }
 
 }
+
+/* =========================================
+   LOAD SAVED CART
+========================================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        if (typeof updateCart === "function") {
+
+            updateCart();
+
+        }
+
+    }
+);
