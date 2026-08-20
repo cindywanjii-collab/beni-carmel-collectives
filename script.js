@@ -314,3 +314,263 @@ function subscribe(event) {
         .value = "";
 
 }
+
+/* =========================================
+   SHOP PAGE FILTERS
+========================================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        const products =
+            document.querySelectorAll(".shop-product");
+
+        const filterButtons =
+            document.querySelectorAll(".filter-button");
+
+        const sortSelect =
+            document.getElementById("sort-products");
+
+        const productGrid =
+            document.getElementById("shop-product-grid");
+
+        const noProducts =
+            document.getElementById("no-products");
+
+
+        if (!products.length) {
+            return;
+        }
+
+
+        let currentFilter = "all";
+
+
+        function applyShopFilters() {
+
+            let visibleProducts = [];
+
+
+            products.forEach(function (product) {
+
+                const category =
+                    product.dataset.category;
+
+
+                const matchesFilter =
+                    currentFilter === "all" ||
+                    category === currentFilter;
+
+
+                if (matchesFilter) {
+
+                    product.style.display = "";
+
+                    visibleProducts.push(product);
+
+                } else {
+
+                    product.style.display = "none";
+
+                }
+
+            });
+
+
+            if (visibleProducts.length === 0) {
+
+                noProducts.style.display = "block";
+
+            } else {
+
+                noProducts.style.display = "none";
+
+            }
+
+        }
+
+
+        filterButtons.forEach(function (button) {
+
+            button.addEventListener(
+                "click",
+                function () {
+
+                    filterButtons.forEach(
+                        function (item) {
+
+                            item.classList.remove(
+                                "active"
+                            );
+
+                        }
+                    );
+
+
+                    button.classList.add("active");
+
+
+                    currentFilter =
+                        button.dataset.filter;
+
+
+                    applyShopFilters();
+
+                }
+            );
+
+        });
+
+
+        if (sortSelect) {
+
+            sortSelect.addEventListener(
+                "change",
+                function () {
+
+                    const items =
+                        Array.from(products);
+
+
+                    const sortType =
+                        sortSelect.value;
+
+
+                    items.sort(
+                        function (a, b) {
+
+                            const priceA =
+                                Number(
+                                    a.dataset.price
+                                );
+
+                            const priceB =
+                                Number(
+                                    b.dataset.price
+                                );
+
+
+                            if (
+                                sortType ===
+                                "price-low"
+                            ) {
+
+                                return priceA - priceB;
+
+                            }
+
+
+                            if (
+                                sortType ===
+                                "price-high"
+                            ) {
+
+                                return priceB - priceA;
+
+                            }
+
+
+                            if (
+                                sortType ===
+                                "newest"
+                            ) {
+
+                                const newA =
+                                    a.querySelector(
+                                        ".product-label"
+                                    ) !== null;
+
+                                const newB =
+                                    b.querySelector(
+                                        ".product-label"
+                                    ) !== null;
+
+
+                                return (
+                                    Number(newB) -
+                                    Number(newA)
+                                );
+
+                            }
+
+
+                            return 0;
+
+                        }
+                    );
+
+
+                    items.forEach(
+                        function (item) {
+
+                            productGrid.appendChild(
+                                item
+                            );
+
+                        }
+                    );
+
+
+                    applyShopFilters();
+
+                }
+            );
+
+        }
+
+
+        /* URL CATEGORY */
+
+        const params =
+            new URLSearchParams(
+                window.location.search
+            );
+
+
+        const urlCategory =
+            params.get("category");
+
+
+        if (urlCategory) {
+
+            const matchingButton =
+                document.querySelector(
+                    `[data-filter="${urlCategory}"]`
+                );
+
+
+            if (matchingButton) {
+
+                matchingButton.click();
+
+            }
+
+        }
+
+    }
+);
+
+
+/* =========================================
+   WISHLIST
+========================================= */
+
+function toggleWishlist(button) {
+
+    button.classList.toggle("liked");
+
+
+    if (
+        button.classList.contains("liked")
+    ) {
+
+        button.innerHTML = "♥";
+
+    } else {
+
+        button.innerHTML = "♡";
+
+    }
+
+}
