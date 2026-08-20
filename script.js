@@ -619,3 +619,143 @@ function goToCheckout() {
         "checkout.html";
 
 }
+
+/* =========================================
+   CHECKOUT SUMMARY
+========================================= */
+
+function loadCheckout() {
+
+    const checkoutItems =
+        document.getElementById(
+            "checkout-items"
+        );
+
+    const checkoutTotal =
+        document.getElementById(
+            "checkout-total"
+        );
+
+
+    if (!checkoutItems) {
+        return;
+    }
+
+
+    let total = 0;
+
+
+    checkoutItems.innerHTML = "";
+
+
+    if (cart.length === 0) {
+
+        checkoutItems.innerHTML = `
+            <p>
+                Your bag is empty.
+            </p>
+        `;
+
+        checkoutTotal.textContent =
+            "KSh 0";
+
+        return;
+    }
+
+
+    cart.forEach(function (item) {
+
+        total +=
+            item.price * item.quantity;
+
+
+        const element =
+            document.createElement("div");
+
+
+        element.className =
+            "checkout-summary-item";
+
+
+        element.innerHTML = `
+
+            <span>
+                ${item.name}
+                × ${item.quantity}
+            </span>
+
+            <strong>
+                KSh ${
+                    (
+                        item.price *
+                        item.quantity
+                    ).toLocaleString()
+                }
+            </strong>
+
+        `;
+
+
+        checkoutItems.appendChild(
+            element
+        );
+
+    });
+
+
+    checkoutTotal.textContent =
+        `KSh ${total.toLocaleString()}`;
+
+}
+
+
+document.addEventListener(
+    "DOMContentLoaded",
+    loadCheckout
+);
+
+
+/* =========================================
+   PLACE ORDER
+========================================= */
+
+function submitOrder(event) {
+
+    event.preventDefault();
+
+
+    if (cart.length === 0) {
+
+        alert(
+            "Your bag is empty."
+        );
+
+        return;
+
+    }
+
+
+    const firstName =
+        document.getElementById(
+            "first-name"
+        ).value;
+
+
+    alert(
+        `Thank you, ${firstName}! ` +
+        `Your Béni Carmel order has been received.`
+    );
+
+
+    cart = [];
+
+
+    localStorage.removeItem(
+        "bcCart"
+    );
+
+
+    window.location.href =
+        "index.html";
+
+}
