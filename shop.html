@@ -1,1 +1,2389 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Shop | Béni Carmel Collectives</title>
+
+    <meta
+        name="description"
+        content="Shop Béni Carmel Collectives — contemporary Kenyan fashion rooted in faith, identity and culture."
+    >
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+    <!-- ANNOUNCEMENT BAR -->
+
+    <div class="announcement">
+        WELCOME TO THE COLLECTIVE — WEAR YOUR PURPOSE.
+    </div>
+
+
+    <!-- HEADER -->
+
+    <header class="header">
+
+        <div
+            class="mobile-menu-button"
+            onclick="toggleMenu()"
+        >
+            ☰
+        </div>
+
+
+        <a href="index.html" class="logo">
+
+            <img
+                src="images/logo.png"
+                alt="Béni Carmel Collectives"
+            >
+
+        </a>
+
+
+        <nav class="desktop-nav">
+
+            <a href="shop.html">
+                SHOP
+            </a>
+
+            <a href="shop.html?category=clothing">
+                CLOTHING
+            </a>
+
+            <a href="shop.html?category=denim">
+                DENIM
+            </a>
+
+            <a href="shop.html?category=headwear">
+                HEADWEAR
+            </a>
+
+            <a href="shop.html?category=accessories">
+                ACCESSORIES
+            </a>
+
+            <a href="index.html#collections">
+                COLLECTIONS
+            </a>
+
+        </nav>
+
+
+        <div class="nav-icons">
+
+            <button
+                onclick="openSearch()"
+                aria-label="Search"
+            >
+                ⌕
+            </button>
+
+
+            <button
+                onclick="openWishlist()"
+                aria-label="Wishlist"
+            >
+                ♡
+            </button>
+
+
+            <button
+                onclick="openAccount()"
+                aria-label="Account"
+            >
+                ♙
+            </button>
+
+
+            <button
+                onclick="openCart()"
+                aria-label="Shopping bag"
+            >
+                🛍
+
+                <span id="cart-count">
+                    0
+                </span>
+
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- MOBILE MENU -->
+
+    <div
+        id="mobile-menu"
+        class="mobile-menu"
+    >
+
+        <a href="index.html">
+            HOME
+        </a>
+
+        <a href="shop.html">
+            SHOP ALL
+        </a>
+
+        <a href="shop.html?category=clothing">
+            CLOTHING
+        </a>
+
+        <a href="shop.html?category=denim">
+            DENIM
+        </a>
+
+        <a href="shop.html?category=headwear">
+            HEADWEAR
+        </a>
+
+        <a href="shop.html?category=accessories">
+            ACCESSORIES
+        </a>
+
+        <a href="index.html#collections">
+            COLLECTIONS
+        </a>
+
+    </div>
+
+
+    <!-- SHOP HEADER -->
+
+    <main>
+
+        <section class="shop-header">
+
+            <div>
+
+                <p class="small-heading">
+                    BÉNI CARMEL COLLECTIVES
+                </p>
+
+                <h1>
+                    SHOP ALL
+                </h1>
+
+                <p class="shop-intro">
+                    Contemporary pieces created around
+                    faith, identity, culture and expression.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- SHOP CONTROLS -->
+
+        <section class="shop-controls">
+
+            <div class="category-filters">
+
+                <button
+                    class="filter-button active"
+                    data-filter="all"
+                >
+                    ALL
+                </button>
+
+                <button
+                    class="filter-button"
+                    data-filter="clothing"
+                >
+                    CLOTHING
+                </button>
+
+                <button
+                    class="filter-button"
+                    data-filter="denim"
+                >
+                    DENIM
+                </button>
+
+                <button
+                    class="filter-button"
+                    data-filter="headwear"
+                >
+                    HEADWEAR
+                </button>
+
+                <button
+                    class="filter-button"
+                    data-filter="accessories"
+                >
+                    ACCESSORIES
+                </button>
+
+            </div>
+
+
+            <div class="shop-sort">
+
+                <label for="sort-products">
+                    SORT BY
+                </label>
+
+                <select id="sort-products">
+
+                    <option value="featured">
+                        FEATURED
+                    </option>
+
+                    <option value="newest">
+                        NEWEST
+                    </option>
+
+                    <option value="price-low">
+                        PRICE: LOW TO HIGH
+                    </option>
+
+                    <option value="price-high">
+                        PRICE: HIGH TO LOW
+                    </option>
+
+                </select>
+
+            </div>
+
+        </section>
+
+
+        <!-- PRODUCTS -->
+
+        <section class="shop-products">
+
+            <div
+                class="shop-product-grid"
+                id="shop-product-grid"
+            >
+
+
+                <!-- BEANIE BEIGE -->
+
+                <article
+                    class="shop-product"
+                    data-category="headwear"
+                    data-price="2000"
+                    data-name="BC Beanie Beige"
+                >
+
+                    <div class="shop-product-image">
+
+                        <span class="product-label">
+                            NEW
+                        </span>
+
+                        <button
+                            class="wishlist-product"
+                            onclick="toggleWishlist(this)"
+                        >
+                            ♡
+                        </button>
+
+                        <img
+                            src="images/beanie-beige.jpg"
+                            alt="BC Beige Beanie"
+                        >
+
+                        <button
+                            class="shop-quick-add"
+                            onclick="addToCart('BC Beanie Beige', 2000)"
+                        >
+                            QUICK ADD
+                        </button>
+
+                    </div>
+
+                    <div class="shop-product-info">
+
+                        <h3>
+                            BC Beanie
+                        </h3>
+
+                        <p>
+                            Beige
+                        </p>
+
+                        <strong>
+                            KSh 2,000
+                        </strong>
+
+                    </div>
+
+                </article>
+
+
+                <!-- BEANIE BLACK -->
+
+                <article
+                    class="shop-product"
+                    data-category="headwear"
+                    data-price="2000"
+                    data-name="BC Beanie Black"
+                >
+
+                    <div class="shop-product-image">
+
+                        <button
+                            class="wishlist-product"
+                            onclick="toggleWishlist(this)"
+                        >
+                            ♡
+                        </button>
+
+                        <img
+                            src="images/beanie-black.jpg"
+                            alt="BC Black Beanie"
+                        >
+
+                        <button
+                            class="shop-quick-add"
+                            onclick="addToCart('BC Beanie Black', 2000)"
+                        >
+                            QUICK ADD
+                        </button>
+
+                    </div>
+
+                    <div class="shop-product-info">
+
+                        <h3>
+                            BC Beanie
+                        </h3>
+
+                        <p>
+                            Black
+                        </p>
+
+                        <strong>
+                            KSh 2,000
+                        </strong>
+
+                    </div>
+
+                </article>
+
+
+                <!-- BEANIE BROWN -->
+
+                <article
+                    class="shop-product"
+                    data-category="headwear"
+                    data-price="2000"
+                    data-name="BC Beanie Brown"
+                >
+
+                    <div class="shop-product-image">
+
+                        <button
+                            class="wishlist-product"
+                            onclick="toggleWishlist(this)"
+                        >
+                            ♡
+                        </button>
+
+                        <img
+                            src="images/beanie-brown.jpg"
+                            alt="BC Brown Beanie"
+                        >
+
+                        <button
+                            class="shop-quick-add"
+                            onclick="addToCart('BC Beanie Brown', 2000)"
+                        >
+                            QUICK ADD
+                        </button>
+
+                    </div>
+
+                    <div class="shop-product-info">
+
+                        <h3>
+                            BC Beanie
+                        </h3>
+
+                        <p>
+                            Brown
+                        </p>
+
+                        <strong>
+                            KSh 2,000
+                        </strong>
+
+                    </div>
+
+                </article>
+
+
+                <!-- BEANIE BURGUNDY -->
+
+                <article
+                    class="shop-product"
+                    data-category="headwear"
+                    data-price="2000"
+                    data-name="BC Beanie Burgundy"
+                >
+
+                    <div class="shop-product-image">
+
+                        <span class="product-label">
+                            NEW
+                        </span>
+
+                        <button
+                            class="wishlist-product"
+                            onclick="toggleWishlist(this)"
+                        >
+                            ♡
+                        </button>
+
+                        <img
+                            src="images/beanie-burgundy.jpg"
+                            alt="BC Burgundy Beanie"
+                        >
+
+                        <button
+                            class="shop-quick-add"
+                            onclick="addToCart('BC Beanie Burgundy', 2000)"
+                        >
+                            QUICK ADD
+                        </button>
+
+                    </div>
+
+                    <div class="shop-product-info">
+
+                        <h3>
+                            BC Beanie
+                        </h3>
+
+                        <p>
+                            Burgundy
+                        </p>
+
+                        <strong>
+                            KSh 2,000
+                        </strong>
+
+                    </div>
+
+                </article>
+
+
+                <!-- BEANIE CREAM -->
+
+                <article
+                    class="shop-product"
+                    data-category="headwear"
+                    data-price="2000"
+                    data-name="BC Beanie Cream"
+                >
+
+                    <div class="shop-product-image">
+
+                        <button
+                            class="wishlist-product"
+                            onclick="toggleWishlist(this)"
+                        >
+                            ♡
+                        </button>
+
+                        <img
+                            src="images/beanie-cream.jpg"
+                            alt="BC Cream Beanie"
+                        >
+
+                        <button
+                            class="shop-quick-add"
+                            onclick="addToCart('BC Beanie Cream', 2000)"
+                        >
+                            QUICK ADD
+                        </button>
+
+                    </div>
+
+                    <div class="shop-product-info">
+
+                        <h3>
+                            BC Beanie
+                        </h3>
+
+                        <p>
+                            Cream
+                        </p>
+
+                        <strong>
+                            KSh 2,000
+                        </strong>
+
+                    </div>
+
+                </article>
+
+
+                <!-- BUCKET BEIGE -->
+
+                <article
+                    class="shop-product"
+                    data-category="headwear"
+                    data-price="2500"
+                    data-name="BC Bucket Hat Beige"
+                >
+
+                    <div class="shop-product-image">
+
+                        <button
+                            class="wishlist-product"
+                            onclick="toggleWishlist(this)"
+                        >
+                            ♡
+                        </button>
+
+                        <img
+                            src="images/bucket-hat-beige.jpg"
+                            alt="BC Beige Bucket Hat"
+                        >
+
+                        <button
+                            class="shop-quick-add"
+                            onclick="addToCart('BC Bucket Hat Beige', 2500)"
+                        >
+                            QUICK ADD
+                        </button>
+
+                    </div>
+
+                    <div class="shop-product-info">
+
+                        <h3>
+                            BC Bucket Hat
+                        </h3>
+
+                        <p>
+                            Beige
+                        </p>
+
+                        <strong>
+                            KSh 2,500
+                        </strong>
+
+                    </div>
+
+                </article>
+
+
+                <!-- BUCKET BLACK -->
+
+                <article
+                    class="shop-product"
+                    data-category="headwear"
+                    data-price="2500"
+                    data-name="BC Bucket Hat Black"
+                >
+
+                    <div class="shop-product-image">
+
+                        <button
+                            class="wishlist-product"
+                            onclick="toggleWishlist(this)"
+                        >
+                            ♡
+                        </button>
+
+                        <img
+                            src="images/bucket-hat-black.jpg"
+                            alt="BC Black Bucket Hat"
+                        >
+
+                        <button
+                            class="shop-quick-add"
+                            onclick="addToCart('BC Bucket Hat Black', 2500)"
+                        >
+                            QUICK ADD
+                        </button>
+
+                    </div>
+
+                    <div class="shop-product-info">
+
+                        <h3>
+                            BC Bucket Hat
+                        </h3>
+
+                        <p>
+                            Black
+                        </p>
+
+                        <strong>
+                            KSh 2,500
+                        </strong>
+
+                    </div>
+
+                </article>
+
+
+                <!-- BUCKET BURGUNDY -->
+
+                <article
+                    class="shop-product"
+                    data-category="headwear"
+                    data-price="2500"
+                    data-name="BC Bucket Hat Burgundy"
+                >
+
+                    <div class="shop-product-image">
+
+                        <button
+                            class="wishlist-product"
+                            onclick="toggleWishlist(this)"
+                        >
+                            ♡
+                        </button>
+
+                        <img
+                            src="images/bucket-hat-burgundy.jpg"
+                            alt="BC Burgundy Bucket Hat"
+                        >
+
+                        <button
+                            class="shop-quick-add"
+                            onclick="addToCart('BC Bucket Hat Burgundy', 2500)"
+                        >
+                            QUICK ADD
+                        </button>
+
+                    </div>
+
+                    <div class="shop-product-info">
+
+                        <h3>
+                            BC Bucket Hat
+                        </h3>
+
+                        <p>
+                            Burgundy
+                        </p>
+
+                        <strong>
+                            KSh 2,500
+                        </strong>
+
+                    </div>
+
+                </article>
+
+
+                <!-- BUCKET WHITE -->
+
+                <article
+                    class="shop-product"
+                    data-category="headwear"
+                    data-price="2500"
+                    data-name="BC Bucket Hat White"
+                >
+
+                    <div class="shop-product-image">
+
+                        <button
+                            class="wishlist-product"
+                            onclick="toggleWishlist(this)"
+                        >
+                            ♡
+                        </button>
+
+                        <img
+                            src="images/bucket-hat-white.jpg"
+                            alt="BC White Bucket Hat"
+                        >
+
+                        <button
+                            class="shop-quick-add"
+                            onclick="addToCart('BC Bucket Hat White', 2500)"
+                        >
+                            QUICK ADD
+                        </button>
+
+                    </div>
+
+                    <div class="shop-product-info">
+
+                        <h3>
+                            BC Bucket Hat
+                        </h3>
+
+                        <p>
+                            White
+                        </p>
+
+                        <strong>
+                            KSh 2,500
+                        </strong>
+
+                    </div>
+
+                </article>
+
+
+                <!-- CAP -->
+
+                <article
+                    class="shop-product"
+                    data-category="headwear"
+                    data-price="2500"
+                    data-name="BC Cap White"
+                >
+
+                    <div class="shop-product-image">
+
+                        <span class="product-label">
+                            NEW
+                        </span>
+
+                        <button
+                            class="wishlist-product"
+                            onclick="toggleWishlist(this)"
+                        >
+                            ♡
+                        </button>
+
+                        <img
+                            src="images/cap-white.jpg"
+                            alt="BC White Cap"
+                        >
+
+                        <button
+                            class="shop-quick-add"
+                            onclick="addToCart('BC Cap White', 2500)"
+                        >
+                            QUICK ADD
+                        </button>
+
+                    </div>
+
+                    <div class="shop-product-info">
+
+                        <h3>
+                            BC Cap
+                        </h3>
+
+                        <p>
+                            White
+                        </p>
+
+                        <strong>
+                            KSh 2,500
+                        </strong>
+
+                    </div>
+
+                </article>
+
+
+                <!-- COLLEGE JACKET -->
+
+                <article
+                    class="shop-product"
+                    data-category="clothing"
+                    data-price="7500"
+                    data-name="BC College Jacket"
+                >
+
+                    <div class="shop-product-image">
+
+                        <span class="product-label">
+                            NEW
+                        </span>
+
+                        <button
+                            class="wishlist-product"
+                            onclick="toggleWishlist(this)"
+                        >
+                            ♡
+                        </button>
+
+                        <img
+                            src="images/college-jacket.jpg"
+                            alt="BC College Jacket"
+                        >
+
+                        <button
+                            class="shop-quick-add"
+                            onclick="addToCart('BC College Jacket', 7500)"
+                        >
+                            QUICK ADD
+                        </button>
+
+                    </div>
+
+                    <div class="shop-product-info">
+
+                        <h3>
+                            BC College Jacket
+                        </h3>
+
+                        <p>
+                            Signature
+                        </p>
+
+                        <strong>
+                            KSh 7,500
+                        </strong>
+
+                    </div>
+
+                </article>
+
+
+                <!-- DENIM JACKET 1 -->
+
+                <article
+                    class="shop-product"
+                    data-category="denim"
+                    data-price="6500"
+                    data-name="BC Denim Jacket"
+                >
+
+                    <div class="shop-product-image">
+
+                        <button
+                            class="wishlist-product"
+                            onclick="toggleWishlist(this)"
+                        >
+                            ♡
+                        </button>
+
+                        <img
+                            src="images/denim-jacket-1.jpg"
+                            alt="BC Denim Jacket"
+                        >
+
+                        <button
+                            class="shop-quick-add"
+                            onclick="addToCart('BC Denim Jacket', 6500)"
+                        >
+                            QUICK ADD
+                        </button>
+
+                    </div>
+
+                    <div class="shop-product-info">
+
+                        <h3>
+                            BC Denim Jacket
+                        </h3>
+
+                        <p>
+                            Blue
+                        </p>
+
+                        <strong>
+                            KSh 6,500
+                        </strong>
+
+                    </div>
+
+                </article>
+
+
+                <!-- DENIM JACKET 2 -->
+
+                <article
+                    class="shop-product"
+                    data-category="denim"
+                    data-price="6500"
+                    data-name="BC Denim Jacket II"
+                >
+
+                    <div class="shop-product-image">
+
+                        <button
+                            class="wishlist-product"
+                            onclick="toggleWishlist(this)"
+                        >
+                            ♡
+                        </button>
+
+                        <img
+                            src="images/denim-jacket-2.jpg"
+                            alt="BC Denim Jacket II"
+                        >
+
+                        <button
+                            class="shop-quick-add"
+                            onclick="addToCart('BC Denim Jacket II', 6500)"
+                        >
+                            QUICK ADD
+                        </button>
+
+                    </div>
+
+                    <div class="shop-product-info">
+
+                        <h3>
+                            BC Denim Jacket
+                        </h3>
+
+                        <p>
+                            Washed Blue
+                        </p>
+
+                        <strong>
+                            KSh 6,500
+                        </strong>
+
+                    </div>
+
+                </article>
+
+
+                <!-- HOODIE 1 -->
+
+                <article
+                    class="shop-product"
+                    data-category="clothing"
+                    data-price="5500"
+                    data-name="BC Hoodie Black"
+                >
+
+                    <div class="shop-product-image">
+
+                        <span class="product-label">
+                            NEW
+                        </span>
+
+                        <button
+                            class="wishlist-product"
+                            onclick="toggleWishlist(this)"
+                        >
+                            ♡
+                        </button>
+
+                        <img
+                            src="images/hoodie-1.jpg"
+                            alt="BC Hoodie"
+                        >
+
+                        <button
+                            class="shop-quick-add"
+                            onclick="addToCart('BC Hoodie Black', 5500)"
+                        >
+                            QUICK ADD
+                        </button>
+
+                    </div>
+
+                    <div class="shop-product-info">
+
+                        <h3>
+                            BC Hoodie
+                        </h3>
+
+                        <p>
+                            Black
+                        </p>
+
+                        <strong>
+                            KSh 5,500
+                        </strong>
+
+                    </div>
+
+                </article>
+
+
+                <!-- HOODIE 2 -->
+
+                <article
+                    class="shop-product"
+                    data-category="clothing"
+                    data-price="5500"
+                    data-name="BC Hoodie Cream"
+                >
+
+                    <div class="shop-product-image">
+
+                        <button
+                            class="wishlist-product"
+                            onclick="toggleWishlist(this)"
+                        >
+                            ♡
+                        </button>
+
+                        <img
+                            src="images/hoodie-2.jpg"
+                            alt="BC Hoodie Cream"
+                        >
+
+                        <button
+                            class="shop-quick-add"
+                            onclick="addToCart('BC Hoodie Cream', 5500)"
+                        >
+                            QUICK ADD
+                        </button>
+
+                    </div>
+
+                    <div class="shop-product-info">
+
+                        <h3>
+                            BC Hoodie
+                        </h3>
+
+                        <p>
+                            Cream
+                        </p>
+
+                        <strong>
+                            KSh 5,500
+                        </strong>
+
+                    </div>
+
+                </article>
+
+
+                <!-- JORTS 1 -->
+
+                <article
+                    class="shop-product"
+                    data-category="denim"
+                    data-price="4500"
+                    data-name="BC Jorts"
+                >
+
+                    <div class="shop-product-image">
+
+                        <span class="product-label">
+                            NEW
+                        </span>
+
+                        <button
+                            class="wishlist-product"
+                            onclick="toggleWishlist(this)"
+                        >
+                            ♡
+                        </button>
+
+                        <img
+                            src="images/jorts-1.jpg"
+                            alt="BC Jorts"
+                        >
+
+                        <button
+                            class="shop-quick-add"
+                            onclick="addToCart('BC Jorts', 4500)"
+                        >
+                            QUICK ADD
+                        </button>
+
+                    </div>
+
+                    <div class="shop-product-info">
+
+                        <h3>
+                            BC Jorts
+                        </h3>
+
+                        <p>
+                            Blue
+                        </p>
+
+                        <strong>
+                            KSh 4,500
+                        </strong>
+
+                    </div>
+
+                </article>
+
+
+                <!-- DARK BLUE JORTS -->
+
+                <article
+                    class="shop-product"
+                    data-category="denim"
+                    data-price="4500"
+                    data-name="BC Jorts Dark Blue"
+                >
+
+                    <div class="shop-product-image">
+
+                        <button
+                            class="wishlist-product"
+                            onclick="toggleWishlist(this)"
+                        >
+                            ♡
+                        </button>
+
+                        <img
+                            src="images/jorts-dark-blue.jpg"
+                            alt="BC Dark Blue Jorts"
+                        >
+
+                        <button
+                            class="shop-quick-add"
+                            onclick="addToCart('BC Jorts Dark Blue', 4500)"
+                        >
+                            QUICK ADD
+                        </button>
+
+                    </div>
+
+                    <div class="shop-product-info">
+
+                        <h3>
+                            BC Jorts
+                        </h3>
+
+                        <p>
+                            Dark Blue
+                        </p>
+
+                        <strong>
+                            KSh 4,500
+                        </strong>
+
+                    </div>
+
+                </article>
+
+
+                <!-- MARBLE JORTS -->
+
+                <article
+                    class="shop-product"
+                    data-category="denim"
+                    data-price="4500"
+                    data-name="BC Jorts Marble Blue"
+                >
+
+                    <div class="shop-product-image">
+
+                        <span class="product-label">
+                            NEW
+                        </span>
+
+                        <button
+                            class="wishlist-product"
+                            onclick="toggleWishlist(this)"
+                        >
+                            ♡
+                        </button>
+
+                        <img
+                            src="images/jorts-marble-blue.jpg"
+                            alt="BC Marble Blue Jorts"
+                        >
+
+                        <button
+                            class="shop-quick-add"
+                            onclick="addToCart('BC Jorts Marble Blue', 4500)"
+                        >
+                            QUICK ADD
+                        </button>
+
+                    </div>
+
+                    <div class="shop-product-info">
+
+                        <h3>
+                            BC Jorts
+                        </h3>
+
+                        <p>
+                            Marble Blue
+                        </p>
+
+                        <strong>
+                            KSh 4,500
+                        </strong>
+
+                    </div>
+
+                </article>
+
+
+                <!-- SKY BLUE JORTS -->
+
+                <article
+                    class="shop-product"
+                    data-category="denim"
+                    data-price="4500"
+                    data-name="BC Jorts Sky Blue"
+                >
+
+                    <div class="shop-product-image">
+
+                        <button
+                            class="wishlist-product"
+                            onclick="toggleWishlist(this)"
+                        >
+                            ♡
+                        </button>
+
+                        <img
+                            src="images/jorts-sky-blue.jpg"
+                            alt="BC Sky Blue Jorts"
+                        >
+
+                        <button
+                            class="shop-quick-add"
+                            onclick="addToCart('BC Jorts Sky Blue', 4500)"
+                        >
+                            QUICK ADD
+                        </button>
+
+                    </div>
+
+                    <div class="shop-product-info">
+
+                        <h3>
+                            BC Jorts
+                        </h3>
+
+                        <p>
+                            Sky Blue
+                        </p>
+
+                        <strong>
+                            KSh 4,500
+                        </strong>
+
+                    </div>
+
+                </article>
+
+
+                <!-- SHOULDER BAG BLACK CROSS -->
+
+                <article
+                    class="shop-product"
+                    data-category="accessories"
+                    data-price="3500"
+                    data-name="BC Cross Shoulder Bag"
+                >
+
+                    <div class="shop-product-image">
+
+                        <span class="product-label">
+                            NEW
+                        </span>
+
+                        <button
+                            class="wishlist-product"
+                            onclick="toggleWishlist(this)"
+                        >
+                            ♡
+                        </button>
+
+                        <img
+                            src="images/shoulder-bag-black-cross.jpg"
+                            alt="BC Cross Shoulder Bag"
+                        >
+
+                        <button
+                            class="shop-quick-add"
+                            onclick="addToCart('BC Cross Shoulder Bag', 3500)"
+                        >
+                            QUICK ADD
+                        </button>
+
+                    </div>
+
+                    <div class="shop-product-info">
+
+                        <h3>
+                            Cross Shoulder Bag
+                        </h3>
+
+                        <p>
+                            Black
+                        </p>
+
+                        <strong>
+                            KSh 3,500
+                        </strong>
+
+                    </div>
+
+                </article>
+
+
+                <!-- SHOULDER BAG BLACK -->
+
+                <article
+                    class="shop-product"
+                    data-category="accessories"
+                    data-price="3500"
+                    data-name="BC Shoulder Bag Black"
+                >
+
+                    <div class="shop-product-image">
+
+                        <button
+                            class="wishlist-product"
+                            onclick="toggleWishlist(this)"
+                        >
+                            ♡
+                        </button>
+
+                        <img
+                            src="images/shoulder-bag-black.jpg"
+                            alt="BC Black Shoulder Bag"
+                        >
+
+                        <button
+                            class="shop-quick-add"
+                            onclick="addToCart('BC Shoulder Bag Black', 3500)"
+                        >
+                            QUICK ADD
+                        </button>
+
+                    </div>
+
+                    <div class="shop-product-info">
+
+                        <h3>
+                            Shoulder Bag
+                        </h3>
+
+                        <p>
+                            Black
+                        </p>
+
+                        <strong>
+                            KSh 3,500
+                        </strong>
+
+                    </div>
+
+                </article>
+
+
+                <!-- SHOULDER BAG BROWN -->
+
+                <article
+                    class="shop-product"
+                    data-category="accessories"
+                    data-price="3500"
+                    data-name="BC Shoulder Bag Brown"
+                >
+
+                    <div class="shop-product-image">
+
+                        <button
+                            class="wishlist-product"
+                            onclick="toggleWishlist(this)"
+                        >
+                            ♡
+                        </button>
+
+                        <img
+                            src="images/shoulder-bag-brown.jpg"
+                            alt="BC Brown Shoulder Bag"
+                        >
+
+                        <button
+                            class="shop-quick-add"
+                            onclick="addToCart('BC Shoulder Bag Brown', 3500)"
+                        >
+                            QUICK ADD
+                        </button>
+
+                    </div>
+
+                    <div class="shop-product-info">
+
+                        <h3>
+                            Shoulder Bag
+                        </h3>
+
+                        <p>
+                            Brown
+                        </p>
+
+                        <strong>
+                            KSh 3,500
+                        </strong>
+
+                    </div>
+
+                </article>
+
+
+                <!-- SHOULDER BAG ORANGE -->
+
+                <article
+                    class="shop-product"
+                    data-category="accessories"
+                    data-price="3500"
+                    data-name="BC Shoulder Bag Orange"
+                >
+
+                    <div class="shop-product-image">
+
+                        <button
+                            class="wishlist-product"
+                            onclick="toggleWishlist(this)"
+                        >
+                            ♡
+                        </button>
+
+                        <img
+                            src="images/shoulder-bag-orange.jpg"
+                            alt="BC Orange Shoulder Bag"
+                        >
+
+                        <button
+                            class="shop-quick-add"
+                            onclick="addToCart('BC Shoulder Bag Orange', 3500)"
+                        >
+                            QUICK ADD
+                        </button>
+
+                    </div>
+
+                    <div class="shop-product-info">
+
+                        <h3>
+                            Shoulder Bag
+                        </h3>
+
+                        <p>
+                            Orange
+                        </p>
+
+                        <strong>
+                            KSh 3,500
+                        </strong>
+
+                    </div>
+
+                </article>
+
+
+                <!-- SHOULDER BAG PINK -->
+
+                <article
+                    class="shop-product"
+                    data-category="accessories"
+                    data-price="3500"
+                    data-name="BC Shoulder Bag Pink"
+                >
+
+                    <div class="shop-product-image">
+
+                        <button
+                            class="wishlist-product"
+                            onclick="toggleWishlist(this)"
+                        >
+                            ♡
+                        </button>
+
+                        <img
+                            src="images/shoulder-bag-pink.jpg"
+                            alt="BC Pink Shoulder Bag"
+                        >
+
+                        <button
+                            class="shop-quick-add"
+                            onclick="addToCart('BC Shoulder Bag Pink', 3500)"
+                        >
+                            QUICK ADD
+                        </button>
+
+                    </div>
+
+                    <div class="shop-product-info">
+
+                        <h3>
+                            Shoulder Bag
+                        </h3>
+
+                        <p>
+                            Pink
+                        </p>
+
+                        <strong>
+                            KSh 3,500
+                        </strong>
+
+                    </div>
+
+                </article>
+
+
+                <!-- SOCKS BLACK -->
+
+                <article
+                    class="shop-product"
+                    data-category="accessories"
+                    data-price="1500"
+                    data-name="BC Socks Black"
+                >
+
+                    <div class="shop-product-image">
+
+                        <button
+                            class="wishlist-product"
+                            onclick="toggleWishlist(this)"
+                        >
+                            ♡
+                        </button>
+
+                        <img
+                            src="images/socks-black.jpg"
+                            alt="BC Black Socks"
+                        >
+
+                        <button
+                            class="shop-quick-add"
+                            onclick="addToCart('BC Socks Black', 1500)"
+                        >
+                            QUICK ADD
+                        </button>
+
+                    </div>
+
+                    <div class="shop-product-info">
+
+                        <h3>
+                            BC Socks
+                        </h3>
+
+                        <p>
+                            Black
+                        </p>
+
+                        <strong>
+                            KSh 1,500
+                        </strong>
+
+                    </div>
+
+                </article>
+
+
+                <!-- SOCKS WHITE -->
+
+                <article
+                    class="shop-product"
+                    data-category="accessories"
+                    data-price="1500"
+                    data-name="BC Socks White"
+                >
+
+                    <div class="shop-product-image">
+
+                        <button
+                            class="wishlist-product"
+                            onclick="toggleWishlist(this)"
+                        >
+                            ♡
+                        </button>
+
+                        <img
+                            src="images/socks-white.jpg"
+                            alt="BC White Socks"
+                        >
+
+                        <button
+                            class="shop-quick-add"
+                            onclick="addToCart('BC Socks White', 1500)"
+                        >
+                            QUICK ADD
+                        </button>
+
+                    </div>
+
+                    <div class="shop-product-info">
+
+                        <h3>
+                            BC Socks
+                        </h3>
+
+                        <p>
+                            White
+                        </p>
+
+                        <strong>
+                            KSh 1,500
+                        </strong>
+
+                    </div>
+
+                </article>
+
+
+                <!-- SWEATPANTS BLACK -->
+
+                <article
+                    class="shop-product"
+                    data-category="clothing"
+                    data-price="5000"
+                    data-name="BC Sweatpants Black"
+                >
+
+                    <div class="shop-product-image">
+
+                        <button
+                            class="wishlist-product"
+                            onclick="toggleWishlist(this)"
+                        >
+                            ♡
+                        </button>
+
+                        <img
+                            src="images/sweatpants-black.jpg"
+                            alt="BC Black Sweatpants"
+                        >
+
+                        <button
+                            class="shop-quick-add"
+                            onclick="addToCart('BC Sweatpants Black', 5000)"
+                        >
+                            QUICK ADD
+                        </button>
+
+                    </div>
+
+                    <div class="shop-product-info">
+
+                        <h3>
+                            BC Sweatpants
+                        </h3>
+
+                        <p>
+                            Black
+                        </p>
+
+                        <strong>
+                            KSh 5,000
+                        </strong>
+
+                    </div>
+
+                </article>
+
+
+                <!-- SWEATPANTS BURGUNDY -->
+
+                <article
+                    class="shop-product"
+                    data-category="clothing"
+                    data-price="5000"
+                    data-name="BC Sweatpants Burgundy"
+                >
+
+                    <div class="shop-product-image">
+
+                        <button
+                            class="wishlist-product"
+                            onclick="toggleWishlist(this)"
+                        >
+                            ♡
+                        </button>
+
+                        <img
+                            src="images/sweatpants-burgundy.jpg"
+                            alt="BC Burgundy Sweatpants"
+                        >
+
+                        <button
+                            class="shop-quick-add"
+                            onclick="addToCart('BC Sweatpants Burgundy', 5000)"
+                        >
+                            QUICK ADD
+                        </button>
+
+                    </div>
+
+                    <div class="shop-product-info">
+
+                        <h3>
+                            BC Sweatpants
+                        </h3>
+
+                        <p>
+                            Burgundy
+                        </p>
+
+                        <strong>
+                            KSh 5,000
+                        </strong>
+
+                    </div>
+
+                </article>
+
+
+                <!-- SWEATPANTS CREAM -->
+
+                <article
+                    class="shop-product"
+                    data-category="clothing"
+                    data-price="5000"
+                    data-name="BC Sweatpants Cream"
+                >
+
+                    <div class="shop-product-image">
+
+                        <button
+                            class="wishlist-product"
+                            onclick="toggleWishlist(this)"
+                        >
+                            ♡
+                        </button>
+
+                        <img
+                            src="images/sweatpants-cream.jpg"
+                            alt="BC Cream Sweatpants"
+                        >
+
+                        <button
+                            class="shop-quick-add"
+                            onclick="addToCart('BC Sweatpants Cream', 5000)"
+                        >
+                            QUICK ADD
+                        </button>
+
+                    </div>
+
+                    <div class="shop-product-info">
+
+                        <h3>
+                            BC Sweatpants
+                        </h3>
+
+                        <p>
+                            Cream
+                        </p>
+
+                        <strong>
+                            KSh 5,000
+                        </strong>
+
+                    </div>
+
+                </article>
+
+
+                <!-- SWEATPANTS GREY -->
+
+                <article
+                    class="shop-product"
+                    data-category="clothing"
+                    data-price="5000"
+                    data-name="BC Sweatpants Grey"
+                >
+
+                    <div class="shop-product-image">
+
+                        <button
+                            class="wishlist-product"
+                            onclick="toggleWishlist(this)"
+                        >
+                            ♡
+                        </button>
+
+                        <img
+                            src="images/sweatpants-grey.jpg"
+                            alt="BC Grey Sweatpants"
+                        >
+
+                        <button
+                            class="shop-quick-add"
+                            onclick="addToCart('BC Sweatpants Grey', 5000)"
+                        >
+                            QUICK ADD
+                        </button>
+
+                    </div>
+
+                    <div class="shop-product-info">
+
+                        <h3>
+                            BC Sweatpants
+                        </h3>
+
+                        <p>
+                            Grey
+                        </p>
+
+                        <strong>
+                            KSh 5,000
+                        </strong>
+
+                    </div>
+
+                </article>
+
+
+                <!-- TEE 1 -->
+
+                <article
+                    class="shop-product"
+                    data-category="clothing"
+                    data-price="3500"
+                    data-name="BC Graphic Tee"
+                >
+
+                    <div class="shop-product-image">
+
+                        <span class="product-label">
+                            NEW
+                        </span>
+
+                        <button
+                            class="wishlist-product"
+                            onclick="toggleWishlist(this)"
+                        >
+                            ♡
+                        </button>
+
+                        <img
+                            src="images/tee-1.jpg"
+                            alt="BC Graphic Tee"
+                        >
+
+                        <button
+                            class="shop-quick-add"
+                            onclick="addToCart('BC Graphic Tee', 3500)"
+                        >
+                            QUICK ADD
+                        </button>
+
+                    </div>
+
+                    <div class="shop-product-info">
+
+                        <h3>
+                            BC Graphic Tee
+                        </h3>
+
+                        <p>
+                            Black
+                        </p>
+
+                        <strong>
+                            KSh 3,500
+                        </strong>
+
+                    </div>
+
+                </article>
+
+
+                <!-- TEE 2 -->
+
+                <article
+                    class="shop-product"
+                    data-category="clothing"
+                    data-price="3500"
+                    data-name="BC Graphic Tee II"
+                >
+
+                    <div class="shop-product-image">
+
+                        <button
+                            class="wishlist-product"
+                            onclick="toggleWishlist(this)"
+                        >
+                            ♡
+                        </button>
+
+                        <img
+                            src="images/tee-2.jpg"
+                            alt="BC Graphic Tee II"
+                        >
+
+                        <button
+                            class="shop-quick-add"
+                            onclick="addToCart('BC Graphic Tee II', 3500)"
+                        >
+                            QUICK ADD
+                        </button>
+
+                    </div>
+
+                    <div class="shop-product-info">
+
+                        <h3>
+                            BC Graphic Tee
+                        </h3>
+
+                        <p>
+                            Signature
+                        </p>
+
+                        <strong>
+                            KSh 3,500
+                        </strong>
+
+                    </div>
+
+                </article>
+
+
+                <!-- TEE 3 -->
+
+                <article
+                    class="shop-product"
+                    data-category="clothing"
+                    data-price="3500"
+                    data-name="BC Graphic Tee III"
+                >
+
+                    <div class="shop-product-image">
+
+                        <button
+                            class="wishlist-product"
+                            onclick="toggleWishlist(this)"
+                        >
+                            ♡
+                        </button>
+
+                        <img
+                            src="images/tee-3.jpg"
+                            alt="BC Graphic Tee III"
+                        >
+
+                        <button
+                            class="shop-quick-add"
+                            onclick="addToCart('BC Graphic Tee III', 3500)"
+                        >
+                            QUICK ADD
+                        </button>
+
+                    </div>
+
+                    <div class="shop-product-info">
+
+                        <h3>
+                            BC Graphic Tee
+                        </h3>
+
+                        <p>
+                            Collection
+                        </p>
+
+                        <strong>
+                            KSh 3,500
+                        </strong>
+
+                    </div>
+
+                </article>
+
+
+                <!-- WIDE LEG JEANS -->
+
+                <article
+                    class="shop-product"
+                    data-category="denim"
+                    data-price="6000"
+                    data-name="BC Wide Leg Jeans"
+                >
+
+                    <div class="shop-product-image">
+
+                        <span class="product-label">
+                            NEW
+                        </span>
+
+                        <button
+                            class="wishlist-product"
+                            onclick="toggleWishlist(this)"
+                        >
+                            ♡
+                        </button>
+
+                        <img
+                            src="images/wide-leg-jeans-blue.jpg"
+                            alt="BC Wide Leg Jeans"
+                        >
+
+                        <button
+                            class="shop-quick-add"
+                            onclick="addToCart('BC Wide Leg Jeans', 6000)"
+                        >
+                            QUICK ADD
+                        </button>
+
+                    </div>
+
+                    <div class="shop-product-info">
+
+                        <h3>
+                            Wide-Leg Jeans
+                        </h3>
+
+                        <p>
+                            Blue
+                        </p>
+
+                        <strong>
+                            KSh 6,000
+                        </strong>
+
+                    </div>
+
+                </article>
+
+
+                <!-- CROSS NECKLACE -->
+
+                <article
+                    class="shop-product"
+                    data-category="accessories"
+                    data-price="2500"
+                    data-name="BC Silver Cross Necklace"
+                >
+
+                    <div class="shop-product-image">
+
+                        <span class="product-label">
+                            NEW
+                        </span>
+
+                        <button
+                            class="wishlist-product"
+                            onclick="toggleWishlist(this)"
+                        >
+                            ♡
+                        </button>
+
+                        <img
+                            src="images/cross-necklace-silver.jpg"
+                            alt="BC Silver Cross Necklace"
+                        >
+
+                        <button
+                            class="shop-quick-add"
+                            onclick="addToCart('BC Silver Cross Necklace', 2500)"
+                        >
+                            QUICK ADD
+                        </button>
+
+                    </div>
+
+                    <div class="shop-product-info">
+
+                        <h3>
+                            Cross Necklace
+                        </h3>
+
+                        <p>
+                            Silver
+                        </p>
+
+                        <strong>
+                            KSh 2,500
+                        </strong>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+
+            <!-- NO PRODUCTS MESSAGE -->
+
+            <div
+                id="no-products"
+                class="no-products"
+            >
+
+                <h3>
+                    NOTHING HERE YET.
+                </h3>
+
+                <p>
+                    Try another category.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- NEWSLETTER -->
+
+    <section class="newsletter">
+
+        <p class="small-heading">
+            JOIN THE COLLECTIVE
+        </p>
+
+        <h2>
+            STAY IN THE KNOW.
+        </h2>
+
+        <p>
+            New drops. New collections. BC stories.
+        </p>
+
+        <form onsubmit="subscribe(event)">
+
+            <input
+                type="email"
+                id="email"
+                placeholder="ENTER YOUR EMAIL"
+                required
+            >
+
+            <button type="submit">
+                JOIN →
+            </button>
+
+        </form>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="footer-brand">
+
+            <img
+                src="images/logo.png"
+                alt="Béni Carmel Collectives"
+            >
+
+            <p>
+                WEAR YOUR PURPOSE.
+            </p>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <div>
+
+                <h4>SHOP</h4>
+
+                <a href="shop.html">
+                    All Products
+                </a>
+
+                <a href="shop.html?category=clothing">
+                    Clothing
+                </a>
+
+                <a href="shop.html?category=denim">
+                    Denim
+                </a>
+
+                <a href="shop.html?category=headwear">
+                    Headwear
+                </a>
+
+                <a href="shop.html?category=accessories">
+                    Accessories
+                </a>
+
+            </div>
+
+
+            <div>
+
+                <h4>ABOUT</h4>
+
+                <a href="index.html#story">
+                    Our Story
+                </a>
+
+                <a href="index.html#collections">
+                    Collections
+                </a>
+
+                <a href="index.html">
+                    The Collective
+                </a>
+
+            </div>
+
+
+            <div>
+
+                <h4>HELP</h4>
+
+                <a href="#">
+                    Contact
+                </a>
+
+                <a href="#">
+                    Shipping
+                </a>
+
+                <a href="#">
+                    Returns
+                </a>
+
+                <a href="#">
+                    Size Guide
+                </a>
+
+            </div>
+
+
+            <div>
+
+                <h4>FOLLOW</h4>
+
+                <a href="#">
+                    Instagram
+                </a>
+
+                <a href="#">
+                    TikTok
+                </a>
+
+                <a href="#">
+                    Pinterest
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 BÉNI CARMEL COLLECTIVES
+            </p>
+
+            <p>
+                KENYA
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- SEARCH -->
+
+    <div
+        id="search-overlay"
+        class="overlay"
+    >
+
+        <button
+            class="close-overlay"
+            onclick="closeSearch()"
+        >
+            ×
+        </button>
+
+        <div class="search-box">
+
+            <p>
+                SEARCH BÉNI CARMEL
+            </p>
+
+            <input
+                id="site-search"
+                type="text"
+                placeholder="What are you looking for?"
+            >
+
+            <div
+                id="search-results"
+                class="search-results"
+            ></div>
+
+        </div>
+
+    </div>
+
+
+    <!-- CART -->
+
+    <div
+        id="cart-drawer"
+        class="cart-drawer"
+    >
+
+        <div class="cart-header">
+
+            <h2>
+                YOUR BAG
+            </h2>
+
+            <button onclick="closeCart()">
+                ×
+            </button>
+
+        </div>
+
+
+        <div id="cart-items">
+
+            <p class="empty-cart">
+                Your bag is currently empty.
+            </p>
+
+        </div>
+
+
+        <div class="cart-footer">
+
+            <div>
+
+                <span>
+                    SUBTOTAL
+                </span>
+
+                <strong id="cart-total">
+                    KSh 0
+                </strong>
+
+            </div>
+
+
+            <button class="checkout-button">
+                CHECKOUT
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div
+        id="cart-background"
+        class="cart-background"
+        onclick="closeCart()"
+    ></div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
