@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Checkout | Béni Carmel Collectives</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+    <div class="announcement">
+        BÉNI CARMEL COLLECTIVES — CHECKOUT
+    </div>
+
+
+    <header class="checkout-header">
+
+        <a href="index.html">
+
+            <img
+                src="images/logo.png"
+                alt="Béni Carmel Collectives"
+            >
+
+        </a>
+
+    </header>
+
+
+    <main class="checkout-page">
+
+        <div class="checkout-content">
+
+
+            <section class="checkout-form">
+
+                <p class="small-heading">
+                    YOUR DETAILS
+                </p>
+
+                <h1>
+                    CHECKOUT
+                </h1>
+
+
+                <form
+                    id="checkout-form"
+                    onsubmit="submitOrder(event)"
+                >
+
+
+                    <label>
+                        EMAIL ADDRESS
+                    </label>
+
+                    <input
+                        type="email"
+                        id="checkout-email"
+                        required
+                    >
+
+
+                    <div class="checkout-row">
+
+                        <div>
+
+                            <label>
+                                FIRST NAME
+                            </label>
+
+                            <input
+                                type="text"
+                                id="first-name"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div>
+
+                            <label>
+                                LAST NAME
+                            </label>
+
+                            <input
+                                type="text"
+                                id="last-name"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <label>
+                        PHONE NUMBER
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="phone"
+                        placeholder="+254"
+                        required
+                    >
+
+
+                    <label>
+                        DELIVERY ADDRESS
+                    </label>
+
+                    <input
+                        type="text"
+                        id="address"
+                        required
+                    >
+
+
+                    <div class="checkout-row">
+
+                        <div>
+
+                            <label>
+                                CITY
+                            </label>
+
+                            <input
+                                type="text"
+                                id="city"
+                                value="Nairobi"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div>
+
+                            <label>
+                                COUNTRY
+                            </label>
+
+                            <input
+                                type="text"
+                                value="Kenya"
+                                readonly
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="payment-section">
+
+                        <p class="small-heading">
+                            PAYMENT
+                        </p>
+
+                        <div class="payment-option">
+
+                            <input
+                                type="radio"
+                                name="payment"
+                                value="mpesa"
+                                checked
+                            >
+
+                            <span>
+                                M-PESA
+                            </span>
+
+                        </div>
+
+
+                        <div class="payment-option">
+
+                            <input
+                                type="radio"
+                                name="payment"
+                                value="card"
+                            >
+
+                            <span>
+                                CARD
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        class="place-order-button"
+                        type="submit"
+                    >
+                        PLACE ORDER
+                    </button>
+
+
+                </form>
+
+            </section>
+
+
+            <aside class="checkout-summary">
+
+                <p class="small-heading">
+                    ORDER SUMMARY
+                </p>
+
+                <div id="checkout-items">
+                </div>
+
+
+                <div class="checkout-total">
+
+                    <span>
+                        TOTAL
+                    </span>
+
+                    <strong id="checkout-total">
+                        KSh 0
+                    </strong>
+
+                </div>
+
+            </aside>
+
+        </div>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
