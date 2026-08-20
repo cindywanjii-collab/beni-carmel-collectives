@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Béni Carmel Collectives</title>
+
+    <meta
+        name="description"
+        content="Béni Carmel Collectives — a contemporary Kenyan fashion collective merging faith, identity, culture and creative expression."
+    >
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ANNOUNCEMENT BAR -->
+    <div class="announcement">
+        WELCOME TO THE COLLECTIVE — WEAR YOUR PURPOSE.
+    </div>
+
+
+    <!-- NAVIGATION -->
+    <header class="header">
+
+        <div class="mobile-menu-button" onclick="toggleMenu()">
+            ☰
+        </div>
+
+        <a href="index.html" class="logo">
+            <img src="images/logo.png" alt="Béni Carmel Collectives">
+        </a>
+
+        <nav class="desktop-nav">
+
+            <a href="#new-in">NEW IN</a>
+
+            <a href="#shop">CLOTHING</a>
+
+            <a href="#denim">DENIM</a>
+
+            <a href="#accessories">ACCESSORIES</a>
+
+            <a href="#headwear">HEADWEAR</a>
+
+            <a href="#collections">COLLECTIONS</a>
+
+        </nav>
+
+        <div class="nav-icons">
+
+            <button onclick="openSearch()" aria-label="Search">
+                ⌕
+            </button>
+
+            <button onclick="openWishlist()" aria-label="Wishlist">
+                ♡
+            </button>
+
+            <button onclick="openAccount()" aria-label="Account">
+                ♙
+            </button>
+
+            <button onclick="openCart()" aria-label="Shopping bag">
+                🛍
+                <span id="cart-count">0</span>
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- MOBILE NAVIGATION -->
+    <div id="mobile-menu" class="mobile-menu">
+
+        <a href="#new-in" onclick="closeMenu()">NEW IN</a>
+
+        <a href="#shop" onclick="closeMenu()">CLOTHING</a>
+
+        <a href="#denim" onclick="closeMenu()">DENIM</a>
+
+        <a href="#accessories" onclick="closeMenu()">ACCESSORIES</a>
+
+        <a href="#headwear" onclick="closeMenu()">HEADWEAR</a>
+
+        <a href="#collections" onclick="closeMenu()">COLLECTIONS</a>
+
+        <a href="#story" onclick="closeMenu()">OUR STORY</a>
+
+    </div>
+
+
+    <!-- HERO -->
+    <section class="hero">
+
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+
+            <p class="eyebrow">
+                BÉNI CARMEL COLLECTIVES
+            </p>
+
+            <h1>
+                WEAR YOUR<br>
+                PURPOSE.
+            </h1>
+
+            <p class="hero-description">
+                Faith. Identity. Culture. Expression.
+            </p>
+
+            <a href="#new-in" class="primary-button">
+                SHOP NEW ARRIVALS
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- NEW IN -->
+    <section class="section" id="new-in">
+
+        <div class="section-heading">
+
+            <div>
+                <p class="small-heading">
+                    THE LATEST
+                </p>
+
+                <h2>
+                    NEW IN
+                </h2>
+            </div>
+
+            <a href="#shop" class="view-all">
+                VIEW ALL →
+            </a>
+
+        </div>
+
+
+        <div class="product-grid">
+
+            <!-- PRODUCT 1 -->
+            <article class="product-card">
+
+                <div class="product-image">
+
+                    <img
+                        src="images/hoodie-1.jpg"
+                        alt="Béni Carmel Hoodie"
+                    >
+
+                    <button class="wishlist">
+                        ♡
+                    </button>
+
+                    <button
+                        class="quick-add"
+                        onclick="addToCart('BC Hoodie', 5500)"
+                    >
+                        QUICK ADD
+                    </button>
+
+                </div>
+
+                <div class="product-details">
+
+                    <h3>
+                        BC Hoodie
+                    </h3>
+
+                    <p>
+                        Black
+                    </p>
+
+                    <strong>
+                        KSh 5,500
+                    </strong>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCT 2 -->
+            <article class="product-card">
+
+                <div class="product-image">
+
+                    <img
+                        src="images/jorts-marble-blue.jpg"
+                        alt="Marble Blue Jorts"
+                    >
+
+                    <button class="wishlist">
+                        ♡
+                    </button>
+
+                    <button
+                        class="quick-add"
+                        onclick="addToCart('Marble Blue Jorts', 4500)"
+                    >
+                        QUICK ADD
+                    </button>
+
+                </div>
+
+                <div class="product-details">
+
+                    <h3>
+                        Marble Blue Jorts
+                    </h3>
+
+                    <p>
+                        Marble Blue
+                    </p>
+
+                    <strong>
+                        KSh 4,500
+                    </strong>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCT 3 -->
+            <article class="product-card">
+
+                <div class="product-image">
+
+                    <img
+                        src="images/college-jacket.jpg"
+                        alt="BC College Jacket"
+                    >
+
+                    <button class="wishlist">
+                        ♡
+                    </button>
+
+                    <button
+                        class="quick-add"
+                        onclick="addToCart('BC College Jacket', 7500)"
+                    >
+                        QUICK ADD
+                    </button>
+
+                </div>
+
+                <div class="product-details">
+
+                    <h3>
+                        BC College Jacket
+                    </h3>
+
+                    <p>
+                        Signature
+                    </p>
+
+                    <strong>
+                        KSh 7,500
+                    </strong>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCT 4 -->
+            <article class="product-card">
+
+                <div class="product-image">
+
+                    <img
+                        src="images/beanie-burgundy.jpg"
+                        alt="Burgundy BC Beanie"
+                    >
+
+                    <button class="wishlist">
+                        ♡
+                    </button>
+
+                    <button
+                        class="quick-add"
+                        onclick="addToCart('Burgundy BC Beanie', 2000)"
+                    >
+                        QUICK ADD
+                    </button>
+
+                </div>
+
+                <div class="product-details">
+
+                    <h3>
+                        BC Beanie
+                    </h3>
+
+                    <p>
+                        Burgundy
+                    </p>
+
+                    <strong>
+                        KSh 2,000
+                    </strong>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- BRAND STATEMENT -->
+    <section class="brand-section">
+
+        <p class="small-heading">
+            THE COLLECTIVE
+        </p>
+
+        <h2>
+            MORE THAN<br>
+            CLOTHING.
+        </h2>
+
+        <p>
+            Béni Carmel Collectives is a contemporary Kenyan
+            fashion collective merging faith, identity,
+            culture and creative expression.
+        </p>
+
+        <a href="#story" class="light-button">
+            DISCOVER THE COLLECTIVE
+        </a>
+
+    </section>
+
+
+    <!-- SHOP BY CATEGORY -->
+    <section class="section" id="shop">
+
+        <div class="section-heading">
+
+            <div>
+                <p class="small-heading">
+                    EXPLORE
+                </p>
+
+                <h2>
+                    SHOP BY CATEGORY
+                </h2>
+            </div>
+
+        </div>
+
+
+        <div class="category-grid">
+
+            <a href="#clothing" class="category-card">
+
+                <img
+                    src="images/hoodie-2.jpg"
+                    alt="BC Clothing"
+                >
+
+                <div>
+                    <h3>CLOTHING</h3>
+                    <span>SHOP CLOTHING →</span>
+                </div>
+
+            </a>
+
+
+            <a href="#denim" class="category-card">
+
+                <img
+                    src="images/jorts-dark-blue.jpg"
+                    alt="BC Denim"
+                >
+
+                <div>
+                    <h3>DENIM</h3>
+                    <span>SHOP DENIM →</span>
+                </div>
+
+            </a>
+
+
+            <a href="#headwear" class="category-card">
+
+                <img
+                    src="images/beanie-black.jpg"
+                    alt="BC Headwear"
+                >
+
+                <div>
+                    <h3>HEADWEAR</h3>
+                    <span>SHOP HEADWEAR →</span>
+                </div>
+
+            </a>
+
+
+            <a href="#accessories" class="category-card">
+
+                <img
+                    src="images/shoulder-bag-black.jpg"
+                    alt="BC Accessories"
+                >
+
+                <div>
+                    <h3>ACCESSORIES</h3>
+                    <span>SHOP ACCESSORIES →</span>
+                </div>
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- FEATURED PRODUCTS -->
+    <section class="section featured-section">
+
+        <div class="section-heading">
+
+            <div>
+                <p class="small-heading">
+                    BC ESSENTIALS
+                </p>
+
+                <h2>
+                    THE EVERYDAY EDIT
+                </h2>
+            </div>
+
+        </div>
+
+
+        <div class="product-grid">
+
+            <article class="product-card">
+
+                <div class="product-image">
+
+                    <img
+                        src="images/tee-1.jpg"
+                        alt="BC Graphic Tee"
+                    >
+
+                    <button class="wishlist">
+                        ♡
+                    </button>
+
+                    <button
+                        class="quick-add"
+                        onclick="addToCart('BC Graphic Tee', 3500)"
+                    >
+                        QUICK ADD
+                    </button>
+
+                </div>
+
+                <div class="product-details">
+
+                    <h3>BC Graphic Tee</h3>
+                    <p>Black</p>
+                    <strong>KSh 3,500</strong>
+
+                </div>
+
+            </article>
+
+
+            <article class="product-card">
+
+                <div class="product-image">
+
+                    <img
+                        src="images/sweatpants-cream.jpg"
+                        alt="BC Sweatpants"
+                    >
+
+                    <button class="wishlist">
+                        ♡
+                    </button>
+
+                    <button
+                        class="quick-add"
+                        onclick="addToCart('BC Sweatpants', 5000)"
+                    >
+                        QUICK ADD
+                    </button>
+
+                </div>
+
+                <div class="product-details">
+
+                    <h3>BC Sweatpants</h3>
+                    <p>Cream</p>
+                    <strong>KSh 5,000</strong>
+
+                </div>
+
+            </article>
+
+
+            <article class="product-card">
+
+                <div class="product-image">
+
+                    <img
+                        src="images/wide-leg-jeans-blue.jpg"
+                        alt="BC Wide Leg Jeans"
+                    >
+
+                    <button class="wishlist">
+                        ♡
+                    </button>
+
+                    <button
+                        class="quick-add"
+                        onclick="addToCart('BC Wide-Leg Jeans', 6000)"
+                    >
+                        QUICK ADD
+                    </button>
+
+                </div>
+
+                <div class="product-details">
+
+                    <h3>BC Wide-Leg Jeans</h3>
+                    <p>Blue</p>
+                    <strong>KSh 6,000</strong>
+
+                </div>
+
+            </article>
+
+
+            <article class="product-card">
+
+                <div class="product-image">
+
+                    <img
+                        src="images/cross-necklace-silver.jpg"
+                        alt="Silver Cross Necklace"
+                    >
+
+                    <button class="wishlist">
+                        ♡
+                    </button>
+
+                    <button
+                        class="quick-add"
+                        onclick="addToCart('Silver Cross Necklace', 2500)"
+                    >
+                        QUICK ADD
+                    </button>
+
+                </div>
+
+                <div class="product-details">
+
+                    <h3>Silver Cross Necklace</h3>
+                    <p>Silver</p>
+                    <strong>KSh 2,500</strong>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- STORY -->
+    <section class="story-section" id="story">
+
+        <div class="story-image">
+
+            <img
+                src="images/denim-jacket-1.jpg"
+                alt="Béni Carmel Collectives"
+            >
+
+        </div>
+
+        <div class="story-content">
+
+            <p class="small-heading">
+                OUR STORY
+            </p>
+
+            <h2>
+                BLESSED TO<br>
+                BECOME.
+            </h2>
+
+            <p>
+                Béni means blessed. Carmel carries the symbolism
+                of abundance and fruitfulness.
+            </p>
+
+            <p>
+                Béni Carmel Collectives was created around the
+                belief that clothing can carry identity,
+                conviction, culture and purpose.
+            </p>
+
+            <a href="#collections">
+                READ OUR STORY →
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- COLLECTIONS -->
+    <section class="collections-section" id="collections">
+
+        <p class="small-heading">
+            THE WORLD OF BC
+        </p>
+
+        <h2>
+            COLLECTIONS
+        </h2>
+
+
+        <div class="collection-grid">
+
+            <div class="collection-card">
+
+                <img
+                    src="images/tee-2.jpg"
+                    alt="BC-001 Blessed"
+                >
+
+                <div class="collection-overlay">
+
+                    <p>BC-001</p>
+
+                    <h3>BLESSED</h3>
+
+                    <a href="#shop">
+                        EXPLORE →
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="collection-card">
+
+                <img
+                    src="images/tee-3.jpg"
+                    alt="BC-002 The Saints"
+                >
+
+                <div class="collection-overlay">
+
+                    <p>BC-002</p>
+
+                    <h3>THE SAINTS</h3>
+
+                    <a href="#shop">
+                        EXPLORE →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- NEWSLETTER -->
+    <section class="newsletter">
+
+        <p class="small-heading">
+            JOIN THE COLLECTIVE
+        </p>
+
+        <h2>
+            STAY IN THE KNOW.
+        </h2>
+
+        <p>
+            Be the first to know about new drops,
+            collections and BC stories.
+        </p>
+
+        <form onsubmit="subscribe(event)">
+
+            <input
+                type="email"
+                id="email"
+                placeholder="ENTER YOUR EMAIL"
+                required
+            >
+
+            <button type="submit">
+                JOIN →
+            </button>
+
+        </form>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div class="footer-brand">
+
+            <img
+                src="images/logo.png"
+                alt="Béni Carmel Collectives"
+            >
+
+            <p>
+                WEAR YOUR PURPOSE.
+            </p>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <div>
+
+                <h4>SHOP</h4>
+
+                <a href="#shop">All Products</a>
+                <a href="#new-in">New In</a>
+                <a href="#denim">Denim</a>
+                <a href="#headwear">Headwear</a>
+                <a href="#accessories">Accessories</a>
+
+            </div>
+
+
+            <div>
+
+                <h4>ABOUT</h4>
+
+                <a href="#story">Our Story</a>
+                <a href="#collections">Collections</a>
+                <a href="#story">The Collective</a>
+
+            </div>
+
+
+            <div>
+
+                <h4>HELP</h4>
+
+                <a href="#">Contact</a>
+                <a href="#">Shipping</a>
+                <a href="#">Returns</a>
+                <a href="#">Size Guide</a>
+
+            </div>
+
+
+            <div>
+
+                <h4>FOLLOW</h4>
+
+                <a href="#">Instagram</a>
+                <a href="#">TikTok</a>
+                <a href="#">Pinterest</a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 BÉNI CARMEL COLLECTIVES
+            </p>
+
+            <p>
+                KENYA
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- SEARCH OVERLAY -->
+    <div id="search-overlay" class="overlay">
+
+        <button
+            class="close-overlay"
+            onclick="closeSearch()"
+        >
+            ×
+        </button>
+
+        <div class="search-box">
+
+            <p>
+                SEARCH BÉNI CARMEL
+            </p>
+
+            <input
+                type="text"
+                placeholder="What are you looking for?"
+                autofocus
+            >
+
+        </div>
+
+    </div>
+
+
+    <!-- CART DRAWER -->
+    <div id="cart-drawer" class="cart-drawer">
+
+        <div class="cart-header">
+
+            <h2>
+                YOUR BAG
+            </h2>
+
+            <button onclick="closeCart()">
+                ×
+            </button>
+
+        </div>
+
+        <div id="cart-items">
+
+            <p class="empty-cart">
+                Your bag is currently empty.
+            </p>
+
+        </div>
+
+        <div class="cart-footer">
+
+            <div>
+                <span>SUBTOTAL</span>
+                <strong id="cart-total">
+                    KSh 0
+                </strong>
+            </div>
+
+            <button class="checkout-button">
+                CHECKOUT
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div
+        id="cart-background"
+        class="cart-background"
+        onclick="closeCart()"
+    ></div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
