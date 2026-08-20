@@ -12,6 +12,11 @@
 
     <title>Checkout | Béni Carmel Collectives</title>
 
+    <meta
+        name="description"
+        content="Complete your Béni Carmel Collectives order."
+    >
+
     <link
         rel="stylesheet"
         href="style.css"
@@ -22,14 +27,21 @@
 
 <body>
 
+    <!-- ANNOUNCEMENT -->
+
     <div class="announcement">
-        BÉNI CARMEL COLLECTIVES — CHECKOUT
+        BÉNI CARMEL COLLECTIVES — WEAR YOUR PURPOSE.
     </div>
 
 
-    <header class="checkout-header">
+    <!-- HEADER -->
 
-        <a href="index.html">
+    <header class="header">
+
+        <a
+            href="index.html"
+            class="logo"
+        >
 
             <img
                 src="images/logo.png"
@@ -38,18 +50,32 @@
 
         </a>
 
+
+        <nav class="desktop-nav">
+
+            <a href="index.html">
+                HOME
+            </a>
+
+            <a href="shop.html">
+                SHOP
+            </a>
+
+        </nav>
+
     </header>
 
 
+    <!-- CHECKOUT -->
+
     <main class="checkout-page">
 
-        <div class="checkout-content">
+        <section class="checkout-container">
 
-
-            <section class="checkout-form">
+            <div class="checkout-form">
 
                 <p class="small-heading">
-                    YOUR DETAILS
+                    BÉNI CARMEL COLLECTIVES
                 </p>
 
                 <h1>
@@ -59,173 +85,115 @@
 
                 <form
                     id="checkout-form"
-                    onsubmit="submitOrder(event)"
+                    onsubmit="placeOrder(event)"
                 >
 
+                    <div class="form-section">
 
-                    <label>
-                        EMAIL ADDRESS
-                    </label>
+                        <h2>
+                            CONTACT INFORMATION
+                        </h2>
 
-                    <input
-                        type="email"
-                        id="checkout-email"
-                        required
-                    >
+                        <input
+                            type="text"
+                            id="customer-name"
+                            placeholder="FULL NAME"
+                            required
+                        >
 
+                        <input
+                            type="email"
+                            id="customer-email"
+                            placeholder="EMAIL ADDRESS"
+                            required
+                        >
 
-                    <div class="checkout-row">
-
-                        <div>
-
-                            <label>
-                                FIRST NAME
-                            </label>
-
-                            <input
-                                type="text"
-                                id="first-name"
-                                required
-                            >
-
-                        </div>
-
-
-                        <div>
-
-                            <label>
-                                LAST NAME
-                            </label>
-
-                            <input
-                                type="text"
-                                id="last-name"
-                                required
-                            >
-
-                        </div>
+                        <input
+                            type="tel"
+                            id="customer-phone"
+                            placeholder="PHONE NUMBER"
+                            required
+                        >
 
                     </div>
 
 
-                    <label>
-                        PHONE NUMBER
-                    </label>
+                    <div class="form-section">
 
-                    <input
-                        type="tel"
-                        id="phone"
-                        placeholder="+254"
-                        required
-                    >
+                        <h2>
+                            DELIVERY INFORMATION
+                        </h2>
 
+                        <input
+                            type="text"
+                            id="customer-location"
+                            placeholder="DELIVERY LOCATION"
+                            required
+                        >
 
-                    <label>
-                        DELIVERY ADDRESS
-                    </label>
-
-                    <input
-                        type="text"
-                        id="address"
-                        required
-                    >
-
-
-                    <div class="checkout-row">
-
-                        <div>
-
-                            <label>
-                                CITY
-                            </label>
-
-                            <input
-                                type="text"
-                                id="city"
-                                value="Nairobi"
-                                required
-                            >
-
-                        </div>
-
-
-                        <div>
-
-                            <label>
-                                COUNTRY
-                            </label>
-
-                            <input
-                                type="text"
-                                value="Kenya"
-                                readonly
-                            >
-
-                        </div>
+                        <textarea
+                            id="customer-address"
+                            placeholder="DELIVERY ADDRESS / DETAILS"
+                            rows="4"
+                            required
+                        ></textarea>
 
                     </div>
 
 
-                    <div class="payment-section">
+                    <div class="form-section">
 
-                        <p class="small-heading">
+                        <h2>
                             PAYMENT
-                        </p>
+                        </h2>
 
-                        <div class="payment-option">
+                        <select
+                            id="payment-method"
+                            required
+                        >
 
-                            <input
-                                type="radio"
-                                name="payment"
-                                value="mpesa"
-                                checked
-                            >
+                            <option value="">
+                                SELECT PAYMENT METHOD
+                            </option>
 
-                            <span>
+                            <option value="mpesa">
                                 M-PESA
-                            </span>
+                            </option>
 
-                        </div>
+                            <option value="cash">
+                                CASH ON DELIVERY
+                            </option>
 
-
-                        <div class="payment-option">
-
-                            <input
-                                type="radio"
-                                name="payment"
-                                value="card"
-                            >
-
-                            <span>
-                                CARD
-                            </span>
-
-                        </div>
+                        </select>
 
                     </div>
 
 
                     <button
-                        class="place-order-button"
                         type="submit"
+                        class="place-order-button"
                     >
                         PLACE ORDER
                     </button>
 
-
                 </form>
 
-            </section>
+            </div>
 
+
+            <!-- ORDER SUMMARY -->
 
             <aside class="checkout-summary">
 
-                <p class="small-heading">
-                    ORDER SUMMARY
-                </p>
+                <h2>
+                    YOUR ORDER
+                </h2>
 
-                <div id="checkout-items">
-                </div>
+
+                <div
+                    id="checkout-items"
+                    class="checkout-items"
+                ></div>
 
 
                 <div class="checkout-total">
@@ -242,12 +210,255 @@
 
             </aside>
 
-        </div>
+        </section>
 
     </main>
 
 
+    <!-- SUCCESS MESSAGE -->
+
+    <div
+        id="order-success"
+        class="order-success"
+    >
+
+        <div class="order-success-box">
+
+            <h2>
+                ORDER RECEIVED
+            </h2>
+
+            <p>
+                Thank you for shopping with
+                Béni Carmel Collectives.
+            </p>
+
+            <p>
+                We will contact you shortly
+                to confirm your order.
+            </p>
+
+            <a href="shop.html">
+                CONTINUE SHOPPING
+            </a>
+
+        </div>
+
+    </div>
+
+
     <script src="script.js"></script>
+
+
+    <script>
+
+        function displayCheckout() {
+
+            const cart =
+                JSON.parse(
+                    localStorage.getItem(
+                        "beniCarmelCart"
+                    )
+                ) || [];
+
+
+            const itemsContainer =
+                document.getElementById(
+                    "checkout-items"
+                );
+
+
+            const totalElement =
+                document.getElementById(
+                    "checkout-total"
+                );
+
+
+            if (cart.length === 0) {
+
+                itemsContainer.innerHTML = `
+                    <p>
+                        Your bag is empty.
+                    </p>
+
+                    <a href="shop.html">
+                        RETURN TO SHOP
+                    </a>
+                `;
+
+                totalElement.textContent =
+                    "KSh 0";
+
+                return;
+
+            }
+
+
+            let total = 0;
+
+
+            itemsContainer.innerHTML =
+                cart.map(
+                    item => {
+
+                        const itemTotal =
+                            item.price *
+                            item.quantity;
+
+
+                        total += itemTotal;
+
+
+                        return `
+                            <div class="checkout-item">
+
+                                <div>
+
+                                    <strong>
+                                        ${item.name}
+                                    </strong>
+
+                                    <p>
+                                        Quantity:
+                                        ${item.quantity}
+                                    </p>
+
+                                </div>
+
+                                <strong>
+                                    KSh ${itemTotal.toLocaleString()}
+                                </strong>
+
+                            </div>
+                        `;
+
+                    }
+                ).join("");
+
+
+            totalElement.textContent =
+                "KSh " +
+                total.toLocaleString();
+
+        }
+
+
+        function placeOrder(event) {
+
+            event.preventDefault();
+
+
+            const cart =
+                JSON.parse(
+                    localStorage.getItem(
+                        "beniCarmelCart"
+                    )
+                ) || [];
+
+
+            if (cart.length === 0) {
+
+                alert(
+                    "Your bag is empty."
+                );
+
+                return;
+
+            }
+
+
+            const name =
+                document.getElementById(
+                    "customer-name"
+                ).value;
+
+
+            const email =
+                document.getElementById(
+                    "customer-email"
+                ).value;
+
+
+            const phone =
+                document.getElementById(
+                    "customer-phone"
+                ).value;
+
+
+            const location =
+                document.getElementById(
+                    "customer-location"
+                ).value;
+
+
+            const address =
+                document.getElementById(
+                    "customer-address"
+                ).value;
+
+
+            const payment =
+                document.getElementById(
+                    "payment-method"
+                ).value;
+
+
+            const order = {
+
+                customer: {
+                    name: name,
+                    email: email,
+                    phone: phone,
+                    location: location,
+                    address: address,
+                    payment: payment
+                },
+
+                products: cart,
+
+                total: cart.reduce(
+                    (sum, item) =>
+                        sum +
+                        item.price *
+                        item.quantity,
+                    0
+                ),
+
+                date:
+                    new Date().toISOString()
+
+            };
+
+
+            console.log(
+                "Béni Carmel Order:",
+                order
+            );
+
+
+            localStorage.removeItem(
+                "beniCarmelCart"
+            );
+
+
+            document.getElementById(
+                "order-success"
+            ).classList.add("active");
+
+
+            document.getElementById(
+                "checkout-form"
+            ).reset();
+
+        }
+
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            displayCheckout
+        );
+
+    </script>
 
 </body>
 
