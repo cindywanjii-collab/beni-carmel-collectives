@@ -24,6 +24,19 @@
         href="style.css"
     >
 
+<style>
+.newsletter-message {
+    margin-top: 14px;
+    min-height: 1.4em;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+.newsletter form button:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+</style>
+
 </head>
 
 
@@ -852,26 +865,35 @@
 
 
     <form
+        id="newsletterForm"
         onsubmit="subscribe(event)"
+        novalidate
     >
-
 
         <input
             type="email"
             id="newsletterEmail"
+            name="email"
             placeholder="Your email address"
+            autocomplete="email"
             required
         >
 
-
         <button
             type="submit"
+            id="newsletterButton"
         >
             JOIN
         </button>
 
-
     </form>
+
+    <p
+        id="newsletterMessage"
+        class="newsletter-message"
+        role="status"
+        aria-live="polite"
+    ></p>
 
 
 </section>
@@ -1428,6 +1450,81 @@
 <!-- ==================================================
      JAVASCRIPT
 ================================================== -->
+
+<script>
+/*
+  BÉNI CARMEL NEWSLETTER
+  Replace the URL below with your Formspree form endpoint.
+  Example: https://formspree.io/f/abcdwxyz
+
+  Formspree receives the subscriber's email so you can collect
+  subscribers without exposing an API key in this HTML file.
+*/
+const NEWSLETTER_ENDPOINT = "https://formspree.io/f/mppabyvy";
+
+async function subscribe(event) {
+    event.preventDefault();
+
+    const form = document.getElementById("newsletterForm");
+    const emailInput = document.getElementById("newsletterEmail");
+    const button = document.getElementById("newsletterButton");
+    const message = document.getElementById("newsletterMessage");
+
+    const email = emailInput.value.trim();
+
+    message.textContent = "";
+
+    if (!email || !emailInput.checkValidity()) {
+        message.textContent = "Please enter a valid email address.";
+        emailInput.focus();
+        return;
+    }
+
+    if (NEWSLETTER_ENDPOINT.includes("YOUR_FORM_ID")) {
+        message.textContent =
+            "Your subscription form is ready. Connect the newsletter form endpoint to activate subscriptions.";
+        return;
+    }
+
+    button.disabled = true;
+    button.textContent = "JOINING...";
+
+    try {
+        const response = await fetch(NEWSLETTER_ENDPOINT, {
+            method: "POST",
+            headers: {
+                "Accept": "application/json",
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                email: email,
+                source: "Béni Carmel Collectives website newsletter"
+            })
+        });
+
+        if (response.ok) {
+            form.reset();
+            message.textContent =
+                "You're in! We'll keep you updated on new drops and collections.";
+        } else {
+            let data = {};
+            try {
+                data = await response.json();
+            } catch (_) {}
+
+            message.textContent =
+                data?.errors?.[0]?.message ||
+                "Something went wrong. Please try again.";
+        }
+    } catch (error) {
+        message.textContent =
+            "We couldn't complete your subscription. Please check your connection and try again.";
+    } finally {
+        button.disabled = false;
+        button.textContent = "JOIN";
+    }
+}
+</script>
 
 <script src="script.js"></script>
 
