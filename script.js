@@ -1,15 +1,18 @@
 /* =========================================================
    BÉNI CARMEL COLLECTIVES
    MAIN WEBSITE SCRIPT
+   VERSION: PRICE-SAFE CART SYSTEM
    ========================================================= */
 
 
 /* =========================================================
    OFFICIAL PRODUCT PRICES
-   THESE MATCH shop.html EXACTLY
+   THESE ARE THE ONLY PRICES THE WEBSITE SHOULD USE
    ========================================================= */
 
 const PRODUCT_PRICES = {
+
+    /* HEADWEAR */
 
     "BC Beanie Beige": 500,
     "BC Beanie Black": 500,
@@ -24,18 +27,38 @@ const PRODUCT_PRICES = {
 
     "BC Cap White": 400,
 
-    "BC College Jacket": 1500,
 
-    "BC Denim Jacket": 1300,
-    "BC Denim Jacket II": 1300,
+    /* CLOTHING */
+
+    "BC College Jacket": 1500,
 
     "BC Hoodie Black": 1300,
     "BC Hoodie Cream": 1300,
+
+    "BC Sweatpants Black": 900,
+    "BC Sweatpants Burgundy": 900,
+    "BC Sweatpants Cream": 900,
+    "BC Sweatpants Grey": 900,
+
+    "BC Graphic Tee": 600,
+    "BC Graphic Tee II": 600,
+    "BC Graphic Tee III": 600,
+
+
+    /* DENIM */
+
+    "BC Denim Jacket": 1300,
+    "BC Denim Jacket II": 1300,
 
     "BC Jorts Blue": 1000,
     "BC Jorts Dark Blue": 1000,
     "BC Jorts Marble Blue": 1000,
     "BC Jorts Sky Blue": 1000,
+
+    "BC Wide Leg Jeans": 1000,
+
+
+    /* ACCESSORIES */
 
     "BC Cross Shoulder Bag": 800,
 
@@ -47,19 +70,115 @@ const PRODUCT_PRICES = {
     "BC Socks Black": 200,
     "BC Socks White": 200,
 
-    "BC Sweatpants Black": 900,
-    "BC Sweatpants Burgundy": 900,
-    "BC Sweatpants Cream": 900,
-    "BC Sweatpants Grey": 900,
-
-    "BC Graphic Tee": 600,
-    "BC Graphic Tee II": 600,
-    "BC Graphic Tee III": 600,
-
-    "BC Wide Leg Jeans": 1000,
-
     "BC Silver Cross Necklace": 500
 };
+
+
+/* =========================================================
+   LEGACY / ALTERNATIVE PRODUCT NAMES
+   This prevents old product names from carrying old prices.
+   ========================================================= */
+
+const PRODUCT_ALIASES = {
+
+    "BC Jorts": 1000,
+
+    "BC Hoodie": 1300,
+
+    "BC Hoodie 01": 1300,
+    "BC Hoodie 02": 1300,
+
+    "BC Denim": 1300,
+
+    "BC Wide-Leg Jeans": 1000,
+
+    "BC Graphic Tee": 600,
+
+    "BC Sweatpants": 900,
+
+    "BC Beanie": 500,
+
+    "BC Bucket Hat": 700,
+
+    "BC Cap": 400,
+
+    "BC Shoulder Bag": 650
+
+};
+
+
+/* =========================================================
+   GET OFFICIAL PRICE
+   ========================================================= */
+
+function getOfficialPrice(productName, fallbackPrice = 0) {
+
+    if (!productName) {
+        return Number(fallbackPrice) || 0;
+    }
+
+
+    /* Exact product name */
+
+    if (
+        Object.prototype.hasOwnProperty.call(
+            PRODUCT_PRICES,
+            productName
+        )
+    ) {
+
+        return PRODUCT_PRICES[productName];
+
+    }
+
+
+    /* Legacy / alternative product name */
+
+    if (
+        Object.prototype.hasOwnProperty.call(
+            PRODUCT_ALIASES,
+            productName
+        )
+    ) {
+
+        return PRODUCT_ALIASES[productName];
+
+    }
+
+
+    /* Try matching a product name inside the official list */
+
+    const lowerName =
+        productName
+            .toLowerCase()
+            .trim();
+
+
+    const matchingProduct =
+        Object.keys(PRODUCT_PRICES).find(
+            officialName =>
+                officialName
+                    .toLowerCase()
+                    .trim() === lowerName
+        );
+
+
+    if (matchingProduct) {
+
+        return PRODUCT_PRICES[matchingProduct];
+
+    }
+
+
+    /*
+       IMPORTANT:
+       Only use fallback when the product genuinely
+       does not exist in our official price list.
+    */
+
+    return Number(fallbackPrice) || 0;
+
+}
 
 
 /* =========================================================
@@ -68,33 +187,76 @@ const PRODUCT_PRICES = {
 
 function getCart() {
 
-    let cart = JSON.parse(
-        localStorage.getItem("beniCarmelCart")
-    ) || [];
+    let cart = [];
+
+    try {
+
+        cart =
+            JSON.parse(
+                localStorage.getItem(
+                    "beniCarmelCart"
+                )
+            ) || [];
+
+    } catch (error) {
+
+        console.error(
+            "Could not read Béni Carmel cart:",
+            error
+        );
+
+        cart = [];
+
+    }
+
+
+    if (!Array.isArray(cart)) {
+
+        cart = [];
+
+    }
 
 
     /*
-       ALWAYS replace the stored price
-       with the official shop price.
+       IMPORTANT:
+
+       Every existing cart item is recalculated
+       using the official Béni Carmel price.
+
+       This fixes old prices saved in localStorage.
     */
 
     cart = cart.map(item => {
 
-        if (PRODUCT_PRICES[item.name] !== undefined) {
+        const price =
+            getOfficialPrice(
+                item.name,
+                item.price
+            );
 
-            item.price =
-                PRODUCT_PRICES[item.name];
 
-        }
+        return {
 
-        return item;
+            ...item,
+
+            price: price,
+
+            quantity:
+                Math.max(
+                    1,
+                    Number(item.quantity) || 1
+                )
+
+        };
 
     });
 
 
     saveCart(cart);
 
+
     return cart;
+
 }
 
 
@@ -122,19 +284,23 @@ function addToCart(productName, productPrice) {
 
 
     /*
-       NEVER trust an old price.
-       Use PRODUCT_PRICES first.
+       NEVER trust the price coming from an old button,
+       old HTML or old JavaScript.
+
+       Always use the official price table.
     */
 
-    const price =
-        PRODUCT_PRICES[productName] !== undefined
-            ? PRODUCT_PRICES[productName]
-            : Number(productPrice);
+    const officialPrice =
+        getOfficialPrice(
+            productName,
+            productPrice
+        );
 
 
     const existingItem =
         cart.find(
-            item => item.name === productName
+            item =>
+                item.name === productName
         );
 
 
@@ -142,7 +308,8 @@ function addToCart(productName, productPrice) {
 
         existingItem.quantity += 1;
 
-        existingItem.price = price;
+        existingItem.price =
+            officialPrice;
 
     } else {
 
@@ -150,7 +317,7 @@ function addToCart(productName, productPrice) {
 
             name: productName,
 
-            price: price,
+            price: officialPrice,
 
             quantity: 1
 
@@ -161,11 +328,16 @@ function addToCart(productName, productPrice) {
 
     saveCart(cart);
 
+
     updateCart();
+
 
     openCart();
 
-    showAddedMessage(productName);
+
+    showAddedMessage(
+        productName
+    );
 
 }
 
@@ -180,38 +352,64 @@ function updateCart() {
 
 
     const cartItems =
-        document.getElementById("cart-items");
+        document.getElementById(
+            "cart-items"
+        );
 
 
     const cartTotal =
-        document.getElementById("cart-total");
+        document.getElementById(
+            "cart-total"
+        );
 
 
     const cartCount =
-        document.getElementById("cart-count");
+        document.getElementById(
+            "cart-count"
+        );
+
+
+    if (cartCount) {
+
+        const totalQuantity =
+            cart.reduce(
+                (sum, item) =>
+                    sum + Number(item.quantity),
+                0
+            );
+
+
+        cartCount.textContent =
+            totalQuantity;
+
+    }
 
 
     if (!cartItems) {
+
         return;
+
     }
 
+
+    /* EMPTY CART */
 
     if (cart.length === 0) {
 
         cartItems.innerHTML = `
+
             <p class="empty-cart">
                 Your bag is currently empty.
             </p>
+
         `;
 
 
         if (cartTotal) {
-            cartTotal.textContent = "KSh 0";
-        }
 
+            cartTotal.textContent =
+                "KSh 0";
 
-        if (cartCount) {
-            cartCount.textContent = "0";
         }
 
 
@@ -222,91 +420,91 @@ function updateCart() {
 
     let total = 0;
 
-    let quantityTotal = 0;
+
+    cartItems.innerHTML =
+        cart.map(
+            (item, index) => {
+
+                const price =
+                    getOfficialPrice(
+                        item.name,
+                        item.price
+                    );
 
 
-    cartItems.innerHTML = cart.map(
-        (item, index) => {
-
-            /*
-               IMPORTANT:
-               Get the price directly from the
-               official PRODUCT_PRICES object.
-            */
-
-            const itemPrice =
-                PRODUCT_PRICES[item.name] !== undefined
-                    ? PRODUCT_PRICES[item.name]
-                    : Number(item.price);
+                const quantity =
+                    Number(item.quantity) || 1;
 
 
-            const itemTotal =
-                itemPrice * item.quantity;
+                const itemTotal =
+                    price * quantity;
 
 
-            total += itemTotal;
-
-            quantityTotal += item.quantity;
+                total += itemTotal;
 
 
-            return `
+                return `
 
-                <div class="cart-item">
+                    <div class="cart-item">
 
-                    <div class="cart-item-info">
+                        <div class="cart-item-info">
 
-                        <strong>
-                            ${item.name}
-                        </strong>
+                            <strong>
+                                ${escapeHTML(item.name)}
+                            </strong>
 
-                        <p>
-                            KSh ${itemPrice.toLocaleString()}
-                        </p>
+                            <p>
+                                KSh ${price.toLocaleString()}
+                            </p>
 
-                        <div class="cart-quantity">
+
+                            <div class="cart-quantity">
+
+                                <button
+                                    type="button"
+                                    onclick="changeQuantity(${index}, -1)"
+                                >
+                                    −
+                                </button>
+
+                                <span>
+                                    ${quantity}
+                                </span>
+
+                                <button
+                                    type="button"
+                                    onclick="changeQuantity(${index}, 1)"
+                                >
+                                    +
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="cart-item-right">
+
+                            <strong>
+                                KSh ${itemTotal.toLocaleString()}
+                            </strong>
 
                             <button
-                                onclick="changeQuantity(${index}, -1)"
+                                type="button"
+                                class="remove-item"
+                                onclick="removeFromCart(${index})"
                             >
-                                −
-                            </button>
-
-                            <span>
-                                ${item.quantity}
-                            </span>
-
-                            <button
-                                onclick="changeQuantity(${index}, 1)"
-                            >
-                                +
+                                REMOVE
                             </button>
 
                         </div>
 
                     </div>
 
+                `;
 
-                    <div class="cart-item-right">
-
-                        <strong>
-                            KSh ${itemTotal.toLocaleString()}
-                        </strong>
-
-                        <button
-                            class="remove-item"
-                            onclick="removeFromCart(${index})"
-                        >
-                            REMOVE
-                        </button>
-
-                    </div>
-
-                </div>
-
-            `;
-
-        }
-    ).join("");
+            }
+        ).join("");
 
 
     if (cartTotal) {
@@ -314,14 +512,6 @@ function updateCart() {
         cartTotal.textContent =
             "KSh " +
             total.toLocaleString();
-
-    }
-
-
-    if (cartCount) {
-
-        cartCount.textContent =
-            quantityTotal;
 
     }
 
@@ -338,21 +528,31 @@ function changeQuantity(index, change) {
 
 
     if (!cart[index]) {
+
         return;
+
     }
 
 
-    cart[index].quantity += change;
+    cart[index].quantity =
+        Number(cart[index].quantity) +
+        Number(change);
 
 
-    if (cart[index].quantity <= 0) {
+    if (
+        cart[index].quantity <= 0
+    ) {
 
-        cart.splice(index, 1);
+        cart.splice(
+            index,
+            1
+        );
 
     }
 
 
     saveCart(cart);
+
 
     updateCart();
 
@@ -369,14 +569,20 @@ function removeFromCart(index) {
 
 
     if (!cart[index]) {
+
         return;
+
     }
 
 
-    cart.splice(index, 1);
+    cart.splice(
+        index,
+        1
+    );
 
 
     saveCart(cart);
+
 
     updateCart();
 
@@ -390,23 +596,31 @@ function removeFromCart(index) {
 function openCart() {
 
     const cartDrawer =
-        document.getElementById("cart-drawer");
+        document.getElementById(
+            "cart-drawer"
+        );
 
 
     const cartBackground =
-        document.getElementById("cart-background");
+        document.getElementById(
+            "cart-background"
+        );
 
 
     if (cartDrawer) {
 
-        cartDrawer.classList.add("active");
+        cartDrawer.classList.add(
+            "active"
+        );
 
     }
 
 
     if (cartBackground) {
 
-        cartBackground.classList.add("active");
+        cartBackground.classList.add(
+            "active"
+        );
 
     }
 
@@ -423,23 +637,31 @@ function openCart() {
 function closeCart() {
 
     const cartDrawer =
-        document.getElementById("cart-drawer");
+        document.getElementById(
+            "cart-drawer"
+        );
 
 
     const cartBackground =
-        document.getElementById("cart-background");
+        document.getElementById(
+            "cart-background"
+        );
 
 
     if (cartDrawer) {
 
-        cartDrawer.classList.remove("active");
+        cartDrawer.classList.remove(
+            "active"
+        );
 
     }
 
 
     if (cartBackground) {
 
-        cartBackground.classList.remove("active");
+        cartBackground.classList.remove(
+            "active"
+        );
 
     }
 
@@ -467,19 +689,16 @@ function goToCheckout() {
 
 
     /*
-       FINAL PRICE CHECK BEFORE CHECKOUT
+       Final price security check before checkout.
     */
 
     cart.forEach(item => {
 
-        if (
-            PRODUCT_PRICES[item.name] !== undefined
-        ) {
-
-            item.price =
-                PRODUCT_PRICES[item.name];
-
-        }
+        item.price =
+            getOfficialPrice(
+                item.name,
+                item.price
+            );
 
     });
 
@@ -494,7 +713,7 @@ function goToCheckout() {
 
 
 /* =========================================================
-   ADDED TO CART MESSAGE
+   SHOW ADDED MESSAGE
    ========================================================= */
 
 function showAddedMessage(productName) {
@@ -506,12 +725,16 @@ function showAddedMessage(productName) {
 
 
     if (oldMessage) {
+
         oldMessage.remove();
+
     }
 
 
     const message =
-        document.createElement("div");
+        document.createElement(
+            "div"
+        );
 
 
     message.className =
@@ -523,28 +746,113 @@ function showAddedMessage(productName) {
         " added to your bag";
 
 
-    document.body.appendChild(message);
+    document.body.appendChild(
+        message
+    );
 
 
-    setTimeout(() => {
+    setTimeout(
+        () => {
 
-        message.classList.add("show");
+            message.classList.add(
+                "show"
+            );
 
-    }, 10);
-
-
-    setTimeout(() => {
-
-        message.classList.remove("show");
-
-    }, 1800);
+        },
+        10
+    );
 
 
-    setTimeout(() => {
+    setTimeout(
+        () => {
 
-        message.remove();
+            message.classList.remove(
+                "show"
+            );
 
-    }, 2200);
+        },
+        1800
+    );
+
+
+    setTimeout(
+        () => {
+
+            message.remove();
+
+        },
+        2200
+    );
+
+}
+
+
+/* =========================================================
+   FORCE SHOP PRICES TO OFFICIAL PRICES
+   ========================================================= */
+
+function syncShopPrices() {
+
+    const products =
+        document.querySelectorAll(
+            ".shop-product"
+        );
+
+
+    if (!products.length) {
+
+        return;
+
+    }
+
+
+    products.forEach(product => {
+
+        const productName =
+            product.dataset.name;
+
+
+        if (!productName) {
+
+            return;
+
+        }
+
+
+        const officialPrice =
+            getOfficialPrice(
+                productName,
+                product.dataset.price
+            );
+
+
+        /*
+           Update data-price.
+        */
+
+        product.dataset.price =
+            officialPrice;
+
+
+        /*
+           Update visible price.
+        */
+
+        const priceElement =
+            product.querySelector(
+                ".shop-product-info strong"
+            );
+
+
+        if (priceElement) {
+
+            priceElement.textContent =
+                "KSh " +
+                officialPrice.toLocaleString();
+
+        }
+
+    });
 
 }
 
@@ -556,15 +864,21 @@ function showAddedMessage(productName) {
 function toggleMenu() {
 
     const menu =
-        document.getElementById("mobile-menu");
+        document.getElementById(
+            "mobile-menu"
+        );
 
 
     if (!menu) {
+
         return;
+
     }
 
 
-    menu.classList.toggle("active");
+    menu.classList.toggle(
+        "active"
+    );
 
 }
 
@@ -576,27 +890,36 @@ function toggleMenu() {
 function openSearch() {
 
     const overlay =
-        document.getElementById("search-overlay");
+        document.getElementById(
+            "search-overlay"
+        );
 
 
     if (overlay) {
 
-        overlay.classList.add("active");
+        overlay.classList.add(
+            "active"
+        );
 
     }
 
 
     const searchInput =
-        document.getElementById("site-search");
+        document.getElementById(
+            "site-search"
+        );
 
 
     if (searchInput) {
 
-        setTimeout(() => {
+        setTimeout(
+            () => {
 
-            searchInput.focus();
+                searchInput.focus();
 
-        }, 200);
+            },
+            200
+        );
 
     }
 
@@ -606,12 +929,16 @@ function openSearch() {
 function closeSearch() {
 
     const overlay =
-        document.getElementById("search-overlay");
+        document.getElementById(
+            "search-overlay"
+        );
 
 
     if (overlay) {
 
-        overlay.classList.remove("active");
+        overlay.classList.remove(
+            "active"
+        );
 
     }
 
@@ -625,15 +952,21 @@ function closeSearch() {
 function searchProducts() {
 
     const input =
-        document.getElementById("site-search");
+        document.getElementById(
+            "site-search"
+        );
 
 
     const results =
-        document.getElementById("search-results");
+        document.getElementById(
+            "search-results"
+        );
 
 
     if (!input || !results) {
+
         return;
+
     }
 
 
@@ -668,7 +1001,9 @@ function searchProducts() {
 
         const name =
             product.dataset.name ||
-            product.querySelector("h3")?.textContent ||
+            product.querySelector(
+                "h3"
+            )?.textContent ||
             "";
 
 
@@ -679,9 +1014,10 @@ function searchProducts() {
         ) {
 
             const price =
-                PRODUCT_PRICES[name] !== undefined
-                    ? PRODUCT_PRICES[name]
-                    : Number(product.dataset.price) || 0;
+                getOfficialPrice(
+                    name,
+                    product.dataset.price
+                );
 
 
             results.innerHTML += `
@@ -689,7 +1025,7 @@ function searchProducts() {
                 <div class="search-result">
 
                     <strong>
-                        ${name}
+                        ${escapeHTML(name)}
                     </strong>
 
                     <span>
@@ -729,18 +1065,31 @@ function searchProducts() {
 
 function toggleWishlist(button) {
 
-    button.classList.toggle("active");
+    if (!button) {
+
+        return;
+
+    }
+
+
+    button.classList.toggle(
+        "active"
+    );
 
 
     if (
-        button.classList.contains("active")
+        button.classList.contains(
+            "active"
+        )
     ) {
 
-        button.textContent = "♥";
+        button.textContent =
+            "♥";
 
     } else {
 
-        button.textContent = "♡";
+        button.textContent =
+            "♡";
 
     }
 
@@ -779,11 +1128,15 @@ function subscribe(event) {
 
 
     const email =
-        document.getElementById("email");
+        document.getElementById(
+            "email"
+        );
 
 
     if (!email) {
+
         return;
+
     }
 
 
@@ -831,69 +1184,76 @@ function setupFilters() {
     }
 
 
-    filterButtons.forEach(button => {
+    filterButtons.forEach(
+        button => {
 
-        button.addEventListener(
-            "click",
-            function () {
+            button.addEventListener(
+                "click",
+                function () {
 
-                filterButtons.forEach(
-                    btn =>
-                        btn.classList.remove(
-                            "active"
-                        )
-                );
-
-
-                this.classList.add("active");
+                    filterButtons.forEach(
+                        btn =>
+                            btn.classList.remove(
+                                "active"
+                            )
+                    );
 
 
-                const filter =
-                    this.dataset.filter;
+                    this.classList.add(
+                        "active"
+                    );
 
 
-                let visibleProducts = 0;
+                    const filter =
+                        this.dataset.filter;
 
 
-                products.forEach(product => {
-
-                    const category =
-                        product.dataset.category;
+                    let visibleProducts =
+                        0;
 
 
-                    if (
-                        filter === "all" ||
-                        category === filter
-                    ) {
+                    products.forEach(
+                        product => {
 
-                        product.style.display =
-                            "";
+                            const category =
+                                product.dataset.category;
 
-                        visibleProducts++;
 
-                    } else {
+                            if (
+                                filter === "all" ||
+                                category === filter
+                            ) {
 
-                        product.style.display =
-                            "none";
+                                product.style.display =
+                                    "";
+
+                                visibleProducts++;
+
+                            } else {
+
+                                product.style.display =
+                                    "none";
+
+                            }
+
+                        }
+                    );
+
+
+                    if (noProducts) {
+
+                        noProducts.style.display =
+                            visibleProducts === 0
+                                ? "block"
+                                : "none";
 
                     }
 
-                });
-
-
-                if (noProducts) {
-
-                    noProducts.style.display =
-                        visibleProducts === 0
-                            ? "block"
-                            : "none";
-
                 }
+            );
 
-            }
-        );
-
-    });
+        }
+    );
 
 }
 
@@ -917,7 +1277,9 @@ function setupSorting() {
 
 
     if (!sortSelect || !grid) {
+
         return;
+
     }
 
 
@@ -937,29 +1299,43 @@ function setupSorting() {
                 this.value;
 
 
-            if (sort === "price-low") {
+            if (
+                sort === "price-low"
+            ) {
 
                 products.sort(
                     (a, b) =>
-                        Number(a.dataset.price) -
-                        Number(b.dataset.price)
+                        Number(
+                            a.dataset.price
+                        ) -
+                        Number(
+                            b.dataset.price
+                        )
                 );
 
             }
 
 
-            if (sort === "price-high") {
+            if (
+                sort === "price-high"
+            ) {
 
                 products.sort(
                     (a, b) =>
-                        Number(b.dataset.price) -
-                        Number(a.dataset.price)
+                        Number(
+                            b.dataset.price
+                        ) -
+                        Number(
+                            a.dataset.price
+                        )
                 );
 
             }
 
 
-            if (sort === "newest") {
+            if (
+                sort === "newest"
+            ) {
 
                 products.sort(
                     (a, b) => {
@@ -968,6 +1344,7 @@ function setupSorting() {
                             a.querySelector(
                                 ".product-label"
                             ) !== null;
+
 
                         const bNew =
                             b.querySelector(
@@ -986,14 +1363,49 @@ function setupSorting() {
             }
 
 
-            products.forEach(product => {
+            products.forEach(
+                product => {
 
-                grid.appendChild(product);
+                    grid.appendChild(
+                        product
+                    );
 
-            });
+                }
+            );
 
         }
     );
+
+}
+
+
+/* =========================================================
+   ESCAPE HTML
+   ========================================================= */
+
+function escapeHTML(value) {
+
+    return String(value)
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+        .replace(
+            /</g,
+            "&lt;"
+        )
+        .replace(
+            />/g,
+            "&gt;"
+        )
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+        .replace(
+            /'/g,
+            "&#039;"
+        );
 
 }
 
@@ -1007,18 +1419,43 @@ document.addEventListener(
     function () {
 
         /*
-           This automatically corrects any
-           old prices saved in the browser.
+           First correct old cart prices.
         */
 
         getCart();
 
+
+        /*
+           Then correct visible shop prices.
+        */
+
+        syncShopPrices();
+
+
+        /*
+           Update cart.
+        */
+
         updateCart();
+
+
+        /*
+           Filters.
+        */
 
         setupFilters();
 
+
+        /*
+           Sorting.
+        */
+
         setupSorting();
 
+
+        /*
+           Search.
+        */
 
         const searchInput =
             document.getElementById(
@@ -1047,7 +1484,9 @@ document.addEventListener(
     "keydown",
     function (event) {
 
-        if (event.key === "Escape") {
+        if (
+            event.key === "Escape"
+        ) {
 
             closeSearch();
 
