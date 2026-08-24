@@ -1720,3 +1720,35 @@ button:disabled {
     }
 
 }
+
+.social-icons {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-top: 15px;
+}
+
+.social-icons a {
+    width: 42px;
+    height: 42px;
+    border: 1px solid rgba(255,255,255,0.35);
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: inherit;
+    font-size: 20px;
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        color 0.25s ease;
+}
+
+.social-icons a:hover {
+    transform: translateY(-3px);
+    background: #fff;
+    color: #111;
+}
