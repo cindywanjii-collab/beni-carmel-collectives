@@ -17,17 +17,54 @@
     >
 
     <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        /* PRODUCT CARD CLICKABLE */
+
+        .shop-product {
+            cursor: pointer;
+        }
+
+        .shop-product-image {
+            position: relative;
+        }
+
+        .shop-product-info {
+            cursor: pointer;
+        }
+
+        .shop-product-info h3,
+        .shop-product-info p,
+        .shop-product-info strong {
+            pointer-events: none;
+        }
+
+        /* Keep product buttons clickable */
+
+        .wishlist-product,
+        .shop-quick-add {
+            position: relative;
+            z-index: 10;
+        }
+
+    </style>
+
 </head>
+
 
 <body>
 
+
     <!-- ANNOUNCEMENT BAR -->
+
     <div class="announcement">
         WELCOME TO THE COLLECTIVE — WEAR YOUR PURPOSE.
     </div>
 
 
     <!-- HEADER -->
+
     <header class="header">
 
         <button
@@ -40,10 +77,12 @@
 
 
         <a href="index.html" class="logo">
+
             <img
                 src="images/logo.png"
                 alt="Béni Carmel Collectives"
             >
+
         </a>
 
 
@@ -85,12 +124,14 @@
                 ⌕
             </button>
 
+
             <button
                 onclick="openWishlist()"
                 aria-label="Wishlist"
             >
                 ♡
             </button>
+
 
             <button
                 onclick="openAccount()"
@@ -99,12 +140,18 @@
                 ♙
             </button>
 
+
             <button
                 onclick="openCart()"
                 aria-label="Shopping bag"
             >
+
                 🛍
-                <span id="cart-count">0</span>
+
+                <span id="cart-count">
+                    0
+                </span>
+
             </button>
 
         </div>
@@ -113,6 +160,7 @@
 
 
     <!-- MOBILE MENU -->
+
     <div
         id="mobile-menu"
         class="mobile-menu"
@@ -150,9 +198,12 @@
 
 
     <!-- SHOP -->
+
     <main>
 
+
         <!-- SHOP HEADER -->
+
         <section class="shop-header">
 
             <div>
@@ -176,6 +227,7 @@
 
 
         <!-- SHOP CONTROLS -->
+
         <section class="shop-controls">
 
             <div class="category-filters">
@@ -187,12 +239,14 @@
                     ALL
                 </button>
 
+
                 <button
                     class="filter-button"
                     data-filter="clothing"
                 >
                     CLOTHING
                 </button>
+
 
                 <button
                     class="filter-button"
@@ -201,12 +255,14 @@
                     DENIM
                 </button>
 
+
                 <button
                     class="filter-button"
                     data-filter="headwear"
                 >
                     HEADWEAR
                 </button>
+
 
                 <button
                     class="filter-button"
@@ -223,6 +279,7 @@
                 <label for="sort-products">
                     SORT BY
                 </label>
+
 
                 <select id="sort-products">
 
@@ -250,6 +307,7 @@
 
 
         <!-- PRODUCTS -->
+
         <section class="shop-products">
 
             <div
@@ -258,13 +316,17 @@
             >
 
 
+                <!-- ================================================= -->
                 <!-- BEANIES -->
+                <!-- ================================================= -->
+
 
                 <article
                     class="shop-product"
                     data-category="headwear"
                     data-price="500"
                     data-name="BC Beanie Beige"
+                    onclick="openProduct('beanie-beige')"
                 >
 
                     <div class="shop-product-image">
@@ -273,35 +335,45 @@
                             NEW
                         </span>
 
+
                         <button
                             class="wishlist-product"
-                            onclick="toggleWishlist(this)"
+                            onclick="event.stopPropagation(); toggleWishlist(this)"
                             aria-label="Add to wishlist"
                         >
                             ♡
                         </button>
+
 
                         <img
                             src="images/beanie-beige.jpg"
                             alt="BC Beige Beanie"
                         >
 
+
                         <button
                             class="shop-quick-add"
-                            onclick="addToCart('BC Beanie Beige', 500)"
+                            onclick="event.stopPropagation(); addToCart('BC Beanie Beige', 500)"
                         >
                             QUICK ADD
                         </button>
 
                     </div>
 
+
                     <div class="shop-product-info">
 
-                        <h3>BC Beanie</h3>
+                        <h3>
+                            BC Beanie
+                        </h3>
 
-                        <p>Beige</p>
+                        <p>
+                            Beige
+                        </p>
 
-                        <strong>KSh 500</strong>
+                        <strong>
+                            KSh 500
+                        </strong>
 
                     </div>
 
@@ -313,39 +385,49 @@
                     data-category="headwear"
                     data-price="500"
                     data-name="BC Beanie Black"
+                    onclick="openProduct('beanie-black')"
                 >
 
                     <div class="shop-product-image">
 
                         <button
                             class="wishlist-product"
-                            onclick="toggleWishlist(this)"
+                            onclick="event.stopPropagation(); toggleWishlist(this)"
                             aria-label="Add to wishlist"
                         >
                             ♡
                         </button>
+
 
                         <img
                             src="images/beanie-black.jpg"
                             alt="BC Black Beanie"
                         >
 
+
                         <button
                             class="shop-quick-add"
-                            onclick="addToCart('BC Beanie Black', 500)"
+                            onclick="event.stopPropagation(); addToCart('BC Beanie Black', 500)"
                         >
                             QUICK ADD
                         </button>
 
                     </div>
 
+
                     <div class="shop-product-info">
 
-                        <h3>BC Beanie</h3>
+                        <h3>
+                            BC Beanie
+                        </h3>
 
-                        <p>Black</p>
+                        <p>
+                            Black
+                        </p>
 
-                        <strong>KSh 500</strong>
+                        <strong>
+                            KSh 500
+                        </strong>
 
                     </div>
 
@@ -357,39 +439,49 @@
                     data-category="headwear"
                     data-price="500"
                     data-name="BC Beanie Brown"
+                    onclick="openProduct('beanie-brown')"
                 >
 
                     <div class="shop-product-image">
 
                         <button
                             class="wishlist-product"
-                            onclick="toggleWishlist(this)"
+                            onclick="event.stopPropagation(); toggleWishlist(this)"
                             aria-label="Add to wishlist"
                         >
                             ♡
                         </button>
+
 
                         <img
                             src="images/beanie-brown.jpg"
                             alt="BC Brown Beanie"
                         >
 
+
                         <button
                             class="shop-quick-add"
-                            onclick="addToCart('BC Beanie Brown', 500)"
+                            onclick="event.stopPropagation(); addToCart('BC Beanie Brown', 500)"
                         >
                             QUICK ADD
                         </button>
 
                     </div>
 
+
                     <div class="shop-product-info">
 
-                        <h3>BC Beanie</h3>
+                        <h3>
+                            BC Beanie
+                        </h3>
 
-                        <p>Brown</p>
+                        <p>
+                            Brown
+                        </p>
 
-                        <strong>KSh 500</strong>
+                        <strong>
+                            KSh 500
+                        </strong>
 
                     </div>
 
@@ -401,6 +493,7 @@
                     data-category="headwear"
                     data-price="500"
                     data-name="BC Beanie Burgundy"
+                    onclick="openProduct('beanie-burgundy')"
                 >
 
                     <div class="shop-product-image">
@@ -409,35 +502,45 @@
                             NEW
                         </span>
 
+
                         <button
                             class="wishlist-product"
-                            onclick="toggleWishlist(this)"
+                            onclick="event.stopPropagation(); toggleWishlist(this)"
                             aria-label="Add to wishlist"
                         >
                             ♡
                         </button>
+
 
                         <img
                             src="images/beanie-burgundy.jpg"
                             alt="BC Burgundy Beanie"
                         >
 
+
                         <button
                             class="shop-quick-add"
-                            onclick="addToCart('BC Beanie Burgundy', 500)"
+                            onclick="event.stopPropagation(); addToCart('BC Beanie Burgundy', 500)"
                         >
                             QUICK ADD
                         </button>
 
                     </div>
 
+
                     <div class="shop-product-info">
 
-                        <h3>BC Beanie</h3>
+                        <h3>
+                            BC Beanie
+                        </h3>
 
-                        <p>Burgundy</p>
+                        <p>
+                            Burgundy
+                        </p>
 
-                        <strong>KSh 500</strong>
+                        <strong>
+                            KSh 500
+                        </strong>
 
                     </div>
 
@@ -449,85 +552,109 @@
                     data-category="headwear"
                     data-price="500"
                     data-name="BC Beanie Cream"
+                    onclick="openProduct('beanie-cream')"
                 >
 
                     <div class="shop-product-image">
 
                         <button
                             class="wishlist-product"
-                            onclick="toggleWishlist(this)"
+                            onclick="event.stopPropagation(); toggleWishlist(this)"
                             aria-label="Add to wishlist"
                         >
                             ♡
                         </button>
+
 
                         <img
                             src="images/beanie-cream.jpg"
                             alt="BC Cream Beanie"
                         >
 
+
                         <button
                             class="shop-quick-add"
-                            onclick="addToCart('BC Beanie Cream', 500)"
+                            onclick="event.stopPropagation(); addToCart('BC Beanie Cream', 500)"
                         >
                             QUICK ADD
                         </button>
 
                     </div>
 
+
                     <div class="shop-product-info">
 
-                        <h3>BC Beanie</h3>
+                        <h3>
+                            BC Beanie
+                        </h3>
 
-                        <p>Cream</p>
+                        <p>
+                            Cream
+                        </p>
 
-                        <strong>KSh 500</strong>
+                        <strong>
+                            KSh 500
+                        </strong>
 
                     </div>
 
                 </article>
 
 
+
+                <!-- ================================================= -->
                 <!-- BUCKET HATS -->
+                <!-- ================================================= -->
+
 
                 <article
                     class="shop-product"
                     data-category="headwear"
                     data-price="700"
                     data-name="BC Bucket Hat Beige"
+                    onclick="openProduct('bucket-hat-beige')"
                 >
 
                     <div class="shop-product-image">
 
                         <button
                             class="wishlist-product"
-                            onclick="toggleWishlist(this)"
+                            onclick="event.stopPropagation(); toggleWishlist(this)"
                             aria-label="Add to wishlist"
                         >
                             ♡
                         </button>
+
 
                         <img
                             src="images/bucket-hat-beige.jpg"
                             alt="BC Beige Bucket Hat"
                         >
 
+
                         <button
                             class="shop-quick-add"
-                            onclick="addToCart('BC Bucket Hat Beige', 700)"
+                            onclick="event.stopPropagation(); addToCart('BC Bucket Hat Beige', 700)"
                         >
                             QUICK ADD
                         </button>
 
                     </div>
 
+
                     <div class="shop-product-info">
 
-                        <h3>BC Bucket Hat</h3>
+                        <h3>
+                            BC Bucket Hat
+                        </h3>
 
-                        <p>Beige</p>
+                        <p>
+                            Beige
+                        </p>
 
-                        <strong>KSh 700</strong>
+                        <strong>
+                            KSh 700
+                        </strong>
 
                     </div>
 
@@ -539,39 +666,49 @@
                     data-category="headwear"
                     data-price="700"
                     data-name="BC Bucket Hat Black"
+                    onclick="openProduct('bucket-hat-black')"
                 >
 
                     <div class="shop-product-image">
 
                         <button
                             class="wishlist-product"
-                            onclick="toggleWishlist(this)"
+                            onclick="event.stopPropagation(); toggleWishlist(this)"
                             aria-label="Add to wishlist"
                         >
                             ♡
                         </button>
+
 
                         <img
                             src="images/bucket-hat-black.jpg"
                             alt="BC Black Bucket Hat"
                         >
 
+
                         <button
                             class="shop-quick-add"
-                            onclick="addToCart('BC Bucket Hat Black', 700)"
+                            onclick="event.stopPropagation(); addToCart('BC Bucket Hat Black', 700)"
                         >
                             QUICK ADD
                         </button>
 
                     </div>
 
+
                     <div class="shop-product-info">
 
-                        <h3>BC Bucket Hat</h3>
+                        <h3>
+                            BC Bucket Hat
+                        </h3>
 
-                        <p>Black</p>
+                        <p>
+                            Black
+                        </p>
 
-                        <strong>KSh 700</strong>
+                        <strong>
+                            KSh 700
+                        </strong>
 
                     </div>
 
@@ -583,39 +720,49 @@
                     data-category="headwear"
                     data-price="700"
                     data-name="BC Bucket Hat Burgundy"
+                    onclick="openProduct('bucket-hat-burgundy')"
                 >
 
                     <div class="shop-product-image">
 
                         <button
                             class="wishlist-product"
-                            onclick="toggleWishlist(this)"
+                            onclick="event.stopPropagation(); toggleWishlist(this)"
                             aria-label="Add to wishlist"
                         >
                             ♡
                         </button>
+
 
                         <img
                             src="images/bucket-hat-burgundy.jpg"
                             alt="BC Burgundy Bucket Hat"
                         >
 
+
                         <button
                             class="shop-quick-add"
-                            onclick="addToCart('BC Bucket Hat Burgundy', 700)"
+                            onclick="event.stopPropagation(); addToCart('BC Bucket Hat Burgundy', 700)"
                         >
                             QUICK ADD
                         </button>
 
                     </div>
 
+
                     <div class="shop-product-info">
 
-                        <h3>BC Bucket Hat</h3>
+                        <h3>
+                            BC Bucket Hat
+                        </h3>
 
-                        <p>Burgundy</p>
+                        <p>
+                            Burgundy
+                        </p>
 
-                        <strong>KSh 700</strong>
+                        <strong>
+                            KSh 700
+                        </strong>
 
                     </div>
 
@@ -627,52 +774,67 @@
                     data-category="headwear"
                     data-price="700"
                     data-name="BC Bucket Hat White"
+                    onclick="openProduct('bucket-hat-white')"
                 >
 
                     <div class="shop-product-image">
 
                         <button
                             class="wishlist-product"
-                            onclick="toggleWishlist(this)"
+                            onclick="event.stopPropagation(); toggleWishlist(this)"
                             aria-label="Add to wishlist"
                         >
                             ♡
                         </button>
+
 
                         <img
                             src="images/bucket-hat-white.jpg"
                             alt="BC White Bucket Hat"
                         >
 
+
                         <button
                             class="shop-quick-add"
-                            onclick="addToCart('BC Bucket Hat White', 700)"
+                            onclick="event.stopPropagation(); addToCart('BC Bucket Hat White', 700)"
                         >
                             QUICK ADD
                         </button>
 
                     </div>
 
+
                     <div class="shop-product-info">
 
-                        <h3>BC Bucket Hat</h3>
+                        <h3>
+                            BC Bucket Hat
+                        </h3>
 
-                        <p>White</p>
+                        <p>
+                            White
+                        </p>
 
-                        <strong>KSh 700</strong>
+                        <strong>
+                            KSh 700
+                        </strong>
 
                     </div>
 
                 </article>
 
 
+
+                <!-- ================================================= -->
                 <!-- CAP -->
+                <!-- ================================================= -->
+
 
                 <article
                     class="shop-product"
                     data-category="headwear"
                     data-price="400"
                     data-name="BC Cap White"
+                    onclick="openProduct('cap-white')"
                 >
 
                     <div class="shop-product-image">
@@ -681,48 +843,63 @@
                             NEW
                         </span>
 
+
                         <button
                             class="wishlist-product"
-                            onclick="toggleWishlist(this)"
+                            onclick="event.stopPropagation(); toggleWishlist(this)"
                             aria-label="Add to wishlist"
                         >
                             ♡
                         </button>
+
 
                         <img
                             src="images/cap-white.jpg"
                             alt="BC White Cap"
                         >
 
+
                         <button
                             class="shop-quick-add"
-                            onclick="addToCart('BC Cap White', 400)"
+                            onclick="event.stopPropagation(); addToCart('BC Cap White', 400)"
                         >
                             QUICK ADD
                         </button>
 
                     </div>
 
+
                     <div class="shop-product-info">
 
-                        <h3>BC Cap</h3>
+                        <h3>
+                            BC Cap
+                        </h3>
 
-                        <p>White</p>
+                        <p>
+                            White
+                        </p>
 
-                        <strong>KSh 400</strong>
+                        <strong>
+                            KSh 400
+                        </strong>
 
                     </div>
 
                 </article>
 
 
+
+                <!-- ================================================= -->
                 <!-- COLLEGE JACKET -->
+                <!-- ================================================= -->
+
 
                 <article
                     class="shop-product"
                     data-category="clothing"
                     data-price="1500"
                     data-name="BC College Jacket"
+                    onclick="openProduct('college-jacket')"
                 >
 
                     <div class="shop-product-image">
@@ -731,81 +908,105 @@
                             NEW
                         </span>
 
+
                         <button
                             class="wishlist-product"
-                            onclick="toggleWishlist(this)"
+                            onclick="event.stopPropagation(); toggleWishlist(this)"
                             aria-label="Add to wishlist"
                         >
                             ♡
                         </button>
+
 
                         <img
                             src="images/college-jacket.jpg"
                             alt="BC College Jacket"
                         >
 
+
                         <button
                             class="shop-quick-add"
-                            onclick="addToCart('BC College Jacket', 1500)"
+                            onclick="event.stopPropagation(); addToCart('BC College Jacket', 1500)"
                         >
                             QUICK ADD
                         </button>
 
                     </div>
 
+
                     <div class="shop-product-info">
 
-                        <h3>BC College Jacket</h3>
+                        <h3>
+                            BC College Jacket
+                        </h3>
 
-                        <p>Signature</p>
+                        <p>
+                            Signature
+                        </p>
 
-                        <strong>KSh 1,500</strong>
+                        <strong>
+                            KSh 1,500
+                        </strong>
 
                     </div>
 
                 </article>
 
 
-                <!-- DENIM -->
+
+                <!-- ================================================= -->
+                <!-- DENIM JACKETS -->
+                <!-- ================================================= -->
+
 
                 <article
                     class="shop-product"
                     data-category="denim"
                     data-price="1300"
                     data-name="BC Denim Jacket"
+                    onclick="openProduct('denim-jacket-1')"
                 >
 
                     <div class="shop-product-image">
 
                         <button
                             class="wishlist-product"
-                            onclick="toggleWishlist(this)"
+                            onclick="event.stopPropagation(); toggleWishlist(this)"
                             aria-label="Add to wishlist"
                         >
                             ♡
                         </button>
+
 
                         <img
                             src="images/denim-jacket-1.jpg"
                             alt="BC Denim Jacket"
                         >
 
+
                         <button
                             class="shop-quick-add"
-                            onclick="addToCart('BC Denim Jacket', 1300)"
+                            onclick="event.stopPropagation(); addToCart('BC Denim Jacket', 1300)"
                         >
                             QUICK ADD
                         </button>
 
                     </div>
 
+
                     <div class="shop-product-info">
 
-                        <h3>BC Denim Jacket</h3>
+                        <h3>
+                            BC Denim Jacket
+                        </h3>
 
-                        <p>Blue</p>
+                        <p>
+                            Blue
+                        </p>
 
-                        <strong>KSh 1,300</strong>
+                        <strong>
+                            KSh 1,300
+                        </strong>
 
                     </div>
 
@@ -817,52 +1018,67 @@
                     data-category="denim"
                     data-price="1300"
                     data-name="BC Denim Jacket II"
+                    onclick="openProduct('denim-jacket-2')"
                 >
 
                     <div class="shop-product-image">
 
                         <button
                             class="wishlist-product"
-                            onclick="toggleWishlist(this)"
+                            onclick="event.stopPropagation(); toggleWishlist(this)"
                             aria-label="Add to wishlist"
                         >
                             ♡
                         </button>
+
 
                         <img
                             src="images/denim-jacket-2.jpg"
                             alt="BC Denim Jacket II"
                         >
 
+
                         <button
                             class="shop-quick-add"
-                            onclick="addToCart('BC Denim Jacket II', 1300)"
+                            onclick="event.stopPropagation(); addToCart('BC Denim Jacket II', 1300)"
                         >
                             QUICK ADD
                         </button>
 
                     </div>
 
+
                     <div class="shop-product-info">
 
-                        <h3>BC Denim Jacket</h3>
+                        <h3>
+                            BC Denim Jacket
+                        </h3>
 
-                        <p>Washed Blue</p>
+                        <p>
+                            Washed Blue
+                        </p>
 
-                        <strong>KSh 1,300</strong>
+                        <strong>
+                            KSh 1,300
+                        </strong>
 
                     </div>
 
                 </article>
 
 
+
+                <!-- ================================================= -->
                 <!-- HOODIES -->
+                <!-- ================================================= -->
+
 
                 <article
                     class="shop-product"
                     data-category="clothing"
                     data-price="1300"
                     data-name="BC Hoodie Black"
+                    onclick="openProduct('hoodie-black')"
                 >
 
                     <div class="shop-product-image">
@@ -871,35 +1087,45 @@
                             NEW
                         </span>
 
+
                         <button
                             class="wishlist-product"
-                            onclick="toggleWishlist(this)"
+                            onclick="event.stopPropagation(); toggleWishlist(this)"
                             aria-label="Add to wishlist"
                         >
                             ♡
                         </button>
+
 
                         <img
                             src="images/hoodie-1.jpg"
                             alt="BC Black Hoodie"
                         >
 
+
                         <button
                             class="shop-quick-add"
-                            onclick="addToCart('BC Hoodie Black', 1300)"
+                            onclick="event.stopPropagation(); addToCart('BC Hoodie Black', 1300)"
                         >
                             QUICK ADD
                         </button>
 
                     </div>
 
+
                     <div class="shop-product-info">
 
-                        <h3>BC Hoodie</h3>
+                        <h3>
+                            BC Hoodie
+                        </h3>
 
-                        <p>Black</p>
+                        <p>
+                            Black
+                        </p>
 
-                        <strong>KSh 1,300</strong>
+                        <strong>
+                            KSh 1,300
+                        </strong>
 
                     </div>
 
@@ -911,52 +1137,67 @@
                     data-category="clothing"
                     data-price="1300"
                     data-name="BC Hoodie Cream"
+                    onclick="openProduct('hoodie-cream')"
                 >
 
                     <div class="shop-product-image">
 
                         <button
                             class="wishlist-product"
-                            onclick="toggleWishlist(this)"
+                            onclick="event.stopPropagation(); toggleWishlist(this)"
                             aria-label="Add to wishlist"
                         >
                             ♡
                         </button>
+
 
                         <img
                             src="images/hoodie-2.jpg"
                             alt="BC Cream Hoodie"
                         >
 
+
                         <button
                             class="shop-quick-add"
-                            onclick="addToCart('BC Hoodie Cream', 1300)"
+                            onclick="event.stopPropagation(); addToCart('BC Hoodie Cream', 1300)"
                         >
                             QUICK ADD
                         </button>
 
                     </div>
 
+
                     <div class="shop-product-info">
 
-                        <h3>BC Hoodie</h3>
+                        <h3>
+                            BC Hoodie
+                        </h3>
 
-                        <p>Cream</p>
+                        <p>
+                            Cream
+                        </p>
 
-                        <strong>KSh 1,300</strong>
+                        <strong>
+                            KSh 1,300
+                        </strong>
 
                     </div>
 
                 </article>
 
 
+
+                <!-- ================================================= -->
                 <!-- JORTS -->
+                <!-- ================================================= -->
+
 
                 <article
                     class="shop-product"
                     data-category="denim"
                     data-price="1000"
                     data-name="BC Jorts Blue"
+                    onclick="openProduct('jorts-blue')"
                 >
 
                     <div class="shop-product-image">
@@ -965,35 +1206,45 @@
                             NEW
                         </span>
 
+
                         <button
                             class="wishlist-product"
-                            onclick="toggleWishlist(this)"
+                            onclick="event.stopPropagation(); toggleWishlist(this)"
                             aria-label="Add to wishlist"
                         >
                             ♡
                         </button>
+
 
                         <img
                             src="images/jorts-1.jpg"
                             alt="BC Blue Jorts"
                         >
 
+
                         <button
                             class="shop-quick-add"
-                            onclick="addToCart('BC Jorts Blue', 1000)"
+                            onclick="event.stopPropagation(); addToCart('BC Jorts Blue', 1000)"
                         >
                             QUICK ADD
                         </button>
 
                     </div>
 
+
                     <div class="shop-product-info">
 
-                        <h3>BC Jorts</h3>
+                        <h3>
+                            BC Jorts
+                        </h3>
 
-                        <p>Blue</p>
+                        <p>
+                            Blue
+                        </p>
 
-                        <strong>KSh 1,000</strong>
+                        <strong>
+                            KSh 1,000
+                        </strong>
 
                     </div>
 
@@ -1005,39 +1256,49 @@
                     data-category="denim"
                     data-price="1000"
                     data-name="BC Jorts Dark Blue"
+                    onclick="openProduct('jorts-dark-blue')"
                 >
 
                     <div class="shop-product-image">
 
                         <button
                             class="wishlist-product"
-                            onclick="toggleWishlist(this)"
+                            onclick="event.stopPropagation(); toggleWishlist(this)"
                             aria-label="Add to wishlist"
                         >
                             ♡
                         </button>
+
 
                         <img
                             src="images/jorts-dark-blue.jpg"
                             alt="BC Dark Blue Jorts"
                         >
 
+
                         <button
                             class="shop-quick-add"
-                            onclick="addToCart('BC Jorts Dark Blue', 1000)"
+                            onclick="event.stopPropagation(); addToCart('BC Jorts Dark Blue', 1000)"
                         >
                             QUICK ADD
                         </button>
 
                     </div>
 
+
                     <div class="shop-product-info">
 
-                        <h3>BC Jorts</h3>
+                        <h3>
+                            BC Jorts
+                        </h3>
 
-                        <p>Dark Blue</p>
+                        <p>
+                            Dark Blue
+                        </p>
 
-                        <strong>KSh 1,000</strong>
+                        <strong>
+                            KSh 1,000
+                        </strong>
 
                     </div>
 
@@ -1049,6 +1310,7 @@
                     data-category="denim"
                     data-price="1000"
                     data-name="BC Jorts Marble Blue"
+                    onclick="openProduct('jorts-marble-blue')"
                 >
 
                     <div class="shop-product-image">
@@ -1057,35 +1319,45 @@
                             NEW
                         </span>
 
+
                         <button
                             class="wishlist-product"
-                            onclick="toggleWishlist(this)"
+                            onclick="event.stopPropagation(); toggleWishlist(this)"
                             aria-label="Add to wishlist"
                         >
                             ♡
                         </button>
+
 
                         <img
                             src="images/jorts-marble-blue.jpg"
                             alt="BC Marble Blue Jorts"
                         >
 
+
                         <button
                             class="shop-quick-add"
-                            onclick="addToCart('BC Jorts Marble Blue', 1000)"
+                            onclick="event.stopPropagation(); addToCart('BC Jorts Marble Blue', 1000)"
                         >
                             QUICK ADD
                         </button>
 
                     </div>
 
+
                     <div class="shop-product-info">
 
-                        <h3>BC Jorts</h3>
+                        <h3>
+                            BC Jorts
+                        </h3>
 
-                        <p>Marble Blue</p>
+                        <p>
+                            Marble Blue
+                        </p>
 
-                        <strong>KSh 1,000</strong>
+                        <strong>
+                            KSh 1,000
+                        </strong>
 
                     </div>
 
@@ -1097,52 +1369,67 @@
                     data-category="denim"
                     data-price="1000"
                     data-name="BC Jorts Sky Blue"
+                    onclick="openProduct('jorts-sky-blue')"
                 >
 
                     <div class="shop-product-image">
 
                         <button
                             class="wishlist-product"
-                            onclick="toggleWishlist(this)"
+                            onclick="event.stopPropagation(); toggleWishlist(this)"
                             aria-label="Add to wishlist"
                         >
                             ♡
                         </button>
+
 
                         <img
                             src="images/jorts-sky-blue.jpg"
                             alt="BC Sky Blue Jorts"
                         >
 
+
                         <button
                             class="shop-quick-add"
-                            onclick="addToCart('BC Jorts Sky Blue', 1000)"
+                            onclick="event.stopPropagation(); addToCart('BC Jorts Sky Blue', 1000)"
                         >
                             QUICK ADD
                         </button>
 
                     </div>
 
+
                     <div class="shop-product-info">
 
-                        <h3>BC Jorts</h3>
+                        <h3>
+                            BC Jorts
+                        </h3>
 
-                        <p>Sky Blue</p>
+                        <p>
+                            Sky Blue
+                        </p>
 
-                        <strong>KSh 1,000</strong>
+                        <strong>
+                            KSh 1,000
+                        </strong>
 
                     </div>
 
                 </article>
 
 
+
+                <!-- ================================================= -->
                 <!-- BAGS -->
+                <!-- ================================================= -->
+
 
                 <article
                     class="shop-product"
                     data-category="accessories"
                     data-price="800"
                     data-name="BC Cross Shoulder Bag"
+                    onclick="openProduct('cross-shoulder-bag')"
                 >
 
                     <div class="shop-product-image">
@@ -1151,35 +1438,45 @@
                             NEW
                         </span>
 
+
                         <button
                             class="wishlist-product"
-                            onclick="toggleWishlist(this)"
+                            onclick="event.stopPropagation(); toggleWishlist(this)"
                             aria-label="Add to wishlist"
                         >
                             ♡
                         </button>
+
 
                         <img
                             src="images/shoulder-bag-black-cross.jpg"
                             alt="BC Cross Shoulder Bag"
                         >
 
+
                         <button
                             class="shop-quick-add"
-                            onclick="addToCart('BC Cross Shoulder Bag', 800)"
+                            onclick="event.stopPropagation(); addToCart('BC Cross Shoulder Bag', 800)"
                         >
                             QUICK ADD
                         </button>
 
                     </div>
 
+
                     <div class="shop-product-info">
 
-                        <h3>Cross Shoulder Bag</h3>
+                        <h3>
+                            Cross Shoulder Bag
+                        </h3>
 
-                        <p>Black</p>
+                        <p>
+                            Black
+                        </p>
 
-                        <strong>KSh 800</strong>
+                        <strong>
+                            KSh 800
+                        </strong>
 
                     </div>
 
@@ -1191,39 +1488,49 @@
                     data-category="accessories"
                     data-price="650"
                     data-name="BC Shoulder Bag Black"
+                    onclick="openProduct('shoulder-bag-black')"
                 >
 
                     <div class="shop-product-image">
 
                         <button
                             class="wishlist-product"
-                            onclick="toggleWishlist(this)"
+                            onclick="event.stopPropagation(); toggleWishlist(this)"
                             aria-label="Add to wishlist"
                         >
                             ♡
                         </button>
+
 
                         <img
                             src="images/shoulder-bag-black.jpg"
                             alt="BC Black Shoulder Bag"
                         >
 
+
                         <button
                             class="shop-quick-add"
-                            onclick="addToCart('BC Shoulder Bag Black', 650)"
+                            onclick="event.stopPropagation(); addToCart('BC Shoulder Bag Black', 650)"
                         >
                             QUICK ADD
                         </button>
 
                     </div>
 
+
                     <div class="shop-product-info">
 
-                        <h3>Shoulder Bag</h3>
+                        <h3>
+                            Shoulder Bag
+                        </h3>
 
-                        <p>Black</p>
+                        <p>
+                            Black
+                        </p>
 
-                        <strong>KSh 650</strong>
+                        <strong>
+                            KSh 650
+                        </strong>
 
                     </div>
 
@@ -1235,39 +1542,49 @@
                     data-category="accessories"
                     data-price="650"
                     data-name="BC Shoulder Bag Brown"
+                    onclick="openProduct('shoulder-bag-brown')"
                 >
 
                     <div class="shop-product-image">
 
                         <button
                             class="wishlist-product"
-                            onclick="toggleWishlist(this)"
+                            onclick="event.stopPropagation(); toggleWishlist(this)"
                             aria-label="Add to wishlist"
                         >
                             ♡
                         </button>
+
 
                         <img
                             src="images/shoulder-bag-brown.jpg"
                             alt="BC Brown Shoulder Bag"
                         >
 
+
                         <button
                             class="shop-quick-add"
-                            onclick="addToCart('BC Shoulder Bag Brown', 650)"
+                            onclick="event.stopPropagation(); addToCart('BC Shoulder Bag Brown', 650)"
                         >
                             QUICK ADD
                         </button>
 
                     </div>
 
+
                     <div class="shop-product-info">
 
-                        <h3>Shoulder Bag</h3>
+                        <h3>
+                            Shoulder Bag
+                        </h3>
 
-                        <p>Brown</p>
+                        <p>
+                            Brown
+                        </p>
 
-                        <strong>KSh 650</strong>
+                        <strong>
+                            KSh 650
+                        </strong>
 
                     </div>
 
@@ -1279,39 +1596,49 @@
                     data-category="accessories"
                     data-price="650"
                     data-name="BC Shoulder Bag Orange"
+                    onclick="openProduct('shoulder-bag-orange')"
                 >
 
                     <div class="shop-product-image">
 
                         <button
                             class="wishlist-product"
-                            onclick="toggleWishlist(this)"
+                            onclick="event.stopPropagation(); toggleWishlist(this)"
                             aria-label="Add to wishlist"
                         >
                             ♡
                         </button>
+
 
                         <img
                             src="images/shoulder-bag-orange.jpg"
                             alt="BC Orange Shoulder Bag"
                         >
 
+
                         <button
                             class="shop-quick-add"
-                            onclick="addToCart('BC Shoulder Bag Orange', 650)"
+                            onclick="event.stopPropagation(); addToCart('BC Shoulder Bag Orange', 650)"
                         >
                             QUICK ADD
                         </button>
 
                     </div>
 
+
                     <div class="shop-product-info">
 
-                        <h3>Shoulder Bag</h3>
+                        <h3>
+                            Shoulder Bag
+                        </h3>
 
-                        <p>Orange</p>
+                        <p>
+                            Orange
+                        </p>
 
-                        <strong>KSh 650</strong>
+                        <strong>
+                            KSh 650
+                        </strong>
 
                     </div>
 
@@ -1323,85 +1650,109 @@
                     data-category="accessories"
                     data-price="650"
                     data-name="BC Shoulder Bag Pink"
+                    onclick="openProduct('shoulder-bag-pink')"
                 >
 
                     <div class="shop-product-image">
 
                         <button
                             class="wishlist-product"
-                            onclick="toggleWishlist(this)"
+                            onclick="event.stopPropagation(); toggleWishlist(this)"
                             aria-label="Add to wishlist"
                         >
                             ♡
                         </button>
+
 
                         <img
                             src="images/shoulder-bag-pink.jpg"
                             alt="BC Pink Shoulder Bag"
                         >
 
+
                         <button
                             class="shop-quick-add"
-                            onclick="addToCart('BC Shoulder Bag Pink', 650)"
+                            onclick="event.stopPropagation(); addToCart('BC Shoulder Bag Pink', 650)"
                         >
                             QUICK ADD
                         </button>
 
                     </div>
 
+
                     <div class="shop-product-info">
 
-                        <h3>Shoulder Bag</h3>
+                        <h3>
+                            Shoulder Bag
+                        </h3>
 
-                        <p>Pink</p>
+                        <p>
+                            Pink
+                        </p>
 
-                        <strong>KSh 650</strong>
+                        <strong>
+                            KSh 650
+                        </strong>
 
                     </div>
 
                 </article>
 
 
+
+                <!-- ================================================= -->
                 <!-- SOCKS -->
+                <!-- ================================================= -->
+
 
                 <article
                     class="shop-product"
                     data-category="accessories"
                     data-price="200"
                     data-name="BC Socks Black"
+                    onclick="openProduct('socks-black')"
                 >
 
                     <div class="shop-product-image">
 
                         <button
                             class="wishlist-product"
-                            onclick="toggleWishlist(this)"
+                            onclick="event.stopPropagation(); toggleWishlist(this)"
                             aria-label="Add to wishlist"
                         >
                             ♡
                         </button>
+
 
                         <img
                             src="images/socks-black.jpg"
                             alt="BC Black Socks"
                         >
 
+
                         <button
                             class="shop-quick-add"
-                            onclick="addToCart('BC Socks Black', 200)"
+                            onclick="event.stopPropagation(); addToCart('BC Socks Black', 200)"
                         >
                             QUICK ADD
                         </button>
 
                     </div>
 
+
                     <div class="shop-product-info">
 
-                        <h3>BC Socks</h3>
+                        <h3>
+                            BC Socks
+                        </h3>
 
-                        <p>Black</p>
+                        <p>
+                            Black
+                        </p>
 
-                        <strong>KSh 200</strong>
+                        <strong>
+                            KSh 200
+                        </strong>
 
                     </div>
 
@@ -1413,85 +1764,109 @@
                     data-category="accessories"
                     data-price="200"
                     data-name="BC Socks White"
+                    onclick="openProduct('socks-white')"
                 >
 
                     <div class="shop-product-image">
 
                         <button
                             class="wishlist-product"
-                            onclick="toggleWishlist(this)"
+                            onclick="event.stopPropagation(); toggleWishlist(this)"
                             aria-label="Add to wishlist"
                         >
                             ♡
                         </button>
+
 
                         <img
                             src="images/socks-white.jpg"
                             alt="BC White Socks"
                         >
 
+
                         <button
                             class="shop-quick-add"
-                            onclick="addToCart('BC Socks White', 200)"
+                            onclick="event.stopPropagation(); addToCart('BC Socks White', 200)"
                         >
                             QUICK ADD
                         </button>
 
                     </div>
 
+
                     <div class="shop-product-info">
 
-                        <h3>BC Socks</h3>
+                        <h3>
+                            BC Socks
+                        </h3>
 
-                        <p>White</p>
+                        <p>
+                            White
+                        </p>
 
-                        <strong>KSh 200</strong>
+                        <strong>
+                            KSh 200
+                        </strong>
 
                     </div>
 
                 </article>
 
 
+
+                <!-- ================================================= -->
                 <!-- SWEATPANTS -->
+                <!-- ================================================= -->
+
 
                 <article
                     class="shop-product"
                     data-category="clothing"
                     data-price="900"
                     data-name="BC Sweatpants Black"
+                    onclick="openProduct('sweatpants-black')"
                 >
 
                     <div class="shop-product-image">
 
                         <button
                             class="wishlist-product"
-                            onclick="toggleWishlist(this)"
+                            onclick="event.stopPropagation(); toggleWishlist(this)"
                             aria-label="Add to wishlist"
                         >
                             ♡
                         </button>
+
 
                         <img
                             src="images/sweatpants-black.jpg"
                             alt="BC Black Sweatpants"
                         >
 
+
                         <button
                             class="shop-quick-add"
-                            onclick="addToCart('BC Sweatpants Black', 900)"
+                            onclick="event.stopPropagation(); addToCart('BC Sweatpants Black', 900)"
                         >
                             QUICK ADD
                         </button>
 
                     </div>
 
+
                     <div class="shop-product-info">
 
-                        <h3>BC Sweatpants</h3>
+                        <h3>
+                            BC Sweatpants
+                        </h3>
 
-                        <p>Black</p>
+                        <p>
+                            Black
+                        </p>
 
-                        <strong>KSh 900</strong>
+                        <strong>
+                            KSh 900
+                        </strong>
 
                     </div>
 
@@ -1503,39 +1878,49 @@
                     data-category="clothing"
                     data-price="900"
                     data-name="BC Sweatpants Burgundy"
+                    onclick="openProduct('sweatpants-burgundy')"
                 >
 
                     <div class="shop-product-image">
 
                         <button
                             class="wishlist-product"
-                            onclick="toggleWishlist(this)"
+                            onclick="event.stopPropagation(); toggleWishlist(this)"
                             aria-label="Add to wishlist"
                         >
                             ♡
                         </button>
+
 
                         <img
                             src="images/sweatpants-burgundy.jpg"
                             alt="BC Burgundy Sweatpants"
                         >
 
+
                         <button
                             class="shop-quick-add"
-                            onclick="addToCart('BC Sweatpants Burgundy', 900)"
+                            onclick="event.stopPropagation(); addToCart('BC Sweatpants Burgundy', 900)"
                         >
                             QUICK ADD
                         </button>
 
                     </div>
 
+
                     <div class="shop-product-info">
 
-                        <h3>BC Sweatpants</h3>
+                        <h3>
+                            BC Sweatpants
+                        </h3>
 
-                        <p>Burgundy</p>
+                        <p>
+                            Burgundy
+                        </p>
 
-                        <strong>KSh 900</strong>
+                        <strong>
+                            KSh 900
+                        </strong>
 
                     </div>
 
@@ -1547,39 +1932,49 @@
                     data-category="clothing"
                     data-price="900"
                     data-name="BC Sweatpants Cream"
+                    onclick="openProduct('sweatpants-cream')"
                 >
 
                     <div class="shop-product-image">
 
                         <button
                             class="wishlist-product"
-                            onclick="toggleWishlist(this)"
+                            onclick="event.stopPropagation(); toggleWishlist(this)"
                             aria-label="Add to wishlist"
                         >
                             ♡
                         </button>
+
 
                         <img
                             src="images/sweatpants-cream.jpg"
                             alt="BC Cream Sweatpants"
                         >
 
+
                         <button
                             class="shop-quick-add"
-                            onclick="addToCart('BC Sweatpants Cream', 900)"
+                            onclick="event.stopPropagation(); addToCart('BC Sweatpants Cream', 900)"
                         >
                             QUICK ADD
                         </button>
 
                     </div>
 
+
                     <div class="shop-product-info">
 
-                        <h3>BC Sweatpants</h3>
+                        <h3>
+                            BC Sweatpants
+                        </h3>
 
-                        <p>Cream</p>
+                        <p>
+                            Cream
+                        </p>
 
-                        <strong>KSh 900</strong>
+                        <strong>
+                            KSh 900
+                        </strong>
 
                     </div>
 
@@ -1591,52 +1986,67 @@
                     data-category="clothing"
                     data-price="900"
                     data-name="BC Sweatpants Grey"
+                    onclick="openProduct('sweatpants-grey')"
                 >
 
                     <div class="shop-product-image">
 
                         <button
                             class="wishlist-product"
-                            onclick="toggleWishlist(this)"
+                            onclick="event.stopPropagation(); toggleWishlist(this)"
                             aria-label="Add to wishlist"
                         >
                             ♡
                         </button>
+
 
                         <img
                             src="images/sweatpants-grey.jpg"
                             alt="BC Grey Sweatpants"
                         >
 
+
                         <button
                             class="shop-quick-add"
-                            onclick="addToCart('BC Sweatpants Grey', 900)"
+                            onclick="event.stopPropagation(); addToCart('BC Sweatpants Grey', 900)"
                         >
                             QUICK ADD
                         </button>
 
                     </div>
 
+
                     <div class="shop-product-info">
 
-                        <h3>BC Sweatpants</h3>
+                        <h3>
+                            BC Sweatpants
+                        </h3>
 
-                        <p>Grey</p>
+                        <p>
+                            Grey
+                        </p>
 
-                        <strong>KSh 900</strong>
+                        <strong>
+                            KSh 900
+                        </strong>
 
                     </div>
 
                 </article>
 
 
+
+                <!-- ================================================= -->
                 <!-- TEES -->
+                <!-- ================================================= -->
+
 
                 <article
                     class="shop-product"
                     data-category="clothing"
                     data-price="600"
                     data-name="BC Graphic Tee"
+                    onclick="openProduct('tee-1')"
                 >
 
                     <div class="shop-product-image">
@@ -1645,35 +2055,45 @@
                             NEW
                         </span>
 
+
                         <button
                             class="wishlist-product"
-                            onclick="toggleWishlist(this)"
+                            onclick="event.stopPropagation(); toggleWishlist(this)"
                             aria-label="Add to wishlist"
                         >
                             ♡
                         </button>
+
 
                         <img
                             src="images/tee-1.jpg"
                             alt="BC Graphic Tee"
                         >
 
+
                         <button
                             class="shop-quick-add"
-                            onclick="addToCart('BC Graphic Tee', 600)"
+                            onclick="event.stopPropagation(); addToCart('BC Graphic Tee', 600)"
                         >
                             QUICK ADD
                         </button>
 
                     </div>
 
+
                     <div class="shop-product-info">
 
-                        <h3>BC Graphic Tee</h3>
+                        <h3>
+                            BC Graphic Tee
+                        </h3>
 
-                        <p>Black</p>
+                        <p>
+                            Black
+                        </p>
 
-                        <strong>KSh 600</strong>
+                        <strong>
+                            KSh 600
+                        </strong>
 
                     </div>
 
@@ -1685,39 +2105,49 @@
                     data-category="clothing"
                     data-price="600"
                     data-name="BC Graphic Tee II"
+                    onclick="openProduct('tee-2')"
                 >
 
                     <div class="shop-product-image">
 
                         <button
                             class="wishlist-product"
-                            onclick="toggleWishlist(this)"
+                            onclick="event.stopPropagation(); toggleWishlist(this)"
                             aria-label="Add to wishlist"
                         >
                             ♡
                         </button>
+
 
                         <img
                             src="images/tee-2.jpg"
                             alt="BC Graphic Tee II"
                         >
 
+
                         <button
                             class="shop-quick-add"
-                            onclick="addToCart('BC Graphic Tee II', 600)"
+                            onclick="event.stopPropagation(); addToCart('BC Graphic Tee II', 600)"
                         >
                             QUICK ADD
                         </button>
 
                     </div>
 
+
                     <div class="shop-product-info">
 
-                        <h3>BC Graphic Tee</h3>
+                        <h3>
+                            BC Graphic Tee
+                        </h3>
 
-                        <p>Signature</p>
+                        <p>
+                            Signature
+                        </p>
 
-                        <strong>KSh 600</strong>
+                        <strong>
+                            KSh 600
+                        </strong>
 
                     </div>
 
@@ -1729,52 +2159,67 @@
                     data-category="clothing"
                     data-price="600"
                     data-name="BC Graphic Tee III"
+                    onclick="openProduct('tee-3')"
                 >
 
                     <div class="shop-product-image">
 
                         <button
                             class="wishlist-product"
-                            onclick="toggleWishlist(this)"
+                            onclick="event.stopPropagation(); toggleWishlist(this)"
                             aria-label="Add to wishlist"
                         >
                             ♡
                         </button>
+
 
                         <img
                             src="images/tee-3.jpg"
                             alt="BC Graphic Tee III"
                         >
 
+
                         <button
                             class="shop-quick-add"
-                            onclick="addToCart('BC Graphic Tee III', 600)"
+                            onclick="event.stopPropagation(); addToCart('BC Graphic Tee III', 600)"
                         >
                             QUICK ADD
                         </button>
 
                     </div>
 
+
                     <div class="shop-product-info">
 
-                        <h3>BC Graphic Tee</h3>
+                        <h3>
+                            BC Graphic Tee
+                        </h3>
 
-                        <p>Collection</p>
+                        <p>
+                            Collection
+                        </p>
 
-                        <strong>KSh 600</strong>
+                        <strong>
+                            KSh 600
+                        </strong>
 
                     </div>
 
                 </article>
 
 
+
+                <!-- ================================================= -->
                 <!-- JEANS -->
+                <!-- ================================================= -->
+
 
                 <article
                     class="shop-product"
                     data-category="denim"
                     data-price="1000"
                     data-name="BC Wide Leg Jeans"
+                    onclick="openProduct('wide-leg-jeans-blue')"
                 >
 
                     <div class="shop-product-image">
@@ -1783,48 +2228,63 @@
                             NEW
                         </span>
 
+
                         <button
                             class="wishlist-product"
-                            onclick="toggleWishlist(this)"
+                            onclick="event.stopPropagation(); toggleWishlist(this)"
                             aria-label="Add to wishlist"
                         >
                             ♡
                         </button>
+
 
                         <img
                             src="images/wide-leg-jeans-blue.jpg"
                             alt="BC Wide Leg Jeans"
                         >
 
+
                         <button
                             class="shop-quick-add"
-                            onclick="addToCart('BC Wide Leg Jeans', 1000)"
+                            onclick="event.stopPropagation(); addToCart('BC Wide Leg Jeans', 1000)"
                         >
                             QUICK ADD
                         </button>
 
                     </div>
 
+
                     <div class="shop-product-info">
 
-                        <h3>Wide-Leg Jeans</h3>
+                        <h3>
+                            Wide-Leg Jeans
+                        </h3>
 
-                        <p>Blue</p>
+                        <p>
+                            Blue
+                        </p>
 
-                        <strong>KSh 1,000</strong>
+                        <strong>
+                            KSh 1,000
+                        </strong>
 
                     </div>
 
                 </article>
 
 
+
+                <!-- ================================================= -->
                 <!-- CROSS NECKLACE -->
+                <!-- ================================================= -->
+
 
                 <article
                     class="shop-product"
                     data-category="accessories"
                     data-price="500"
                     data-name="BC Silver Cross Necklace"
+                    onclick="openProduct('cross-necklace-silver')"
                 >
 
                     <div class="shop-product-image">
@@ -1833,39 +2293,50 @@
                             NEW
                         </span>
 
+
                         <button
                             class="wishlist-product"
-                            onclick="toggleWishlist(this)"
+                            onclick="event.stopPropagation(); toggleWishlist(this)"
                             aria-label="Add to wishlist"
                         >
                             ♡
                         </button>
+
 
                         <img
                             src="images/cross-necklace-silver.jpg"
                             alt="BC Silver Cross Necklace"
                         >
 
+
                         <button
                             class="shop-quick-add"
-                            onclick="addToCart('BC Silver Cross Necklace', 500)"
+                            onclick="event.stopPropagation(); addToCart('BC Silver Cross Necklace', 500)"
                         >
                             QUICK ADD
                         </button>
 
                     </div>
 
+
                     <div class="shop-product-info">
 
-                        <h3>Cross Necklace</h3>
+                        <h3>
+                            Cross Necklace
+                        </h3>
 
-                        <p>Silver</p>
+                        <p>
+                            Silver
+                        </p>
 
-                        <strong>KSh 500</strong>
+                        <strong>
+                            KSh 500
+                        </strong>
 
                     </div>
 
                 </article>
+
 
             </div>
 
@@ -1893,6 +2364,7 @@
     </main>
 
 
+
     <!-- NEWSLETTER -->
 
     <section class="newsletter">
@@ -1909,6 +2381,7 @@
             New drops. New collections. BC stories.
         </p>
 
+
         <form onsubmit="subscribe(event)">
 
             <input
@@ -1918,6 +2391,7 @@
                 required
             >
 
+
             <button type="submit">
                 JOIN →
             </button>
@@ -1925,6 +2399,7 @@
         </form>
 
     </section>
+
 
 
     <!-- FOOTER -->
@@ -1947,9 +2422,12 @@
 
         <div class="footer-links">
 
+
             <div>
 
-                <h4>SHOP</h4>
+                <h4>
+                    SHOP
+                </h4>
 
                 <a href="shop.html">
                     All Products
@@ -1976,7 +2454,9 @@
 
             <div>
 
-                <h4>ABOUT</h4>
+                <h4>
+                    ABOUT
+                </h4>
 
                 <a href="index.html#story">
                     Our Story
@@ -1995,7 +2475,9 @@
 
             <div>
 
-                <h4>HELP</h4>
+                <h4>
+                    HELP
+                </h4>
 
                 <a href="#">
                     Contact
@@ -2018,7 +2500,9 @@
 
             <div>
 
-                <h4>FOLLOW</h4>
+                <h4>
+                    FOLLOW
+                </h4>
 
                 <a href="#">
                     Instagram
@@ -2052,6 +2536,7 @@
     </footer>
 
 
+
     <!-- SEARCH -->
 
     <div
@@ -2066,17 +2551,20 @@
             ×
         </button>
 
+
         <div class="search-box">
 
             <p>
                 SEARCH BÉNI CARMEL
             </p>
 
+
             <input
                 id="site-search"
                 type="text"
                 placeholder="What are you looking for?"
             >
+
 
             <div
                 id="search-results"
@@ -2086,6 +2574,7 @@
         </div>
 
     </div>
+
 
 
     <!-- CART -->
@@ -2100,6 +2589,7 @@
             <h2>
                 YOUR BAG
             </h2>
+
 
             <button onclick="closeCart()">
                 ×
@@ -2124,6 +2614,7 @@
                 <span>
                     SUBTOTAL
                 </span>
+
 
                 <strong id="cart-total">
                     KSh 0
@@ -2151,7 +2642,46 @@
     ></div>
 
 
+
+    <!-- PRODUCT PAGE NAVIGATION -->
+
+    <script>
+
+        function openProduct(productId) {
+
+            window.location.href =
+                "product.html?product=" + productId;
+
+        }
+
+
+        /*
+         * Prevent product-card clicks
+         * when clicking interactive buttons.
+         */
+
+        document.querySelectorAll(
+            ".wishlist-product, .shop-quick-add"
+        ).forEach(function(button) {
+
+            button.addEventListener(
+                "click",
+                function(event) {
+
+                    event.stopPropagation();
+
+                }
+            );
+
+        });
+
+    </script>
+
+
+    <!-- MAIN WEBSITE JAVASCRIPT -->
+
     <script src="script.js"></script>
+
 
 </body>
 
