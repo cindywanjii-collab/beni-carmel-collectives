@@ -24,18 +24,21 @@
         href="style.css"
     >
 
-<style>
-.newsletter-message {
-    margin-top: 14px;
-    min-height: 1.4em;
-    font-size: 0.9rem;
-    line-height: 1.4;
-}
-.newsletter form button:disabled {
-    opacity: 0.6;
-    cursor: wait;
-}
-</style>
+    <style>
+
+        .newsletter-message {
+            margin-top: 14px;
+            min-height: 1.4em;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .newsletter form button:disabled {
+            opacity: 0.6;
+            cursor: wait;
+        }
+
+    </style>
 
 </head>
 
@@ -94,19 +97,31 @@
 
     <nav class="desktop-nav">
 
+        <a href="index.html">
+            HOME
+        </a>
+
         <a href="shop.html">
             SHOP
         </a>
 
-        <a href="shop.html?sort=newest">
-            NEW IN
+        <a href="shop.html?category=clothing">
+            CLOTHING
         </a>
 
-        <a href="index.html#collections">
-            COLLECTIONS
+        <a href="shop.html?category=denim">
+            DENIM
         </a>
 
-        <a href="index.html#about">
+        <a href="shop.html?category=headwear">
+            HEADWEAR
+        </a>
+
+        <a href="shop.html?category=accessories">
+            ACCESSORIES
+        </a>
+
+        <a href="about.html">
             ABOUT
         </a>
 
@@ -116,7 +131,6 @@
     <!-- HEADER ACTIONS -->
 
     <div class="header-actions">
-
 
         <button
             onclick="openSearch()"
@@ -140,7 +154,6 @@
             </span>
 
         </button>
-
 
     </div>
 
@@ -185,23 +198,39 @@
 
 
     <a
-        href="shop.html?sort=newest"
+        href="shop.html?category=clothing"
         onclick="toggleMobileMenu()"
     >
-        NEW IN
+        CLOTHING
     </a>
 
 
     <a
-        href="index.html#collections"
+        href="shop.html?category=denim"
         onclick="toggleMobileMenu()"
     >
-        COLLECTIONS
+        DENIM
     </a>
 
 
     <a
-        href="index.html#about"
+        href="shop.html?category=headwear"
+        onclick="toggleMobileMenu()"
+    >
+        HEADWEAR
+    </a>
+
+
+    <a
+        href="shop.html?category=accessories"
+        onclick="toggleMobileMenu()"
+    >
+        ACCESSORIES
+    </a>
+
+
+    <a
+        href="about.html"
         onclick="toggleMobileMenu()"
     >
         ABOUT
@@ -777,13 +806,10 @@
 
 
 <!-- ==================================================
-     ABOUT
+     HOMEPAGE BRAND INTRO
 ================================================== -->
 
-<section
-    id="about"
-    class="about-section"
->
+<section class="about-section">
 
 
     <div class="about-image">
@@ -830,6 +856,14 @@
             sacrificing style.
 
         </p>
+
+
+        <a
+            href="about.html"
+            class="hero-button"
+        >
+            DISCOVER OUR STORY
+        </a>
 
 
     </div>
@@ -879,6 +913,7 @@
             required
         >
 
+
         <button
             type="submit"
             id="newsletterButton"
@@ -887,6 +922,7 @@
         </button>
 
     </form>
+
 
     <p
         id="newsletterMessage"
@@ -945,6 +981,58 @@
 
         <a href="index.html#collections">
             Collections
+        </a>
+
+
+        <a href="shop.html?category=clothing">
+            Clothing
+        </a>
+
+
+        <a href="shop.html?category=denim">
+            Denim
+        </a>
+
+
+        <a href="shop.html?category=headwear">
+            Headwear
+        </a>
+
+
+        <a href="shop.html?category=accessories">
+            Accessories
+        </a>
+
+
+    </div>
+
+
+
+    <div>
+
+
+        <h4>
+            BRAND
+        </h4>
+
+
+        <a href="about.html">
+            About
+        </a>
+
+
+        <a href="about.html#mission">
+            Our Mission
+        </a>
+
+
+        <a href="about.html#vision">
+            Our Vision
+        </a>
+
+
+        <a href="about.html#founders">
+            Founders
         </a>
 
 
@@ -1448,83 +1536,149 @@
 
 
 <!-- ==================================================
-     JAVASCRIPT
+     NEWSLETTER JAVASCRIPT
 ================================================== -->
 
 <script>
-/*
-  BÉNI CARMEL NEWSLETTER
-  Replace the URL below with your Formspree form endpoint.
-  Example: https://formspree.io/f/abcdwxyz
 
-  Formspree receives the subscriber's email so you can collect
-  subscribers without exposing an API key in this HTML file.
+/*
+    BÉNI CARMEL NEWSLETTER
+
+    Formspree endpoint:
+    https://formspree.io/f/mppabyvy
 */
-const NEWSLETTER_ENDPOINT = "https://formspree.io/f/mppabyvy";
+
+const NEWSLETTER_ENDPOINT =
+    "https://formspree.io/f/mppabyvy";
+
 
 async function subscribe(event) {
+
     event.preventDefault();
 
-    const form = document.getElementById("newsletterForm");
-    const emailInput = document.getElementById("newsletterEmail");
-    const button = document.getElementById("newsletterButton");
-    const message = document.getElementById("newsletterMessage");
 
-    const email = emailInput.value.trim();
+    const form =
+        document.getElementById("newsletterForm");
+
+    const emailInput =
+        document.getElementById("newsletterEmail");
+
+    const button =
+        document.getElementById("newsletterButton");
+
+    const message =
+        document.getElementById("newsletterMessage");
+
+
+    const email =
+        emailInput.value.trim();
+
 
     message.textContent = "";
 
-    if (!email || !emailInput.checkValidity()) {
-        message.textContent = "Please enter a valid email address.";
+
+    if (
+        !email ||
+        !emailInput.checkValidity()
+    ) {
+
+        message.textContent =
+            "Please enter a valid email address.";
+
         emailInput.focus();
+
         return;
+
     }
 
-    if (NEWSLETTER_ENDPOINT.includes("YOUR_FORM_ID")) {
-        message.textContent =
-            "Your subscription form is ready. Connect the newsletter form endpoint to activate subscriptions.";
-        return;
-    }
 
     button.disabled = true;
+
     button.textContent = "JOINING...";
 
+
     try {
-        const response = await fetch(NEWSLETTER_ENDPOINT, {
-            method: "POST",
-            headers: {
-                "Accept": "application/json",
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                email: email,
-                source: "Béni Carmel Collectives website newsletter"
-            })
-        });
+
+        const response =
+            await fetch(
+                NEWSLETTER_ENDPOINT,
+                {
+                    method: "POST",
+
+                    headers: {
+                        "Accept":
+                            "application/json",
+
+                        "Content-Type":
+                            "application/json"
+                    },
+
+                    body: JSON.stringify({
+                        email: email,
+
+                        source:
+                            "Béni Carmel Collectives website newsletter"
+                    })
+                }
+            );
+
 
         if (response.ok) {
+
             form.reset();
+
             message.textContent =
                 "You're in! We'll keep you updated on new drops and collections.";
-        } else {
+
+        }
+
+        else {
+
             let data = {};
+
             try {
-                data = await response.json();
-            } catch (_) {}
+
+                data =
+                    await response.json();
+
+            }
+
+            catch (_) {}
+
 
             message.textContent =
                 data?.errors?.[0]?.message ||
                 "Something went wrong. Please try again.";
+
         }
-    } catch (error) {
+
+    }
+
+    catch (error) {
+
         message.textContent =
             "We couldn't complete your subscription. Please check your connection and try again.";
-    } finally {
-        button.disabled = false;
-        button.textContent = "JOIN";
+
     }
+
+
+    finally {
+
+        button.disabled = false;
+
+        button.textContent = "JOIN";
+
+    }
+
 }
+
 </script>
+
+
+
+<!-- ==================================================
+     MAIN WEBSITE JAVASCRIPT
+================================================== -->
 
 <script src="script.js"></script>
 
