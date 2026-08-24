@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Product | Beni Carmel Collectives</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* PRODUCT PAGE */
+
+        .product-page {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 30px;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 35px;
+            color: #333;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .product-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: start;
+        }
+
+        .product-image-container {
+            background: #f5f2ed;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .product-image-container img {
+            width: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding-top: 10px;
+        }
+
+        .product-brand {
+            font-size: 12px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            color: #777;
+        }
+
+        .product-title {
+            font-size: 42px;
+            font-weight: 400;
+            margin: 0 0 15px;
+            line-height: 1.1;
+        }
+
+        .product-price {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+
+        .product-description {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .product-details {
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+            padding: 20px 0;
+            margin-bottom: 30px;
+        }
+
+        .product-details p {
+            margin: 8px 0;
+            font-size: 14px;
+        }
+
+        .quantity-section {
+            margin-bottom: 25px;
+        }
+
+        .quantity-section label {
+            display: block;
+            font-size: 13px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .quantity-controls {
+            display: flex;
+            width: 130px;
+            border: 1px solid #ccc;
+        }
+
+        .quantity-controls button {
+            width: 40px;
+            height: 42px;
+            border: none;
+            background: white;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .quantity-controls input {
+            width: 50px;
+            height: 42px;
+            border: none;
+            text-align: center;
+            font-size: 15px;
+        }
+
+        .product-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .add-cart-button,
+        .buy-button {
+            width: 100%;
+            padding: 17px;
+            border: none;
+            cursor: pointer;
+            font-size: 13px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .add-cart-button {
+            background: #222;
+            color: white;
+        }
+
+        .buy-button {
+            background: transparent;
+            color: #222;
+            border: 1px solid #222;
+        }
+
+        .add-cart-button:hover {
+            background: #444;
+        }
+
+        .buy-button:hover {
+            background: #f4f1ec;
+        }
+
+        .product-message {
+            margin-top: 15px;
+            font-size: 14px;
+            display: none;
+        }
+
+        /* RELATED PRODUCTS */
+
+        .related-section {
+            margin-top: 100px;
+        }
+
+        .related-title {
+            text-align: center;
+            font-size: 28px;
+            font-weight: 400;
+            margin-bottom: 40px;
+        }
+
+        .related-products {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .related-product {
+            text-decoration: none;
+            color: #222;
+        }
+
+        .related-product img {
+            width: 100%;
+            display: block;
+            margin-bottom: 12px;
+        }
+
+        .related-product h3 {
+            font-size: 15px;
+            font-weight: 400;
+            margin: 0 0 5px;
+        }
+
+        .related-product p {
+            font-size: 14px;
+            margin: 0;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 768px) {
+
+            .product-page {
+                padding: 30px 20px;
+            }
+
+            .product-container {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+
+            .product-title {
+                font-size: 32px;
+            }
+
+            .related-products {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="product-page">
+
+        <a href="shop.html" class="back-link">
+            ← Back to Shop
+        </a>
+
+        <div class="product-container">
+
+            <!-- PRODUCT IMAGE -->
+
+            <div class="product-image-container">
+                <img id="productImage" src="" alt="Beni Carmel product">
+            </div>
+
+            <!-- PRODUCT INFORMATION -->
+
+            <div class="product-info">
+
+                <div class="product-brand">
+                    Beni Carmel Collectives
+                </div>
+
+                <h1 id="productTitle" class="product-title">
+                    Product
+                </h1>
+
+                <div id="productPrice" class="product-price">
+                    KSh 0
+                </div>
+
+                <p id="productDescription" class="product-description">
+                    Discover Beni Carmel.
+                </p>
+
+                <div class="product-details">
+
+                    <p>
+                        <strong>Material:</strong>
+                        Premium quality fabric
+                    </p>
+
+                    <p>
+                        <strong>Collection:</strong>
+                        Beni Carmel Collectives
+                    </p>
+
+                    <p>
+                        <strong>Shipping:</strong>
+                        Available across Kenya
+                    </p>
+
+                </div>
+
+                <!-- QUANTITY -->
+
+                <div class="quantity-section">
+
+                    <label>Quantity</label>
+
+                    <div class="quantity-controls">
+
+                        <button onclick="decreaseQuantity()">−</button>
+
+                        <input
+                            type="number"
+                            id="quantity"
+                            value="1"
+                            min="1"
+                        >
+
+                        <button onclick="increaseQuantity()">+</button>
+
+                    </div>
+
+                </div>
+
+                <!-- BUTTONS -->
+
+                <div class="product-actions">
+
+                    <button
+                        class="add-cart-button"
+                        onclick="addToCart()"
+                    >
+                        Add to Cart
+                    </button>
+
+                    <button
+                        class="buy-button"
+                        onclick="buyNow()"
+                    >
+                        Buy Now
+                    </button>
+
+                </div>
+
+                <div
+                    id="productMessage"
+                    class="product-message"
+                ></div>
+
+            </div>
+
+        </div>
+
+
+        <!-- RELATED PRODUCTS -->
+
+        <section class="related-section">
+
+            <h2 class="related-title">
+                You May Also Like
+            </h2>
+
+            <div class="related-products">
+
+                <a
+                    href="product.html?product=beanie-beige"
+                    class="related-product"
+                >
+                    <img
+                        src="images/beanie-beige.jpg"
+                        alt="Beige Beanie"
+                    >
+
+                    <h3>Beige Beanie</h3>
+
+                    <p>KSh 2,500</p>
+                </a>
+
+
+                <a
+                    href="product.html?product=beanie-black"
+                    class="related-product"
+                >
+                    <img
+                        src="images/beanie-black.jpg"
+                        alt="Black Beanie"
+                    >
+
+                    <h3>Black Beanie</h3>
+
+                    <p>KSh 2,500</p>
+                </a>
+
+
+                <a
+                    href="product.html?product=beanie-brown"
+                    class="related-product"
+                >
+                    <img
+                        src="images/beanie-brown.jpg"
+                        alt="Brown Beanie"
+                    >
+
+                    <h3>Brown Beanie</h3>
+
+                    <p>KSh 2,500</p>
+                </a>
+
+
+                <a
+                    href="product.html?product=beanie-burgundy"
+                    class="related-product"
+                >
+                    <img
+                        src="images/beanie-burgundy.jpg"
+                        alt="Burgundy Beanie"
+                    >
+
+                    <h3>Burgundy Beanie</h3>
+
+                    <p>KSh 2,500</p>
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script>
+
+        /* PRODUCT DATABASE */
+
+        const products = {
+
+            "beanie-beige": {
+                name: "Beni Carmel Beige Beanie",
+                price: 2500,
+                image: "images/beanie-beige.jpg",
+                description:
+                    "A timeless Beni Carmel piece designed to bring warmth, simplicity and purpose into your everyday style."
+            },
+
+            "beanie-black": {
+                name: "Beni Carmel Black Beanie",
+                price: 2500,
+                image: "images/beanie-black.jpg",
+                description:
+                    "A classic black beanie designed for effortless everyday wear, combining comfort, simplicity and the Beni Carmel identity."
+            },
+
+            "beanie-brown": {
+                name: "Beni Carmel Brown Beanie",
+                price: 2500,
+                image: "images/beanie-brown.jpg",
+                description:
+                    "A rich brown essential designed to complement your everyday wardrobe while carrying the Beni Carmel spirit."
+            },
+
+            "beanie-burgundy": {
+                name: "Beni Carmel Burgundy Beanie",
+                price: 2500,
+                image: "images/beanie-burgundy.jpg",
+                description:
+                    "A bold burgundy statement piece created for those who want their style to carry meaning and purpose."
+            },
+
+            "beanie-cream": {
+                name: "Beni Carmel Cream Beanie",
+                price: 2500,
+                image: "images/beanie-cream.jpg",
+                description:
+                    "A soft cream essential bringing understated elegance, comfort and purpose to your everyday look."
+            }
+
+        };
+
+
+        /* GET PRODUCT FROM URL */
+
+        const urlParams = new URLSearchParams(window.location.search);
+
+        const productID =
+            urlParams.get("product") || "beanie-black";
+
+
+        const product = products[productID];
+
+
+        /* DISPLAY PRODUCT */
+
+        if (product) {
+
+            document.getElementById("productImage").src =
+                product.image;
+
+            document.getElementById("productImage").alt =
+                product.name;
+
+            document.getElementById("productTitle").textContent =
+                product.name;
+
+            document.getElementById("productPrice").textContent =
+                "KSh " + product.price.toLocaleString();
+
+            document.getElementById("productDescription").textContent =
+                product.description;
+
+        }
+
+
+        /* QUANTITY */
+
+        function increaseQuantity() {
+
+            const quantity =
+                document.getElementById("quantity");
+
+            quantity.value =
+                parseInt(quantity.value) + 1;
+        }
+
+
+        function decreaseQuantity() {
+
+            const quantity =
+                document.getElementById("quantity");
+
+            if (parseInt(quantity.value) > 1) {
+
+                quantity.value =
+                    parseInt(quantity.value) - 1;
+            }
+        }
+
+
+        /* ADD TO CART */
+
+        function addToCart() {
+
+            const quantity =
+                parseInt(
+                    document.getElementById("quantity").value
+                );
+
+            let cart =
+                JSON.parse(
+                    localStorage.getItem("beniCarmelCart")
+                ) || [];
+
+
+            const existingProduct =
+                cart.find(item => item.id === productID);
+
+
+            if (existingProduct) {
+
+                existingProduct.quantity += quantity;
+
+            } else {
+
+                cart.push({
+
+                    id: productID,
+
+                    name: product.name,
+
+                    price: product.price,
+
+                    image: product.image,
+
+                    quantity: quantity
+
+                });
+
+            }
+
+
+            localStorage.setItem(
+                "beniCarmelCart",
+                JSON.stringify(cart)
+            );
+
+
+            const message =
+                document.getElementById("productMessage");
+
+            message.textContent =
+                "✓ Added to your cart";
+
+            message.style.display = "block";
+
+        }
+
+
+        /* BUY NOW */
+
+        function buyNow() {
+
+            addToCart();
+
+            setTimeout(function() {
+
+                window.location.href =
+                    "checkout.html";
+
+            }, 500);
+
+        }
+
+    </script>
+
+</body>
+</html>
