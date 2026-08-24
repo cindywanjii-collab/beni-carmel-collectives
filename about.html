@@ -1,810 +1,1071 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-    <meta charset="UTF-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>About Us | Béni Carmel Collectives</title>
-
-    <meta
-        name="description"
-        content="Discover the story, purpose and vision behind Béni Carmel Collectives."
-    >
-
-    <link rel="stylesheet" href="style.css">
-
-    <style>
-
-        /* ================================
-           ABOUT HERO
-        ================================= */
-
-        .about-hero {
-            min-height: 75vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 80px 6%;
-            background: #f3f0ea;
-        }
-
-        .about-hero-content {
-            max-width: 900px;
-        }
-
-        .about-eyebrow {
-            font-size: 11px;
-            letter-spacing: 3px;
-            margin-bottom: 25px;
-        }
-
-        .about-hero h1 {
-            font-size: clamp(55px, 10vw, 130px);
-            line-height: 0.9;
-            margin: 0 0 35px;
-            font-weight: 500;
-        }
-
-        .about-hero p {
-            max-width: 650px;
-            margin: auto;
-            line-height: 1.8;
-            font-size: 17px;
-        }
-
-
-        /* ================================
-           STORY
-        ================================= */
-
-        .about-story {
-            padding: 110px 8%;
-        }
-
-        .about-story-grid {
-            display: grid;
-            grid-template-columns: 1fr 1.4fr;
-            gap: 100px;
-            max-width: 1200px;
-            margin: auto;
-        }
-
-        .about-section-label {
-            font-size: 11px;
-            letter-spacing: 3px;
-        }
-
-        .about-story h2 {
-            font-size: clamp(38px, 5vw, 70px);
-            line-height: 1;
-            font-weight: 500;
-            margin: 0;
-        }
-
-        .about-story-text p {
-            line-height: 1.9;
-            margin: 0 0 25px;
-        }
-
-
-        /* ================================
-           MEANING
-        ================================= */
-
-        .meaning-section {
-            padding: 120px 6%;
-            text-align: center;
-            background: #111;
-            color: white;
-        }
-
-        .meaning-section h2 {
-            font-size: clamp(50px, 8vw, 110px);
-            font-weight: 400;
-            line-height: 0.9;
-            margin: 20px auto 40px;
-            max-width: 1100px;
-        }
-
-        .meaning-section p {
-            max-width: 700px;
-            margin: auto;
-            line-height: 1.9;
-        }
-
-
-        /* ================================
-           PURPOSE
-        ================================= */
-
-        .purpose-section {
-            padding: 110px 8%;
-        }
-
-        .purpose-heading {
-            max-width: 1000px;
-            margin: 0 auto 70px;
-            text-align: center;
-        }
-
-        .purpose-heading h2 {
-            font-size: clamp(40px, 6vw, 80px);
-            line-height: 1;
-            font-weight: 500;
-            margin: 20px 0;
-        }
-
-        .purpose-grid {
-            max-width: 1200px;
-            margin: auto;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-        }
-
-        .purpose-card {
-            border-top: 1px solid #222;
-            padding-top: 25px;
-        }
-
-        .purpose-number {
-            font-size: 12px;
-            letter-spacing: 2px;
-        }
-
-        .purpose-card h3 {
-            font-size: 26px;
-            margin: 30px 0 15px;
-            font-weight: 500;
-        }
-
-        .purpose-card p {
-            line-height: 1.8;
-        }
-
-
-        /* ================================
-           MISSION
-        ================================= */
-
-        .mission-section {
-            padding: 110px 8%;
-            background: #f3f0ea;
-        }
-
-        .mission-grid {
-            max-width: 1200px;
-            margin: auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 70px;
-        }
-
-        .mission-box {
-            padding: 20px 0;
-        }
-
-        .mission-box h2 {
-            font-size: 50px;
-            font-weight: 500;
-            margin: 20px 0;
-        }
-
-        .mission-box p {
-            line-height: 1.9;
-            max-width: 520px;
-        }
-
-
-        /* ================================
-           FOUNDERS
-        ================================= */
-
-        .founders-section {
-            padding: 120px 8%;
-            text-align: center;
-        }
-
-        .founders-section h2 {
-            font-size: clamp(45px, 6vw, 80px);
-            font-weight: 500;
-            margin: 20px 0 70px;
-        }
-
-        .founders-grid {
-            max-width: 900px;
-            margin: auto;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
-        }
-
-        .founder-card {
-            border: 1px solid #ddd;
-            padding: 50px 30px;
-        }
-
-        .founder-card h3 {
-            font-size: 28px;
-            font-weight: 500;
-            margin: 20px 0 10px;
-        }
-
-        .founder-card p {
-            line-height: 1.7;
-        }
-
-
-        /* ================================
-           CALL TO ACTION
-        ================================= */
-
-        .about-cta {
-            padding: 130px 6%;
-            text-align: center;
-            background: #111;
-            color: white;
-        }
-
-        .about-cta h2 {
-            font-size: clamp(45px, 7vw, 90px);
-            font-weight: 400;
-            line-height: 0.95;
-            max-width: 900px;
-            margin: 0 auto 35px;
-        }
-
-        .about-cta p {
-            margin-bottom: 40px;
-            line-height: 1.8;
-        }
-
-        .about-shop-button {
-            display: inline-block;
-            padding: 17px 35px;
-            background: white;
-            color: #111;
-            text-decoration: none;
-            letter-spacing: 2px;
-            font-size: 12px;
-        }
-
-
-        /* ================================
-           MOBILE
-        ================================= */
-
-        @media (max-width: 800px) {
-
-            .about-hero {
-                min-height: 65vh;
-                padding: 70px 7%;
-            }
-
-            .about-story {
-                padding: 80px 7%;
-            }
-
-            .about-story-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .purpose-section {
-                padding: 80px 7%;
-            }
-
-            .purpose-grid {
-                grid-template-columns: 1fr;
-                gap: 55px;
-            }
-
-            .mission-section {
-                padding: 80px 7%;
-            }
-
-            .mission-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-
-            .founders-section {
-                padding: 80px 7%;
-            }
-
-            .founders-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .about-cta {
-                padding: 90px 7%;
-            }
-
-        }
-
-    </style>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>About — Béni Carmel Collectives</title>
+
+  <meta
+    name="description"
+    content="Learn about Béni Carmel Collectives — faith, identity, purpose, and community woven into every thread."
+  >
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f8f6f1;
+      color: #171717;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(248, 246, 241, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #ddd8cf;
+    }
+
+    .nav {
+      max-width: 1400px;
+      margin: auto;
+      min-height: 82px;
+      padding: 0 35px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+      list-style: none;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+    }
+
+    .nav-links a {
+      position: relative;
+      padding: 8px 0;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 1px;
+      background: #171717;
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
+    }
+
+    .nav-icons {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-size: 18px;
+    }
+
+    .nav-icons a {
+      transition: opacity 0.2s ease;
+    }
+
+    .nav-icons a:hover {
+      opacity: 0.55;
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .about-hero {
+      min-height: 78vh;
+      padding: 110px 30px 90px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      text-align: center;
+      background: #171717;
+      color: #f8f6f1;
+    }
+
+    .hero-content {
+      max-width: 1000px;
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      letter-spacing: 4px;
+      font-weight: 700;
+      margin-bottom: 30px;
+      opacity: 0.7;
+    }
+
+    .about-hero h1 {
+      font-size: clamp(48px, 9vw, 120px);
+      line-height: 0.92;
+      letter-spacing: -4px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .hero-line {
+      width: 80px;
+      height: 1px;
+      background: #f8f6f1;
+      margin: 42px auto;
+    }
+
+    .hero-subtitle {
+      max-width: 650px;
+      margin: auto;
+      font-size: 16px;
+      line-height: 1.9;
+      letter-spacing: 0.5px;
+      opacity: 0.82;
+    }
+
+    /* =========================
+       PURPOSE
+    ========================= */
+
+    .purpose {
+      padding: 120px 30px;
+      background: #f8f6f1;
+    }
+
+    .purpose-inner {
+      max-width: 1100px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .purpose h2 {
+      font-size: clamp(35px, 6vw, 70px);
+      line-height: 1;
+      text-transform: uppercase;
+      letter-spacing: -2px;
+      margin-bottom: 28px;
+    }
+
+    .purpose p {
+      max-width: 720px;
+      margin: auto;
+      font-size: 17px;
+      line-height: 1.9;
+      color: #555;
+    }
+
+    /* =========================
+       STATEMENT GRID
+    ========================= */
+
+    .statements {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .statement {
+      min-height: 360px;
+      padding: 60px 45px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      text-align: center;
+      border-top: 1px solid #ddd8cf;
+    }
+
+    .statement:nth-child(odd) {
+      border-right: 1px solid #ddd8cf;
+    }
+
+    .statement h3 {
+      max-width: 500px;
+      font-size: clamp(28px, 4vw, 50px);
+      line-height: 1.05;
+      letter-spacing: -1.5px;
+      text-transform: uppercase;
+    }
+
+    /* =========================
+       VALUES
+    ========================= */
+
+    .values {
+      background: #e9e4da;
+      padding: 120px 30px;
+    }
+
+    .values-inner {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .values-heading {
+      text-align: center;
+      margin-bottom: 70px;
+    }
+
+    .values-heading span {
+      display: block;
+      font-size: 11px;
+      letter-spacing: 4px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .values-heading h2 {
+      font-size: clamp(38px, 6vw, 72px);
+      text-transform: uppercase;
+      letter-spacing: -3px;
+      line-height: 0.95;
+    }
+
+    .value-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid #bdb7ad;
+      border-bottom: 1px solid #bdb7ad;
+    }
+
+    .value {
+      padding: 55px 30px;
+      text-align: center;
+    }
+
+    .value + .value {
+      border-left: 1px solid #bdb7ad;
+    }
+
+    .value-number {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      margin-bottom: 25px;
+      opacity: 0.55;
+    }
+
+    .value h3 {
+      font-size: 25px;
+      letter-spacing: 1px;
+      margin-bottom: 18px;
+      text-transform: uppercase;
+    }
+
+    .value p {
+      color: #555;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    /* =========================
+       MISSION / VISION
+    ========================= */
+
+    .mission-vision {
+      padding: 120px 30px;
+      background: #171717;
+      color: #f8f6f1;
+    }
+
+    .mission-grid {
+      max-width: 1200px;
+      margin: auto;
+
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+    }
+
+    .mission-box {
+      padding: 20px 0;
+    }
+
+    .mission-box + .mission-box {
+      border-left: 1px solid #444;
+      padding-left: 70px;
+    }
+
+    .mission-box span {
+      display: block;
+      font-size: 10px;
+      letter-spacing: 4px;
+      font-weight: 700;
+      opacity: 0.55;
+      margin-bottom: 25px;
+    }
+
+    .mission-box h2 {
+      font-size: clamp(36px, 5vw, 60px);
+      line-height: 0.95;
+      letter-spacing: -2px;
+      text-transform: uppercase;
+      margin-bottom: 30px;
+    }
+
+    .mission-box p {
+      color: #c7c3bb;
+      max-width: 480px;
+      font-size: 15px;
+      line-height: 1.9;
+    }
+
+    /* =========================
+       FOUNDERS
+    ========================= */
+
+    .founders {
+      padding: 120px 30px;
+      background: #f8f6f1;
+    }
+
+    .founders-inner {
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .founders-heading {
+      text-align: center;
+      margin-bottom: 70px;
+    }
+
+    .founders-heading span {
+      font-size: 11px;
+      letter-spacing: 4px;
+      font-weight: 700;
+    }
+
+    .founders-heading h2 {
+      margin-top: 20px;
+      font-size: clamp(40px, 6vw, 72px);
+      text-transform: uppercase;
+      letter-spacing: -3px;
+      line-height: 0.95;
+    }
+
+    .founders-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .founder-image {
+      min-height: 500px;
+      background: #ddd8cf;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      text-align: center;
+      color: #777;
+      letter-spacing: 2px;
+      font-size: 11px;
+    }
+
+    .founder-text h3 {
+      font-size: 32px;
+      text-transform: uppercase;
+      margin-bottom: 25px;
+      letter-spacing: -1px;
+    }
+
+    .founder-text p {
+      color: #555;
+      font-size: 15px;
+      line-height: 2;
+      margin-bottom: 20px;
+    }
+
+    /* =========================
+       FINAL CTA
+    ========================= */
+
+    .shop-cta {
+      min-height: 500px;
+      padding: 90px 30px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      text-align: center;
+      background: #e9e4da;
+    }
+
+    .shop-cta-content {
+      max-width: 800px;
+    }
+
+    .shop-cta span {
+      font-size: 11px;
+      letter-spacing: 4px;
+      font-weight: 700;
+    }
+
+    .shop-cta h2 {
+      margin: 25px 0 40px;
+      font-size: clamp(45px, 8vw, 90px);
+      line-height: 0.9;
+      letter-spacing: -4px;
+      text-transform: uppercase;
+    }
+
+    .shop-button {
+      display: inline-block;
+      padding: 17px 38px;
+      background: #171717;
+      color: #fff;
+      font-size: 11px;
+      letter-spacing: 2px;
+      font-weight: 700;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+    }
+
+    .shop-button:hover {
+      background: #555;
+      transform: translateY(-2px);
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      background: #171717;
+      color: #f8f6f1;
+      padding: 70px 35px 30px;
+    }
+
+    .footer-inner {
+      max-width: 1400px;
+      margin: auto;
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 50px;
+      padding-bottom: 60px;
+    }
+
+    .footer-brand {
+      max-width: 350px;
+    }
+
+    .footer-brand h3 {
+      font-size: 20px;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+    }
+
+    .footer-brand p {
+      color: #aaa;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 70px;
+    }
+
+    .footer-column h4 {
+      font-size: 10px;
+      letter-spacing: 3px;
+      margin-bottom: 20px;
+    }
+
+    .footer-column a {
+      display: block;
+      color: #aaa;
+      font-size: 12px;
+      margin-bottom: 12px;
+      transition: color 0.2s ease;
+    }
+
+    .footer-column a:hover {
+      color: #fff;
+    }
+
+    .footer-bottom {
+      padding-top: 25px;
+      border-top: 1px solid #333;
+      display: flex;
+      justify-content: space-between;
+      color: #777;
+      font-size: 10px;
+      letter-spacing: 1px;
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 900px) {
+
+      .nav {
+        padding: 18px 20px;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        gap: 12px 18px;
+      }
+
+      .nav-icons {
+        display: none;
+      }
+
+      .about-hero {
+        min-height: 70vh;
+        padding: 90px 25px;
+      }
+
+      .about-hero h1 {
+        letter-spacing: -2px;
+      }
+
+      .statements {
+        grid-template-columns: 1fr;
+      }
+
+      .statement:nth-child(odd) {
+        border-right: none;
+      }
+
+      .value-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .value + .value {
+        border-left: none;
+        border-top: 1px solid #bdb7ad;
+      }
+
+      .mission-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+      }
+
+      .mission-box + .mission-box {
+        border-left: none;
+        border-top: 1px solid #444;
+        padding-left: 0;
+        padding-top: 50px;
+      }
+
+      .founders-content {
+        grid-template-columns: 1fr;
+      }
+
+      .founder-image {
+        min-height: 380px;
+      }
+
+      .footer-top {
+        flex-direction: column;
+      }
+
+      .footer-links {
+        flex-wrap: wrap;
+        gap: 40px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 12px;
+      }
+    }
+
+    @media (max-width: 500px) {
+
+      .nav-links {
+        font-size: 10px;
+        gap: 9px 13px;
+      }
+
+      .purpose,
+      .values,
+      .mission-vision,
+      .founders {
+        padding: 80px 20px;
+      }
+
+      .statement {
+        min-height: 280px;
+        padding: 45px 25px;
+      }
+
+      .shop-cta {
+        min-height: 420px;
+        padding: 70px 20px;
+      }
+    }
+  </style>
 </head>
-
 
 <body>
 
+  <!-- =========================
+       NAVIGATION
+  ========================= -->
 
-    <!-- ANNOUNCEMENT -->
+  <header>
+    <nav class="nav">
 
-    <div class="announcement">
-        WELCOME TO THE COLLECTIVE — WEAR YOUR PURPOSE.
-    </div>
+      <a href="index.html" class="logo">
+        BÉNI CARMEL
+      </a>
 
+      <ul class="nav-links">
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="shop.html">SHOP</a></li>
+        <li><a href="clothing.html">CLOTHING</a></li>
+        <li><a href="denim.html">DENIM</a></li>
+        <li><a href="headwear.html">HEADWEAR</a></li>
+        <li><a href="accessories.html">ACCESSORIES</a></li>
+        <li><a href="about.html" class="active">ABOUT</a></li>
+      </ul>
 
-    <!-- HEADER -->
+      <div class="nav-icons">
+        <a href="shop.html" aria-label="Shop">🛍</a>
+        <a href="index.html#newsletter" aria-label="Newsletter">♡</a>
+      </div>
 
-    <header class="header">
-
-        <button
-            class="mobile-menu-button"
-            onclick="toggleMenu()"
-            aria-label="Open menu"
-        >
-            ☰
-        </button>
-
-
-        <a href="index.html" class="logo">
-
-            <img
-                src="images/logo.png"
-                alt="Béni Carmel Collectives"
-            >
-
-        </a>
-
-
-        <nav class="desktop-nav">
-
-            <a href="index.html">
-                HOME
-            </a>
-
-            <a href="shop.html">
-                SHOP
-            </a>
-
-            <a href="shop.html?category=clothing">
-                CLOTHING
-            </a>
-
-            <a href="shop.html?category=denim">
-                DENIM
-            </a>
-
-            <a href="shop.html?category=headwear">
-                HEADWEAR
-            </a>
-
-            <a href="shop.html?category=accessories">
-                ACCESSORIES
-            </a>
-
-            <a href="about.html">
-                ABOUT
-            </a>
-
-        </nav>
+    </nav>
+  </header>
 
 
-        <div class="nav-icons">
+  <!-- =========================
+       HERO
+  ========================= -->
 
-            <button onclick="openSearch()">
-                ⌕
-            </button>
+  <section class="about-hero">
 
-            <button onclick="openWishlist()">
-                ♡
-            </button>
+    <div class="hero-content">
 
-            <button onclick="openAccount()">
-                ♙
-            </button>
+      <div class="eyebrow">
+        BÉNI CARMEL COLLECTIVES
+      </div>
 
-            <button onclick="openCart()">
+      <h1>
+        WEAR<br>
+        YOUR<br>
+        PURPOSE.
+      </h1>
 
-                🛍
+      <div class="hero-line"></div>
 
-                <span id="cart-count">
-                    0
-                </span>
-
-            </button>
-
-        </div>
-
-    </header>
-
-
-    <!-- MOBILE MENU -->
-
-    <div
-        id="mobile-menu"
-        class="mobile-menu"
-    >
-
-        <a href="index.html">
-            HOME
-        </a>
-
-        <a href="shop.html">
-            SHOP ALL
-        </a>
-
-        <a href="shop.html?category=clothing">
-            CLOTHING
-        </a>
-
-        <a href="shop.html?category=denim">
-            DENIM
-        </a>
-
-        <a href="shop.html?category=headwear">
-            HEADWEAR
-        </a>
-
-        <a href="shop.html?category=accessories">
-            ACCESSORIES
-        </a>
-
-        <a href="about.html">
-            ABOUT US
-        </a>
+      <p class="hero-subtitle">
+        We believe what you wear can say something about who you are,
+        what you believe, and what you stand for.
+      </p>
 
     </div>
 
-
-    <!-- ================================
-         HERO
-    ================================= -->
-
-    <section class="about-hero">
-
-        <div class="about-hero-content">
-
-            <div class="about-eyebrow">
-                BÉNI CARMEL COLLECTIVES
-            </div>
-
-            <h1>
-                WEAR<br>
-                YOUR<br>
-                PURPOSE.
-            </h1>
-
-            <p>
-                More than clothing.
-                A collective built around identity,
-                faith, creativity and purpose.
-            </p>
-
-        </div>
-
-    </section>
+  </section>
 
 
-    <!-- ================================
-         OUR STORY
-    ================================= -->
+  <!-- =========================
+       PURPOSE
+  ========================= -->
 
-    <section class="about-story">
+  <section class="purpose">
 
-        <div class="about-story-grid">
+    <div class="purpose-inner">
 
-            <div>
+      <h2>
+        BLESSED WITH PURPOSE.
+      </h2>
 
-                <div class="about-section-label">
-                    OUR STORY
-                </div>
+      <p>
+        Béni Carmel Collectives was created around a simple belief:
+        clothing should be more than something you put on.
+        It should carry meaning.
+      </p>
 
-                <h2>
-                    BLESSED<br>
-                    WITH<br>
-                    PURPOSE.
-                </h2>
+      <br>
 
-            </div>
+      <p>
+        Every piece is designed with intention — bringing together
+        faith, identity, creativity and community to create clothing
+        that allows you to express who you are without saying a word.
+      </p>
 
+    </div>
 
-            <div class="about-story-text">
-
-                <p>
-                    Béni Carmel Collectives was created
-                    from a desire to build something that
-                    represents more than what we wear.
-                </p>
-
-                <p>
-                    The name <strong>Béni</strong> comes
-                    from the French word for
-                    <strong>blessed</strong>.
-                    Carmel carries the symbolism of
-                    Mount Carmel — representing
-                    abundance, growth and significance.
-                </p>
-
-                <p>
-                    Together, Béni Carmel represents
-                    a belief that we are blessed with
-                    something meaningful to carry,
-                    create and share with the world.
-                </p>
-
-                <p>
-                    Every piece is therefore more than
-                    an item of clothing. It is an
-                    expression of identity.
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
+  </section>
 
 
-    <!-- ================================
-         MEANING
-    ================================= -->
+  <!-- =========================
+       STATEMENTS
+  ========================= -->
 
-    <section class="meaning-section">
+  <section class="statements">
 
-        <div class="about-section-label">
-            WHAT BÉNI CARMEL MEANS
-        </div>
+    <div class="statement">
+      <h3>
+        FAITH WOVEN INTO EVERY THREAD.
+      </h3>
+    </div>
+
+    <div class="statement">
+      <h3>
+        CLOTHING WITH INTENTION.
+      </h3>
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       VALUES
+  ========================= -->
+
+  <section class="values">
+
+    <div class="values-inner">
+
+      <div class="values-heading">
+
+        <span>
+          WHAT WE STAND FOR
+        </span>
 
         <h2>
-            FAITH WOVEN<br>
-            INTO EVERY THREAD.
+          IDENTITY • PURPOSE • COMMUNITY
+        </h2>
+
+      </div>
+
+      <div class="value-grid">
+
+        <div class="value">
+
+          <div class="value-number">
+            01
+          </div>
+
+          <h3>
+            Identity
+          </h3>
+
+          <p>
+            We believe in being unapologetically yourself.
+            Your story, your style and your individuality matter.
+          </p>
+
+        </div>
+
+
+        <div class="value">
+
+          <div class="value-number">
+            02
+          </div>
+
+          <h3>
+            Purpose
+          </h3>
+
+          <p>
+            We create with intention. Every design is a reminder
+            that you were created for something meaningful.
+          </p>
+
+        </div>
+
+
+        <div class="value">
+
+          <div class="value-number">
+            03
+          </div>
+
+          <h3>
+            Community
+          </h3>
+
+          <p>
+            We are building more than a clothing brand.
+            We are creating a collective of people connected
+            by faith, purpose and creativity.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       MISSION / VISION
+  ========================= -->
+
+  <section class="mission-vision">
+
+    <div class="mission-grid">
+
+      <div class="mission-box">
+
+        <span>
+          OUR MISSION
+        </span>
+
+        <h2>
+          CLOTHING<br>
+          WITH<br>
+          MEANING.
         </h2>
 
         <p>
-            We believe what you wear can communicate
-            who you are, what you believe and where
-            you are going. Béni Carmel exists to create
-            pieces that carry meaning while remaining
-            authentic, contemporary and wearable.
+          Our mission is to create meaningful, wearable pieces
+          that encourage people to embrace their identity,
+          walk confidently in their purpose and express their
+          faith through what they wear.
         </p>
 
-    </section>
+      </div>
 
 
-    <!-- ================================
-         PURPOSE
-    ================================= -->
+      <div class="mission-box">
 
-    <section class="purpose-section">
-
-        <div class="purpose-heading">
-
-            <div class="about-section-label">
-                THE COLLECTIVE
-            </div>
-
-            <h2>
-                CLOTHING WITH INTENTION.
-            </h2>
-
-        </div>
-
-
-        <div class="purpose-grid">
-
-
-            <div class="purpose-card">
-
-                <div class="purpose-number">
-                    01
-                </div>
-
-                <h3>
-                    IDENTITY
-                </h3>
-
-                <p>
-                    We create pieces that allow you
-                    to express who you are without
-                    needing to say a word.
-                </p>
-
-            </div>
-
-
-            <div class="purpose-card">
-
-                <div class="purpose-number">
-                    02
-                </div>
-
-                <h3>
-                    PURPOSE
-                </h3>
-
-                <p>
-                    Every collection is designed
-                    around the idea that what we
-                    carry should have meaning.
-                </p>
-
-            </div>
-
-
-            <div class="purpose-card">
-
-                <div class="purpose-number">
-                    03
-                </div>
-
-                <h3>
-                    COMMUNITY
-                </h3>
-
-                <p>
-                    Béni Carmel is a collective.
-                    We are building a community of
-                    people who choose to live and
-                    create intentionally.
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ================================
-         MISSION + VISION
-    ================================= -->
-
-    <section class="mission-section">
-
-        <div class="mission-grid">
-
-
-            <div class="mission-box">
-
-                <div class="about-section-label">
-                    OUR MISSION
-                </div>
-
-                <h2>
-                    CREATE.
-                </h2>
-
-                <p>
-                    To create meaningful, contemporary
-                    clothing that allows people to
-                    express their faith, identity and
-                    purpose through what they wear.
-                </p>
-
-            </div>
-
-
-            <div class="mission-box">
-
-                <div class="about-section-label">
-                    OUR VISION
-                </div>
-
-                <h2>
-                    IMPACT.
-                </h2>
-
-                <p>
-                    To grow Béni Carmel into a
-                    community-driven fashion collective
-                    whose influence extends beyond
-                    clothing and into culture,
-                    creativity and purpose.
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ================================
-         FOUNDERS
-    ================================= -->
-
-    <section class="founders-section">
-
-        <div class="about-section-label">
-            THE PEOPLE BEHIND THE COLLECTIVE
-        </div>
+        <span>
+          OUR VISION
+        </span>
 
         <h2>
-            MEET THE FOUNDERS.
-        </h2>
-
-
-        <div class="founders-grid">
-
-
-            <div class="founder-card">
-
-                <div class="about-section-label">
-                    CO-FOUNDER
-                </div>
-
-                <h3>
-                    Cindy Wanjii
-                </h3>
-
-                <p>
-                    Co-founder of Béni Carmel Collectives,
-                    helping shape the vision, identity and
-                    direction of the brand.
-                </p>
-
-            </div>
-
-
-            <div class="founder-card">
-
-                <div class="about-section-label">
-                    CO-FOUNDER
-                </div>
-
-                <h3>
-                    John Ouma
-                </h3>
-
-                <p>
-                    Co-founder of Béni Carmel Collectives,
-                    contributing to the growth and
-                    development of the collective.
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ================================
-         FINAL CTA
-    ================================= -->
-
-    <section class="about-cta">
-
-        <h2>
-            DON'T JUST WEAR IT.
-            LIVE IT.
+          A COLLECTIVE<br>
+          WITH<br>
+          PURPOSE.
         </h2>
 
         <p>
-            Discover the Béni Carmel collection
-            and find the pieces that speak to you.
+          We envision a global community where fashion becomes
+          a form of expression, connection and encouragement —
+          reminding people that they are blessed, called and
+          created with purpose.
         </p>
 
-        <a
-            href="shop.html"
-            class="about-shop-button"
-        >
-            SHOP THE COLLECTION
-        </a>
+      </div>
 
-    </section>
+    </div>
+
+  </section>
 
 
-    <script src="script.js"></script>
+  <!-- =========================
+       FOUNDERS
+  ========================= -->
+
+  <section class="founders">
+
+    <div class="founders-inner">
+
+      <div class="founders-heading">
+
+        <span>
+          THE PEOPLE BEHIND THE BRAND
+        </span>
+
+        <h2>
+          MEET THE<br>
+          FOUNDERS
+        </h2>
+
+      </div>
+
+
+      <div class="founders-content">
+
+        <div class="founder-image">
+          FOUNDERS PHOTO
+        </div>
+
+
+        <div class="founder-text">
+
+          <h3>
+            Built from belief.
+          </h3>
+
+          <p>
+            Béni Carmel Collectives began with a desire to create
+            something that felt authentic — something that connected
+            fashion with faith, creativity with purpose, and
+            individual expression with community.
+          </p>
+
+          <p>
+            What started as an idea has grown into a collective
+            built around the belief that the clothes we wear can
+            carry a message.
+          </p>
+
+          <p>
+            We are creating pieces for people who know that
+            their identity is bigger than a trend and their
+            purpose is bigger than a label.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       SHOP CTA
+  ========================= -->
+
+  <section class="shop-cta">
+
+    <div class="shop-cta-content">
+
+      <span>
+        WEAR WHAT YOU BELIEVE.
+      </span>
+
+      <h2>
+        SHOP THE<br>
+        COLLECTION.
+      </h2>
+
+      <a href="shop.html" class="shop-button">
+        SHOP NOW
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
+  <footer>
+
+    <div class="footer-inner">
+
+      <div class="footer-top">
+
+        <div class="footer-brand">
+
+          <h3>
+            BÉNI CARMEL
+          </h3>
+
+          <p>
+            Faith worn boldly. Clothing created with intention,
+            identity and purpose.
+          </p>
+
+        </div>
+
+
+        <div class="footer-links">
+
+          <div class="footer-column">
+
+            <h4>
+              SHOP
+            </h4>
+
+            <a href="shop.html">Shop All</a>
+            <a href="clothing.html">Clothing</a>
+            <a href="denim.html">Denim</a>
+            <a href="headwear.html">Headwear</a>
+            <a href="accessories.html">Accessories</a>
+
+          </div>
+
+
+          <div class="footer-column">
+
+            <h4>
+              BRAND
+            </h4>
+
+            <a href="about.html">About</a>
+            <a href="index.html#newsletter">Stay In The Know</a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="footer-bottom">
+
+        <span>
+          © 2026 BÉNI CARMEL COLLECTIVES
+        </span>
+
+        <span>
+          FAITH • PURPOSE • COMMUNITY
+        </span>
+
+      </div>
+
+    </div>
+
+  </footer>
 
 </body>
-
 </html>
