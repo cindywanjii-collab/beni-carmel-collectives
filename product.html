@@ -1,603 +1,1462 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Product | Beni Carmel Collectives</title>
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Product | Béni Carmel Collectives</title>
+
+    <meta
+        name="description"
+        content="Shop Béni Carmel Collectives."
+    >
 
     <link rel="stylesheet" href="style.css">
 
     <style>
-        /* PRODUCT PAGE */
+
+        /* =========================================
+           PRODUCT PAGE
+        ========================================= */
 
         .product-page {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 60px 30px;
+            padding: 70px 6%;
+            max-width: 1400px;
+            margin: auto;
         }
 
-        .back-link {
-            display: inline-block;
-            margin-bottom: 35px;
-            color: #333;
+        .product-breadcrumb {
+            margin-bottom: 45px;
+            font-size: 12px;
+            letter-spacing: 1.5px;
+        }
+
+        .product-breadcrumb a {
             text-decoration: none;
-            font-size: 14px;
         }
 
-        .back-link:hover {
-            text-decoration: underline;
-        }
-
-        .product-container {
+        .product-layout {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1.1fr 0.9fr;
             gap: 70px;
             align-items: start;
         }
 
-        .product-image-container {
-            background: #f5f2ed;
-            width: 100%;
-            overflow: hidden;
+        .product-gallery {
+            position: sticky;
+            top: 30px;
         }
 
-        .product-image-container img {
+        .product-main-image {
             width: 100%;
-            display: block;
+            aspect-ratio: 1 / 1;
             object-fit: cover;
+            display: block;
         }
 
         .product-info {
             padding-top: 10px;
         }
 
-        .product-brand {
+        .product-category {
             font-size: 12px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
+            letter-spacing: 2px;
             margin-bottom: 15px;
-            color: #777;
         }
 
-        .product-title {
-            font-size: 42px;
-            font-weight: 400;
-            margin: 0 0 15px;
-            line-height: 1.1;
+        .product-info h1 {
+            font-size: clamp(36px, 5vw, 65px);
+            line-height: 0.95;
+            margin: 0 0 20px;
         }
 
         .product-price {
-            font-size: 20px;
+            font-size: 22px;
             margin-bottom: 30px;
         }
 
         .product-description {
-            color: #555;
             line-height: 1.8;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
+            max-width: 600px;
         }
 
-        .product-details {
-            border-top: 1px solid #ddd;
-            border-bottom: 1px solid #ddd;
-            padding: 20px 0;
-            margin-bottom: 30px;
-        }
-
-        .product-details p {
-            margin: 8px 0;
-            font-size: 14px;
-        }
-
-        .quantity-section {
+        .product-option {
             margin-bottom: 25px;
         }
 
-        .quantity-section label {
+        .product-option label {
             display: block;
-            font-size: 13px;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            font-size: 12px;
+            letter-spacing: 1.5px;
+            margin-bottom: 12px;
         }
 
-        .quantity-controls {
+        .size-options {
             display: flex;
-            width: 130px;
-            border: 1px solid #ccc;
+            gap: 8px;
+            flex-wrap: wrap;
         }
 
-        .quantity-controls button {
-            width: 40px;
-            height: 42px;
-            border: none;
-            background: white;
+        .size-button {
+            min-width: 55px;
+            padding: 13px 18px;
+            background: transparent;
+            border: 1px solid currentColor;
+            cursor: pointer;
+        }
+
+        .size-button.active {
+            background: #111;
+            color: white;
+        }
+
+        .quantity-selector {
+            display: flex;
+            width: 150px;
+            border: 1px solid #222;
+            height: 48px;
+        }
+
+        .quantity-selector button {
+            width: 45px;
+            border: 0;
+            background: transparent;
             cursor: pointer;
             font-size: 18px;
         }
 
-        .quantity-controls input {
-            width: 50px;
-            height: 42px;
-            border: none;
+        .quantity-selector input {
+            width: 60px;
+            border: 0;
             text-align: center;
-            font-size: 15px;
+            font-size: 16px;
+            background: transparent;
         }
 
         .product-actions {
             display: flex;
-            flex-direction: column;
             gap: 12px;
+            margin-top: 30px;
         }
 
-        .add-cart-button,
-        .buy-button {
-            width: 100%;
-            padding: 17px;
-            border: none;
-            cursor: pointer;
-            font-size: 13px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        .add-cart-button {
-            background: #222;
+        .add-product-button {
+            flex: 1;
+            min-height: 55px;
+            border: 1px solid #111;
+            background: #111;
             color: white;
+            cursor: pointer;
+            letter-spacing: 1.5px;
         }
 
-        .buy-button {
+        .wishlist-product-page {
+            width: 60px;
+            min-height: 55px;
+            border: 1px solid #111;
             background: transparent;
-            color: #222;
-            border: 1px solid #222;
+            cursor: pointer;
+            font-size: 24px;
         }
 
-        .add-cart-button:hover {
-            background: #444;
+        .product-details {
+            margin-top: 55px;
+            border-top: 1px solid #ddd;
         }
 
-        .buy-button:hover {
-            background: #f4f1ec;
+        .product-detail-row {
+            border-bottom: 1px solid #ddd;
+            padding: 20px 0;
         }
 
-        .product-message {
-            margin-top: 15px;
-            font-size: 14px;
-            display: none;
-        }
-
-        /* RELATED PRODUCTS */
-
-        .related-section {
-            margin-top: 100px;
-        }
-
-        .related-title {
-            text-align: center;
-            font-size: 28px;
-            font-weight: 400;
-            margin-bottom: 40px;
-        }
-
-        .related-products {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-        }
-
-        .related-product {
-            text-decoration: none;
-            color: #222;
-        }
-
-        .related-product img {
-            width: 100%;
+        .product-detail-row strong {
             display: block;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+            font-size: 12px;
         }
 
-        .related-product h3 {
-            font-size: 15px;
-            font-weight: 400;
-            margin: 0 0 5px;
-        }
-
-        .related-product p {
-            font-size: 14px;
+        .product-detail-row p {
             margin: 0;
+            line-height: 1.7;
         }
 
-        /* MOBILE */
+        .product-not-found {
+            text-align: center;
+            padding: 120px 20px;
+        }
 
-        @media (max-width: 768px) {
+        .product-not-found h1 {
+            margin-bottom: 20px;
+        }
+
+        .back-shop-button {
+            display: inline-block;
+            padding: 15px 25px;
+            background: #111;
+            color: white;
+            text-decoration: none;
+            margin-top: 20px;
+        }
+
+
+        /* =========================================
+           MOBILE
+        ========================================= */
+
+        @media (max-width: 800px) {
 
             .product-page {
-                padding: 30px 20px;
+                padding: 40px 5%;
             }
 
-            .product-container {
+            .product-layout {
                 grid-template-columns: 1fr;
                 gap: 35px;
             }
 
-            .product-title {
-                font-size: 32px;
+            .product-gallery {
+                position: static;
             }
 
-            .related-products {
-                grid-template-columns: repeat(2, 1fr);
+            .product-info h1 {
+                font-size: 42px;
             }
+
+            .product-actions {
+                position: sticky;
+                bottom: 0;
+                background: white;
+                padding: 12px 0;
+                z-index: 20;
+            }
+
         }
+
     </style>
+
 </head>
+
 
 <body>
 
-    <main class="product-page">
 
-        <a href="shop.html" class="back-link">
-            ← Back to Shop
+    <!-- ANNOUNCEMENT -->
+
+    <div class="announcement">
+        WELCOME TO THE COLLECTIVE — WEAR YOUR PURPOSE.
+    </div>
+
+
+    <!-- HEADER -->
+
+    <header class="header">
+
+        <button
+            class="mobile-menu-button"
+            onclick="toggleMenu()"
+            aria-label="Open menu"
+        >
+            ☰
+        </button>
+
+
+        <a href="index.html" class="logo">
+
+            <img
+                src="images/logo.png"
+                alt="Béni Carmel Collectives"
+            >
+
         </a>
 
-        <div class="product-container">
 
-            <!-- PRODUCT IMAGE -->
+        <nav class="desktop-nav">
 
-            <div class="product-image-container">
-                <img id="productImage" src="" alt="Beni Carmel product">
+            <a href="shop.html">
+                SHOP
+            </a>
+
+            <a href="shop.html?category=clothing">
+                CLOTHING
+            </a>
+
+            <a href="shop.html?category=denim">
+                DENIM
+            </a>
+
+            <a href="shop.html?category=headwear">
+                HEADWEAR
+            </a>
+
+            <a href="shop.html?category=accessories">
+                ACCESSORIES
+            </a>
+
+            <a href="index.html#collections">
+                COLLECTIONS
+            </a>
+
+        </nav>
+
+
+        <div class="nav-icons">
+
+            <button
+                onclick="openSearch()"
+                aria-label="Search"
+            >
+                ⌕
+            </button>
+
+
+            <button
+                onclick="openWishlist()"
+                aria-label="Wishlist"
+            >
+                ♡
+            </button>
+
+
+            <button
+                onclick="openAccount()"
+                aria-label="Account"
+            >
+                ♙
+            </button>
+
+
+            <button
+                onclick="openCart()"
+                aria-label="Shopping bag"
+            >
+
+                🛍
+
+                <span id="cart-count">
+                    0
+                </span>
+
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- MOBILE MENU -->
+
+    <div
+        id="mobile-menu"
+        class="mobile-menu"
+    >
+
+        <a href="index.html">
+            HOME
+        </a>
+
+        <a href="shop.html">
+            SHOP ALL
+        </a>
+
+        <a href="shop.html?category=clothing">
+            CLOTHING
+        </a>
+
+        <a href="shop.html?category=denim">
+            DENIM
+        </a>
+
+        <a href="shop.html?category=headwear">
+            HEADWEAR
+        </a>
+
+        <a href="shop.html?category=accessories">
+            ACCESSORIES
+        </a>
+
+        <a href="index.html#collections">
+            COLLECTIONS
+        </a>
+
+    </div>
+
+
+
+    <!-- PRODUCT -->
+
+    <main class="product-page">
+
+
+        <div class="product-breadcrumb">
+
+            <a href="shop.html">
+                SHOP
+            </a>
+
+            &nbsp; / &nbsp;
+
+            <span id="breadcrumb-product">
+                PRODUCT
+            </span>
+
+        </div>
+
+
+        <section
+            id="product-container"
+            class="product-layout"
+        >
+
+            <!-- IMAGE -->
+
+            <div class="product-gallery">
+
+                <img
+                    id="product-image"
+                    class="product-main-image"
+                    src=""
+                    alt=""
+                >
+
             </div>
 
-            <!-- PRODUCT INFORMATION -->
+
+            <!-- INFORMATION -->
 
             <div class="product-info">
 
-                <div class="product-brand">
-                    Beni Carmel Collectives
-                </div>
+                <p
+                    id="product-category"
+                    class="product-category"
+                ></p>
 
-                <h1 id="productTitle" class="product-title">
-                    Product
+
+                <h1 id="product-name">
+                    Loading...
                 </h1>
 
-                <div id="productPrice" class="product-price">
-                    KSh 0
-                </div>
 
-                <p id="productDescription" class="product-description">
-                    Discover Beni Carmel.
-                </p>
+                <p
+                    id="product-price"
+                    class="product-price"
+                ></p>
 
-                <div class="product-details">
 
-                    <p>
-                        <strong>Material:</strong>
-                        Premium quality fabric
-                    </p>
+                <p
+                    id="product-description"
+                    class="product-description"
+                ></p>
 
-                    <p>
-                        <strong>Collection:</strong>
-                        Beni Carmel Collectives
-                    </p>
 
-                    <p>
-                        <strong>Shipping:</strong>
-                        Available across Kenya
-                    </p>
+                <!-- SIZE -->
 
-                </div>
+                <div
+                    id="size-container"
+                    class="product-option"
+                >
 
-                <!-- QUANTITY -->
+                    <label>
+                        SELECT SIZE
+                    </label>
 
-                <div class="quantity-section">
 
-                    <label>Quantity</label>
+                    <div class="size-options">
 
-                    <div class="quantity-controls">
-
-                        <button onclick="decreaseQuantity()">−</button>
-
-                        <input
-                            type="number"
-                            id="quantity"
-                            value="1"
-                            min="1"
+                        <button
+                            class="size-button"
+                            onclick="selectSize(this)"
                         >
+                            S
+                        </button>
 
-                        <button onclick="increaseQuantity()">+</button>
+                        <button
+                            class="size-button active"
+                            onclick="selectSize(this)"
+                        >
+                            M
+                        </button>
+
+                        <button
+                            class="size-button"
+                            onclick="selectSize(this)"
+                        >
+                            L
+                        </button>
+
+                        <button
+                            class="size-button"
+                            onclick="selectSize(this)"
+                        >
+                            XL
+                        </button>
 
                     </div>
 
                 </div>
 
-                <!-- BUTTONS -->
+
+                <!-- QUANTITY -->
+
+                <div class="product-option">
+
+                    <label>
+                        QUANTITY
+                    </label>
+
+
+                    <div class="quantity-selector">
+
+                        <button onclick="changeQuantity(-1)">
+                            −
+                        </button>
+
+
+                        <input
+                            id="quantity"
+                            type="number"
+                            value="1"
+                            min="1"
+                            readonly
+                        >
+
+
+                        <button onclick="changeQuantity(1)">
+                            +
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ACTIONS -->
 
                 <div class="product-actions">
 
                     <button
-                        class="add-cart-button"
-                        onclick="addToCart()"
+                        id="add-product-button"
+                        class="add-product-button"
+                        onclick="addCurrentProduct()"
                     >
-                        Add to Cart
+                        ADD TO BAG
                     </button>
 
+
                     <button
-                        class="buy-button"
-                        onclick="buyNow()"
+                        class="wishlist-product-page"
+                        onclick="addCurrentToWishlist()"
+                        aria-label="Add to wishlist"
                     >
-                        Buy Now
+                        ♡
                     </button>
 
                 </div>
 
-                <div
-                    id="productMessage"
-                    class="product-message"
-                ></div>
 
-            </div>
+                <!-- DETAILS -->
 
-        </div>
+                <div class="product-details">
 
 
-        <!-- RELATED PRODUCTS -->
+                    <div class="product-detail-row">
 
-        <section class="related-section">
+                        <strong>
+                            DESCRIPTION
+                        </strong>
 
-            <h2 class="related-title">
-                You May Also Like
-            </h2>
+                        <p id="detail-description"></p>
 
-            <div class="related-products">
-
-                <a
-                    href="product.html?product=beanie-beige"
-                    class="related-product"
-                >
-                    <img
-                        src="images/beanie-beige.jpg"
-                        alt="Beige Beanie"
-                    >
-
-                    <h3>Beige Beanie</h3>
-
-                    <p>KSh 2,500</p>
-                </a>
+                    </div>
 
 
-                <a
-                    href="product.html?product=beanie-black"
-                    class="related-product"
-                >
-                    <img
-                        src="images/beanie-black.jpg"
-                        alt="Black Beanie"
-                    >
+                    <div class="product-detail-row">
 
-                    <h3>Black Beanie</h3>
+                        <strong>
+                            DELIVERY
+                        </strong>
 
-                    <p>KSh 2,500</p>
-                </a>
+                        <p>
+                            Delivery available across Kenya.
+                            Delivery times and charges are
+                            calculated during checkout.
+                        </p>
 
-
-                <a
-                    href="product.html?product=beanie-brown"
-                    class="related-product"
-                >
-                    <img
-                        src="images/beanie-brown.jpg"
-                        alt="Brown Beanie"
-                    >
-
-                    <h3>Brown Beanie</h3>
-
-                    <p>KSh 2,500</p>
-                </a>
+                    </div>
 
 
-                <a
-                    href="product.html?product=beanie-burgundy"
-                    class="related-product"
-                >
-                    <img
-                        src="images/beanie-burgundy.jpg"
-                        alt="Burgundy Beanie"
-                    >
+                    <div class="product-detail-row">
 
-                    <h3>Burgundy Beanie</h3>
+                        <strong>
+                            RETURNS
+                        </strong>
 
-                    <p>KSh 2,500</p>
-                </a>
+                        <p>
+                            Please contact Béni Carmel Collectives
+                            regarding returns and exchanges.
+                        </p>
+
+                    </div>
+
+
+                </div>
 
             </div>
 
         </section>
 
+
+        <!-- PRODUCT NOT FOUND -->
+
+        <section
+            id="product-not-found"
+            class="product-not-found"
+            style="display:none;"
+        >
+
+            <h1>
+                PRODUCT NOT FOUND
+            </h1>
+
+            <p>
+                Sorry, we couldn't find that product.
+            </p>
+
+            <a
+                href="shop.html"
+                class="back-shop-button"
+            >
+                BACK TO SHOP
+            </a>
+
+        </section>
+
+
     </main>
 
 
-    <script>
 
-        /* PRODUCT DATABASE */
+    <!-- SEARCH -->
+
+    <div
+        id="search-overlay"
+        class="overlay"
+    >
+
+        <button
+            class="close-overlay"
+            onclick="closeSearch()"
+        >
+            ×
+        </button>
+
+
+        <div class="search-box">
+
+            <p>
+                SEARCH BÉNI CARMEL
+            </p>
+
+
+            <input
+                id="site-search"
+                type="text"
+                placeholder="What are you looking for?"
+            >
+
+
+            <div
+                id="search-results"
+                class="search-results"
+            ></div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- CART -->
+
+    <div
+        id="cart-drawer"
+        class="cart-drawer"
+    >
+
+        <div class="cart-header">
+
+            <h2>
+                YOUR BAG
+            </h2>
+
+
+            <button onclick="closeCart()">
+                ×
+            </button>
+
+        </div>
+
+
+        <div id="cart-items">
+
+            <p class="empty-cart">
+                Your bag is currently empty.
+            </p>
+
+        </div>
+
+
+        <div class="cart-footer">
+
+            <div>
+
+                <span>
+                    SUBTOTAL
+                </span>
+
+
+                <strong id="cart-total">
+                    KSh 0
+                </strong>
+
+            </div>
+
+
+            <button
+                class="checkout-button"
+                onclick="goToCheckout()"
+            >
+                CHECKOUT
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div
+        id="cart-background"
+        class="cart-background"
+        onclick="closeCart()"
+    ></div>
+
+
+
+    <!-- PRODUCT DATABASE -->
+
+    <script>
 
         const products = {
 
+            /* =========================
+               BEANIES
+            ========================= */
+
             "beanie-beige": {
-                name: "Beni Carmel Beige Beanie",
-                price: 2500,
+                name: "BC Beanie",
+                variant: "Beige",
+                category: "HEADWEAR",
+                price: 500,
                 image: "images/beanie-beige.jpg",
                 description:
-                    "A timeless Beni Carmel piece designed to bring warmth, simplicity and purpose into your everyday style."
+                    "A timeless Béni Carmel beanie designed for everyday expression, comfort and purpose."
             },
 
             "beanie-black": {
-                name: "Beni Carmel Black Beanie",
-                price: 2500,
+                name: "BC Beanie",
+                variant: "Black",
+                category: "HEADWEAR",
+                price: 500,
                 image: "images/beanie-black.jpg",
                 description:
-                    "A classic black beanie designed for effortless everyday wear, combining comfort, simplicity and the Beni Carmel identity."
+                    "A classic black BC beanie made for effortless everyday styling."
             },
 
             "beanie-brown": {
-                name: "Beni Carmel Brown Beanie",
-                price: 2500,
+                name: "BC Beanie",
+                variant: "Brown",
+                category: "HEADWEAR",
+                price: 500,
                 image: "images/beanie-brown.jpg",
                 description:
-                    "A rich brown essential designed to complement your everyday wardrobe while carrying the Beni Carmel spirit."
+                    "A warm brown BC beanie bringing understated style to your everyday wardrobe."
             },
 
             "beanie-burgundy": {
-                name: "Beni Carmel Burgundy Beanie",
-                price: 2500,
+                name: "BC Beanie",
+                variant: "Burgundy",
+                category: "HEADWEAR",
+                price: 500,
                 image: "images/beanie-burgundy.jpg",
                 description:
-                    "A bold burgundy statement piece created for those who want their style to carry meaning and purpose."
+                    "A rich burgundy beanie created for bold everyday expression."
             },
 
             "beanie-cream": {
-                name: "Beni Carmel Cream Beanie",
-                price: 2500,
+                name: "BC Beanie",
+                variant: "Cream",
+                category: "HEADWEAR",
+                price: 500,
                 image: "images/beanie-cream.jpg",
                 description:
-                    "A soft cream essential bringing understated elegance, comfort and purpose to your everyday look."
+                    "A clean cream beanie designed to complement your everyday style."
+            },
+
+
+            /* =========================
+               BUCKET HATS
+            ========================= */
+
+            "bucket-hat-beige": {
+                name: "BC Bucket Hat",
+                variant: "Beige",
+                category: "HEADWEAR",
+                price: 700,
+                image: "images/bucket-hat-beige.jpg",
+                description:
+                    "A relaxed BC bucket hat designed for versatile everyday wear."
+            },
+
+            "bucket-hat-black": {
+                name: "BC Bucket Hat",
+                variant: "Black",
+                category: "HEADWEAR",
+                price: 700,
+                image: "images/bucket-hat-black.jpg",
+                description:
+                    "A classic black bucket hat that brings an effortless edge to any look."
+            },
+
+            "bucket-hat-burgundy": {
+                name: "BC Bucket Hat",
+                variant: "Burgundy",
+                category: "HEADWEAR",
+                price: 700,
+                image: "images/bucket-hat-burgundy.jpg",
+                description:
+                    "A burgundy bucket hat designed to make everyday outfits stand out."
+            },
+
+            "bucket-hat-white": {
+                name: "BC Bucket Hat",
+                variant: "White",
+                category: "HEADWEAR",
+                price: 700,
+                image: "images/bucket-hat-white.jpg",
+                description:
+                    "A clean white bucket hat designed for easy everyday styling."
+            },
+
+
+            /* =========================
+               CAP
+            ========================= */
+
+            "cap-white": {
+                name: "BC Cap",
+                variant: "White",
+                category: "HEADWEAR",
+                price: 400,
+                image: "images/cap-white.jpg",
+                description:
+                    "A clean BC cap designed for simple, everyday expression."
+            },
+
+
+            /* =========================
+               JACKET
+            ========================= */
+
+            "college-jacket": {
+                name: "BC College Jacket",
+                variant: "Signature",
+                category: "CLOTHING",
+                price: 1500,
+                image: "images/college-jacket.jpg",
+                description:
+                    "A signature Béni Carmel college jacket representing the spirit of the collective."
+            },
+
+
+            /* =========================
+               DENIM JACKETS
+            ========================= */
+
+            "denim-jacket-1": {
+                name: "BC Denim Jacket",
+                variant: "Blue",
+                category: "DENIM",
+                price: 1300,
+                image: "images/denim-jacket-1.jpg",
+                description:
+                    "A versatile blue denim jacket designed to become an everyday wardrobe staple."
+            },
+
+            "denim-jacket-2": {
+                name: "BC Denim Jacket",
+                variant: "Washed Blue",
+                category: "DENIM",
+                price: 1300,
+                image: "images/denim-jacket-2.jpg",
+                description:
+                    "A washed-blue denim jacket with an effortless vintage-inspired finish."
+            },
+
+
+            /* =========================
+               HOODIES
+            ========================= */
+
+            "hoodie-black": {
+                name: "BC Hoodie",
+                variant: "Black",
+                category: "CLOTHING",
+                price: 1300,
+                image: "images/hoodie-1.jpg",
+                description:
+                    "A comfortable BC hoodie designed around everyday confidence and purpose."
+            },
+
+            "hoodie-cream": {
+                name: "BC Hoodie",
+                variant: "Cream",
+                category: "CLOTHING",
+                price: 1300,
+                image: "images/hoodie-2.jpg",
+                description:
+                    "A clean cream BC hoodie made for effortless everyday layering."
+            },
+
+
+            /* =========================
+               JORTS
+            ========================= */
+
+            "jorts-blue": {
+                name: "BC Jorts",
+                variant: "Blue",
+                category: "DENIM",
+                price: 1000,
+                image: "images/jorts-1.jpg",
+                description:
+                    "Relaxed blue denim jorts designed for everyday movement and expression."
+            },
+
+            "jorts-dark-blue": {
+                name: "BC Jorts",
+                variant: "Dark Blue",
+                category: "DENIM",
+                price: 1000,
+                image: "images/jorts-dark-blue.jpg",
+                description:
+                    "Dark blue denim jorts offering a classic relaxed silhouette."
+            },
+
+            "jorts-marble-blue": {
+                name: "BC Jorts",
+                variant: "Marble Blue",
+                category: "DENIM",
+                price: 1000,
+                image: "images/jorts-marble-blue.jpg",
+                description:
+                    "Marble-blue denim jorts created for distinctive everyday styling."
+            },
+
+            "jorts-sky-blue": {
+                name: "BC Jorts",
+                variant: "Sky Blue",
+                category: "DENIM",
+                price: 1000,
+                image: "images/jorts-sky-blue.jpg",
+                description:
+                    "Sky-blue denim jorts designed for a relaxed contemporary look."
+            },
+
+
+            /* =========================
+               BAGS
+            ========================= */
+
+            "cross-shoulder-bag": {
+                name: "Cross Shoulder Bag",
+                variant: "Black",
+                category: "ACCESSORIES",
+                price: 800,
+                image: "images/shoulder-bag-black-cross.jpg",
+                description:
+                    "A practical black cross shoulder bag designed to carry your essentials with ease."
+            },
+
+            "shoulder-bag-black": {
+                name: "Shoulder Bag",
+                variant: "Black",
+                category: "ACCESSORIES",
+                price: 650,
+                image: "images/shoulder-bag-black.jpg",
+                description:
+                    "A versatile black shoulder bag designed for everyday use."
+            },
+
+            "shoulder-bag-brown": {
+                name: "Shoulder Bag",
+                variant: "Brown",
+                category: "ACCESSORIES",
+                price: 650,
+                image: "images/shoulder-bag-brown.jpg",
+                description:
+                    "A warm brown shoulder bag designed for practical everyday styling."
+            },
+
+            "shoulder-bag-orange": {
+                name: "Shoulder Bag",
+                variant: "Orange",
+                category: "ACCESSORIES",
+                price: 650,
+                image: "images/shoulder-bag-orange.jpg",
+                description:
+                    "An orange shoulder bag designed to bring colour and personality to your everyday look."
+            },
+
+            "shoulder-bag-pink": {
+                name: "Shoulder Bag",
+                variant: "Pink",
+                category: "ACCESSORIES",
+                price: 650,
+                image: "images/shoulder-bag-pink.jpg",
+                description:
+                    "A pink shoulder bag designed for everyday convenience and expression."
+            },
+
+
+            /* =========================
+               SOCKS
+            ========================= */
+
+            "socks-black": {
+                name: "BC Socks",
+                variant: "Black",
+                category: "ACCESSORIES",
+                price: 200,
+                image: "images/socks-black.jpg",
+                description:
+                    "Essential black BC socks designed for everyday comfort."
+            },
+
+            "socks-white": {
+                name: "BC Socks",
+                variant: "White",
+                category: "ACCESSORIES",
+                price: 200,
+                image: "images/socks-white.jpg",
+                description:
+                    "Essential white BC socks designed for everyday wear."
+            },
+
+
+            /* =========================
+               SWEATPANTS
+            ========================= */
+
+            "sweatpants-black": {
+                name: "BC Sweatpants",
+                variant: "Black",
+                category: "CLOTHING",
+                price: 900,
+                image: "images/sweatpants-black.jpg",
+                description:
+                    "Relaxed black BC sweatpants designed for comfort and everyday movement."
+            },
+
+            "sweatpants-burgundy": {
+                name: "BC Sweatpants",
+                variant: "Burgundy",
+                category: "CLOTHING",
+                price: 900,
+                image: "images/sweatpants-burgundy.jpg",
+                description:
+                    "Burgundy BC sweatpants combining comfort with distinctive everyday style."
+            },
+
+            "sweatpants-cream": {
+                name: "BC Sweatpants",
+                variant: "Cream",
+                category: "CLOTHING",
+                price: 900,
+                image: "images/sweatpants-cream.jpg",
+                description:
+                    "Cream BC sweatpants designed for comfortable everyday styling."
+            },
+
+            "sweatpants-grey": {
+                name: "BC Sweatpants",
+                variant: "Grey",
+                category: "CLOTHING",
+                price: 900,
+                image: "images/sweatpants-grey.jpg",
+                description:
+                    "Classic grey BC sweatpants designed for everyday comfort."
+            },
+
+
+            /* =========================
+               TEES
+            ========================= */
+
+            "tee-1": {
+                name: "BC Graphic Tee",
+                variant: "Black",
+                category: "CLOTHING",
+                price: 600,
+                image: "images/tee-1.jpg",
+                description:
+                    "A BC graphic tee created to carry the Béni Carmel identity wherever you go."
+            },
+
+            "tee-2": {
+                name: "BC Graphic Tee",
+                variant: "Signature",
+                category: "CLOTHING",
+                price: 600,
+                image: "images/tee-2.jpg",
+                description:
+                    "A signature graphic tee representing the spirit and identity of the collective."
+            },
+
+            "tee-3": {
+                name: "BC Graphic Tee",
+                variant: "Collection",
+                category: "CLOTHING",
+                price: 600,
+                image: "images/tee-3.jpg",
+                description:
+                    "A statement BC graphic tee created as part of the collection."
+            },
+
+
+            /* =========================
+               JEANS
+            ========================= */
+
+            "wide-leg-jeans-blue": {
+                name: "Wide-Leg Jeans",
+                variant: "Blue",
+                category: "DENIM",
+                price: 1000,
+                image: "images/wide-leg-jeans-blue.jpg",
+                description:
+                    "Relaxed wide-leg jeans designed for contemporary everyday styling."
+            },
+
+
+            /* =========================
+               NECKLACE
+            ========================= */
+
+            "cross-necklace-silver": {
+                name: "Cross Necklace",
+                variant: "Silver",
+                category: "ACCESSORIES",
+                price: 500,
+                image: "images/cross-necklace-silver.jpg",
+                description:
+                    "A silver cross necklace representing faith, identity and purpose."
             }
 
         };
 
 
-        /* GET PRODUCT FROM URL */
+        /* =========================================
+           GET PRODUCT FROM URL
+        ========================================= */
 
-        const urlParams = new URLSearchParams(window.location.search);
+        const params =
+            new URLSearchParams(window.location.search);
 
-        const productID =
-            urlParams.get("product") || "beanie-black";
+        const productId =
+            params.get("product");
+
+        const product =
+            products[productId];
 
 
-        const product = products[productID];
+        /* =========================================
+           LOAD PRODUCT
+        ========================================= */
+
+        function loadProduct() {
+
+            if (!product) {
+
+                document.getElementById(
+                    "product-container"
+                ).style.display = "none";
+
+                document.getElementById(
+                    "product-not-found"
+                ).style.display = "block";
+
+                return;
+
+            }
 
 
-        /* DISPLAY PRODUCT */
+            document.title =
+                product.name +
+                " " +
+                product.variant +
+                " | Béni Carmel Collectives";
 
-        if (product) {
 
-            document.getElementById("productImage").src =
-                product.image;
+            document.getElementById(
+                "product-image"
+            ).src = product.image;
 
-            document.getElementById("productImage").alt =
+
+            document.getElementById(
+                "product-image"
+            ).alt =
+                product.name +
+                " " +
+                product.variant;
+
+
+            document.getElementById(
+                "product-name"
+            ).textContent =
                 product.name;
 
-            document.getElementById("productTitle").textContent =
-                product.name;
 
-            document.getElementById("productPrice").textContent =
-                "KSh " + product.price.toLocaleString();
+            document.getElementById(
+                "product-category"
+            ).textContent =
+                product.category;
 
-            document.getElementById("productDescription").textContent =
+
+            document.getElementById(
+                "product-price"
+            ).textContent =
+                "KSh " +
+                product.price.toLocaleString();
+
+
+            document.getElementById(
+                "product-description"
+            ).textContent =
                 product.description;
 
-        }
+
+            document.getElementById(
+                "detail-description"
+            ).textContent =
+                product.description;
 
 
-        /* QUANTITY */
-
-        function increaseQuantity() {
-
-            const quantity =
-                document.getElementById("quantity");
-
-            quantity.value =
-                parseInt(quantity.value) + 1;
-        }
+            document.getElementById(
+                "breadcrumb-product"
+            ).textContent =
+                product.name +
+                " — " +
+                product.variant;
 
 
-        function decreaseQuantity() {
+            /* Put variant into heading */
 
-            const quantity =
-                document.getElementById("quantity");
+            document.getElementById(
+                "product-name"
+            ).textContent =
+                product.name +
+                " — " +
+                product.variant;
 
-            if (parseInt(quantity.value) > 1) {
 
-                quantity.value =
-                    parseInt(quantity.value) - 1;
+            /* Clothing gets sizes */
+
+            const clothingCategories = [
+                "CLOTHING",
+                "DENIM"
+            ];
+
+
+            if (
+                !clothingCategories.includes(
+                    product.category
+                )
+            ) {
+
+                document.getElementById(
+                    "size-container"
+                ).style.display = "none";
+
             }
+
         }
 
 
-        /* ADD TO CART */
+        /* =========================================
+           SIZE
+        ========================================= */
 
-        function addToCart() {
+        function selectSize(button) {
 
-            const quantity =
-                parseInt(
-                    document.getElementById("quantity").value
-                );
+            document
+                .querySelectorAll(".size-button")
+                .forEach(function(btn) {
 
-            let cart =
-                JSON.parse(
-                    localStorage.getItem("beniCarmelCart")
-                ) || [];
-
-
-            const existingProduct =
-                cart.find(item => item.id === productID);
-
-
-            if (existingProduct) {
-
-                existingProduct.quantity += quantity;
-
-            } else {
-
-                cart.push({
-
-                    id: productID,
-
-                    name: product.name,
-
-                    price: product.price,
-
-                    image: product.image,
-
-                    quantity: quantity
+                    btn.classList.remove("active");
 
                 });
 
+
+            button.classList.add("active");
+
+        }
+
+
+        function getSelectedSize() {
+
+            const selected =
+                document.querySelector(
+                    ".size-button.active"
+                );
+
+            return selected
+                ? selected.textContent.trim()
+                : "M";
+
+        }
+
+
+        /* =========================================
+           QUANTITY
+        ========================================= */
+
+        function changeQuantity(amount) {
+
+            const input =
+                document.getElementById(
+                    "quantity"
+                );
+
+            let quantity =
+                parseInt(input.value) + amount;
+
+
+            if (quantity < 1) {
+                quantity = 1;
             }
 
 
-            localStorage.setItem(
-                "beniCarmelCart",
-                JSON.stringify(cart)
-            );
-
-
-            const message =
-                document.getElementById("productMessage");
-
-            message.textContent =
-                "✓ Added to your cart";
-
-            message.style.display = "block";
+            input.value = quantity;
 
         }
 
 
-        /* BUY NOW */
+        /* =========================================
+           ADD TO BAG
+        ========================================= */
 
-        function buyNow() {
+        function addCurrentProduct() {
 
-            addToCart();
+            if (!product) {
+                return;
+            }
 
-            setTimeout(function() {
 
-                window.location.href =
-                    "checkout.html";
+            const quantity =
+                parseInt(
+                    document.getElementById(
+                        "quantity"
+                    ).value
+                );
 
-            }, 500);
+
+            const size =
+                document.getElementById(
+                    "size-container"
+                ).style.display === "none"
+                    ? ""
+                    : getSelectedSize();
+
+
+            /*
+             * Use the existing cart system
+             * from script.js.
+             */
+
+            for (
+                let i = 0;
+                i < quantity;
+                i++
+            ) {
+
+                addToCart(
+                    product.name +
+                    " " +
+                    product.variant +
+                    (size
+                        ? " — Size " + size
+                        : ""),
+                    product.price
+                );
+
+            }
 
         }
+
+
+        /* =========================================
+           WISHLIST
+        ========================================= */
+
+        function addCurrentToWishlist() {
+
+            if (!product) {
+                return;
+            }
+
+
+            /*
+             * If your script.js has a wishlist
+             * function, use it.
+             */
+
+            if (
+                typeof toggleWishlist ===
+                "function"
+            ) {
+
+                const button =
+                    document.querySelector(
+                        ".wishlist-product-page"
+                    );
+
+                toggleWishlist(button);
+
+            }
+
+        }
+
+
+        /* =========================================
+           START
+        ========================================= */
+
+        loadProduct();
 
     </script>
 
+
+    <!-- YOUR MAIN JAVASCRIPT -->
+
+    <script src="script.js"></script>
+
+
 </body>
+
 </html>
