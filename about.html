@@ -354,73 +354,272 @@
     }
 
     /* =========================
-       FOUNDERS
-    ========================= */
+   FOUNDERS — EDITORIAL
+========================= */
 
-    .founders {
-      padding: 120px 30px;
-      background: #f8f6f1;
-    }
+.founders {
+  padding: 140px 30px;
+  background: #f8f6f1;
+  overflow: hidden;
+}
 
-    .founders-inner {
-      max-width: 1100px;
-      margin: auto;
-    }
+.founders-inner {
+  max-width: 1250px;
+  margin: auto;
+}
 
-    .founders-heading {
-      text-align: center;
-      margin-bottom: 70px;
-    }
+.founders-heading {
+  margin-bottom: 100px;
+  position: relative;
+}
 
-    .founders-heading span {
-      font-size: 11px;
-      letter-spacing: 4px;
-      font-weight: 700;
-    }
+.founders-heading span {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 4px;
+  font-weight: 700;
+  margin-bottom: 25px;
+}
 
-    .founders-heading h2 {
-      margin-top: 20px;
-      font-size: clamp(40px, 6vw, 72px);
-      text-transform: uppercase;
-      letter-spacing: -3px;
-      line-height: 0.95;
-    }
+.founders-heading h2 {
+  margin: 0;
+  font-size: clamp(55px, 9vw, 125px);
+  text-transform: uppercase;
+  letter-spacing: -6px;
+  line-height: 0.82;
+  font-weight: 900;
+}
 
-    .founders-content {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 70px;
-      align-items: center;
-    }
+/* Editorial layout */
 
-    .founder-image {
-      min-height: 500px;
-      background: #ddd8cf;
+.founders-editorial {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 80px;
+  align-items: start;
+}
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
+/* Images */
 
-      text-align: center;
-      color: #777;
-      letter-spacing: 2px;
-      font-size: 11px;
-    }
+.founder-gallery {
+  position: relative;
+  min-height: 800px;
+}
 
-    .founder-text h3 {
-      font-size: 32px;
-      text-transform: uppercase;
-      margin-bottom: 25px;
-      letter-spacing: -1px;
-    }
+.founder-photo {
+  position: absolute;
+  overflow: hidden;
+  background: #ded9d0;
+}
 
-    .founder-text p {
-      color: #555;
-      font-size: 15px;
-      line-height: 2;
-      margin-bottom: 20px;
-    }
+.founder-photo img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(.2,.7,.2,1);
+}
 
+.founder-photo:hover img {
+  transform: scale(1.04);
+}
+
+/* First founder */
+
+.founder-photo-one {
+  width: 68%;
+  height: 680px;
+  left: 0;
+  top: 0;
+}
+
+/* Second founder */
+
+.founder-photo-two {
+  width: 48%;
+  height: 500px;
+  right: 0;
+  bottom: 0;
+  border: 12px solid #f8f6f1;
+}
+
+/* Photo labels */
+
+.photo-label {
+  position: absolute;
+  z-index: 3;
+  background: #f8f6f1;
+  color: #171717;
+  padding: 10px 14px;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.photo-label-one {
+  left: 20px;
+  bottom: 20px;
+}
+
+.photo-label-two {
+  right: 20px;
+  top: 20px;
+}
+
+/* Founder information */
+
+.founder-info {
+  padding-top: 100px;
+}
+
+.founder-intro {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  margin-bottom: 25px;
+  opacity: 0.55;
+}
+
+.founder-info h3 {
+  font-size: clamp(38px, 5vw, 65px);
+  line-height: 0.95;
+  text-transform: uppercase;
+  letter-spacing: -2px;
+  margin-bottom: 35px;
+}
+
+.founder-info p {
+  color: #555;
+  font-size: 15px;
+  line-height: 2;
+  margin-bottom: 22px;
+  max-width: 500px;
+}
+
+/* Founder names */
+
+.founder-names {
+  margin-top: 55px;
+  border-top: 1px solid #cfc9bf;
+}
+
+.founder-name {
+  padding: 24px 0;
+  border-bottom: 1px solid #cfc9bf;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.founder-name strong {
+  font-size: 13px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.founder-name span {
+  font-size: 10px;
+  color: #777;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* Editorial quote */
+
+.founder-quote {
+  margin-top: 100px;
+  padding: 70px 0 0;
+  border-top: 1px solid #171717;
+}
+
+.founder-quote p {
+  max-width: 1000px;
+  font-size: clamp(30px, 5vw, 65px);
+  line-height: 1;
+  letter-spacing: -2px;
+  color: #171717;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+/* Mobile */
+
+@media (max-width: 900px) {
+
+  .founders {
+    padding: 90px 20px;
+  }
+
+  .founders-heading {
+    margin-bottom: 60px;
+  }
+
+  .founders-heading h2 {
+    letter-spacing: -3px;
+  }
+
+  .founders-editorial {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .founder-gallery {
+    min-height: 650px;
+  }
+
+  .founder-photo-one {
+    width: 78%;
+    height: 550px;
+  }
+
+  .founder-photo-two {
+    width: 48%;
+    height: 350px;
+    border-width: 8px;
+  }
+
+  .founder-info {
+    padding-top: 20px;
+  }
+
+  .founder-quote {
+    margin-top: 70px;
+    padding-top: 50px;
+  }
+
+}
+
+@media (max-width: 500px) {
+
+  .founder-gallery {
+    min-height: 520px;
+  }
+
+  .founder-photo-one {
+    width: 80%;
+    height: 430px;
+  }
+
+  .founder-photo-two {
+    width: 52%;
+    height: 280px;
+  }
+
+  .photo-label {
+    padding: 8px 10px;
+    font-size: 8px;
+  }
+
+  .founder-name {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 7px;
+  }
+
+}
     /* =========================
        FINAL CTA
     ========================= */
@@ -906,58 +1105,128 @@
 
 
   <!-- =========================
-       FOUNDERS
-  ========================= -->
+     FOUNDERS — EDITORIAL
+========================= -->
 
-  <section class="founders">
+<section class="founders">
 
-    <div class="founders-inner">
+  <div class="founders-inner">
 
-      <div class="founders-heading">
+    <div class="founders-heading">
 
-        <span>
-          THE PEOPLE BEHIND THE BRAND
-        </span>
+      <span>
+        THE PEOPLE BEHIND THE BRAND
+      </span>
 
-        <h2>
-          MEET THE<br>
-          FOUNDERS
-        </h2>
+      <h2>
+        MEET THE<br>
+        COLLECTIVE.
+      </h2>
+
+    </div>
+
+
+    <div class="founders-editorial">
+
+      <!-- =========================
+           FOUNDER PHOTOGRAPHY
+      ========================= -->
+
+      <div class="founder-gallery">
+
+        <div class="founder-photo founder-photo-one">
+
+          <img
+            src="img/founder-1.jpg"
+            alt="Béni Carmel co-founder"
+          >
+
+          <div class="photo-label photo-label-one">
+            CO-FOUNDER / 01
+          </div>
+
+        </div>
+
+
+        <div class="founder-photo founder-photo-two">
+
+          <img
+            src="img/founder-2.jpg"
+            alt="Béni Carmel co-founder"
+          >
+
+          <div class="photo-label photo-label-two">
+            CO-FOUNDER / 02
+          </div>
+
+        </div>
 
       </div>
 
 
-      <div class="founders-content">
+      <!-- =========================
+           FOUNDER STORY
+      ========================= -->
 
-        <div class="founder-image">
-          FOUNDERS PHOTO
+      <div class="founder-info">
+
+        <div class="founder-intro">
+          BÉNI CARMEL COLLECTIVES — EST. 2026
         </div>
 
+        <h3>
+          Built from<br>
+          belief.
+        </h3>
 
-        <div class="founder-text">
+        <p>
+          Béni Carmel Collectives began with a vision to create
+          something that felt personal — something where fashion,
+          identity, faith and creativity could exist in the same
+          space.
+        </p>
 
-          <h3>
-            Built from belief.
-          </h3>
+        <p>
+          We didn't want to create another clothing brand.
+          We wanted to build a language — one expressed through
+          the pieces we wear, the stories we carry and the values
+          we choose to stand for.
+        </p>
 
-          <p>
-            Béni Carmel Collectives began with a desire to create
-            something that felt authentic — something that connected
-            fashion with faith, creativity with purpose, and
-            individual expression with community.
-          </p>
+        <p>
+          From the beginning, BC has been about more than a logo
+          on a garment. It is about creating pieces that make
+          people feel seen, confident and connected to something
+          bigger than themselves.
+        </p>
 
-          <p>
-            What started as an idea has grown into a collective
-            built around the belief that the clothes we wear can
-            carry a message.
-          </p>
 
-          <p>
-            We are creating pieces for people who know that
-            their identity is bigger than a trend and their
-            purpose is bigger than a label.
-          </p>
+        <div class="founder-names">
+
+          <div class="founder-name">
+
+            <strong>
+              [YOUR NAME]
+            </strong>
+
+            <span>
+              Co-Founder / Creative
+            </span>
+
+          </div>
+
+
+          <div class="founder-name">
+
+            <strong>
+              [CO-FOUNDER NAME]
+            </strong>
+
+            <span>
+              Co-Founder / Creative
+            </span>
+
+          </div>
 
         </div>
 
@@ -965,7 +1234,25 @@
 
     </div>
 
-  </section>
+
+    <!-- =========================
+         EDITORIAL STATEMENT
+    ========================= -->
+
+    <div class="founder-quote">
+
+      <p>
+        WE ARE NOT JUST MAKING CLOTHES.
+        WE ARE BUILDING A COLLECTIVE
+        OF PEOPLE WHO WEAR THEIR
+        IDENTITY WITH PURPOSE.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
 
 
   <!-- =========================
