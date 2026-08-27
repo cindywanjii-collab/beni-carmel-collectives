@@ -394,8 +394,8 @@
 
 .founders-editorial {
   display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: 80px;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: clamp(40px, 6vw, 80px);
   align-items: start;
 }
 
@@ -403,7 +403,8 @@
 
 .founder-gallery {
   position: relative;
-  min-height: 800px;
+  min-height: 760px;
+  width: 100%;
 }
 
 .founder-photo {
