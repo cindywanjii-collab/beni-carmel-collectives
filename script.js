@@ -1375,24 +1375,16 @@ function closeSearch() {
 
 
 /* =========================================================
-   SEARCH PRODUCTS
+   BÉNI CARMEL STORE SEARCH
 ========================================================= */
 
 function searchProducts() {
 
     const input =
-        getElement(
-            "searchInput",
-            "site-search"
-        );
-
+        document.getElementById("site-search");
 
     const results =
-        getElement(
-            "searchResults",
-            "search-results"
-        );
-
+        document.getElementById("search-results");
 
     if (!input || !results) {
         return;
@@ -1405,88 +1397,219 @@ function searchProducts() {
             .trim();
 
 
-    if (!searchTerm) {
+    /* EMPTY SEARCH */
+
+    if (searchTerm === "") {
 
         results.innerHTML = "";
 
         return;
+    }
+
+
+    /*
+       Use the product database when available.
+       Otherwise use the products displayed
+       on the shop page.
+    */
+
+    let productList = [];
+
+
+    /* PRODUCT DATABASE FROM product.html */
+
+    if (
+        typeof products !== "undefined"
+    ) {
+
+        productList =
+            Object.entries(products)
+                .map(([id, product]) => ({
+                    id: id,
+                    name: product.name,
+                    variant: product.variant,
+                    category: product.category,
+                    price: product.price,
+                    image: product.image
+                }));
 
     }
 
 
-    const products =
-        document.querySelectorAll(
-            ".shop-product, .product-card"
+    /*
+       FALLBACK:
+       PRODUCTS ON SHOP PAGE
+    */
+
+    if (productList.length === 0) {
+
+        const shopProducts =
+            document.querySelectorAll(
+                ".shop-product"
+            );
+
+
+        shopProducts.forEach(
+            product => {
+
+                const name =
+                    product.dataset.name ||
+                    product.querySelector("h3")?.textContent ||
+                    "";
+
+
+                const price =
+                    Number(
+                        product.dataset.price || 0
+                    );
+
+
+                const image =
+                    product.querySelector("img")?.src ||
+                    "";
+
+
+                productList.push({
+
+                    id: "",
+
+                    name: name,
+
+                    variant:
+                        product.querySelector(
+                            ".shop-product-info p"
+                        )?.textContent || "",
+
+                    category:
+                        product.dataset.category || "",
+
+                    price: price,
+
+                    image: image
+
+                });
+
+            }
         );
 
+    }
 
-    let found = 0;
 
+    /* FILTER PRODUCTS */
+
+    const matches =
+        productList.filter(product => {
+
+            const searchableText =
+                (
+                    product.name +
+                    " " +
+                    product.variant +
+                    " " +
+                    product.category
+                )
+                .toLowerCase();
+
+
+            return searchableText.includes(
+                searchTerm
+            );
+
+        });
+
+
+    /* CLEAR OLD RESULTS */
 
     results.innerHTML = "";
 
 
-    products.forEach(product => {
+    /* NO RESULTS */
 
-        const name =
-            product.dataset.name ||
-            product.querySelector(
-                "h3"
-            )?.textContent ||
-            "";
-
-
-        if (
-            name
-                .toLowerCase()
-                .includes(searchTerm)
-        ) {
-
-            const price =
-                getOfficialPrice(
-                    name,
-                    product.dataset.price
-                );
-
-
-            results.innerHTML += `
-
-                <div class="search-result">
-
-                    <strong>
-                        ${escapeHTML(name)}
-                    </strong>
-
-                    <span>
-                        KSh ${price.toLocaleString()}
-                    </span>
-
-                </div>
-
-            `;
-
-
-            found++;
-
-        }
-
-    });
-
-
-    if (found === 0) {
+    if (matches.length === 0) {
 
         results.innerHTML = `
 
-            <p>
-                No products found.
-            </p>
+            <div class="search-empty">
+
+                No products found for
+                "<strong>${escapeHTML(searchTerm)}</strong>".
+
+            </div>
 
         `;
 
+        return;
     }
 
-}
 
+    /* DISPLAY RESULTS */
+
+    matches.forEach(product => {
+
+        const result =
+            document.createElement("div");
+
+
+        result.className =
+            "search-result";
+
+
+        result.innerHTML = `
+
+            <img
+                class="search-result-image"
+                src="${escapeHTML(product.image)}"
+                alt="${escapeHTML(product.name)}"
+                onerror="this.style.display='none'"
+            >
+
+            <div class="search-result-info">
+
+                <strong>
+                    ${escapeHTML(product.name)}
+                    ${product.variant
+                        ? " — " +
+                          escapeHTML(product.variant)
+                        : ""
+                    }
+                </strong>
+
+                <span>
+                    KSh
+                    ${Number(product.price).toLocaleString()}
+                </span>
+
+            </div>
+
+        `;
+
+
+        /*
+           Clicking a result opens
+           the individual product page.
+        */
+
+        if (product.id) {
+
+            result.onclick =
+                function () {
+
+                    window.location.href =
+                        "product.html?product=" +
+                        encodeURIComponent(
+                            product.id
+                        );
+
+                };
+
+        }
+
+
+        results.appendChild(result);
+
+    });
+
+}
 
 /* =========================================================
    WISHLIST
