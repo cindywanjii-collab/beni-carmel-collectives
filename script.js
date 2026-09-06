@@ -1320,34 +1320,24 @@ function toggleMobileMenu() {
 function openSearch() {
 
     const overlay =
-        getElement(
-            "searchOverlay",
-            "search-overlay"
-        );
+        document.getElementById("searchOverlay");
 
-
-    if (overlay) {
-
-        overlay.classList.add(
-            "active"
-        );
-
+    if (!overlay) {
+        return;
     }
 
+    overlay.classList.add("active");
 
-    const input =
-        getElement(
-            "searchInput",
-            "site-search"
-        );
+    const searchInput =
+        document.getElementById("searchInput");
 
+    if (searchInput) {
 
-    if (input) {
+        searchInput.value = "";
 
-        setTimeout(
-            () => input.focus(),
-            150
-        );
+        setTimeout(function () {
+            searchInput.focus();
+        }, 150);
 
     }
 
@@ -1357,22 +1347,15 @@ function openSearch() {
 function closeSearch() {
 
     const overlay =
-        getElement(
-            "searchOverlay",
-            "search-overlay"
-        );
+        document.getElementById("searchOverlay");
 
-
-    if (overlay) {
-
-        overlay.classList.remove(
-            "active"
-        );
-
+    if (!overlay) {
+        return;
     }
 
-}
+    overlay.classList.remove("active");
 
+}
 
 /* =========================================================
    BÉNI CARMEL STORE SEARCH
@@ -1381,20 +1364,87 @@ function closeSearch() {
 function searchProducts() {
 
     const input =
-        document.getElementById("site-search");
+        document.getElementById("searchInput");
 
     const results =
-        document.getElementById("search-results");
+        document.getElementById("searchResults");
 
     if (!input || !results) {
         return;
     }
 
-
     const searchTerm =
-        input.value
-            .toLowerCase()
-            .trim();
+        input.value.toLowerCase().trim();
+
+    if (searchTerm === "") {
+        results.innerHTML = "";
+        return;
+    }
+
+    const products =
+        document.querySelectorAll(".shop-product");
+
+    let found = 0;
+
+    results.innerHTML = "";
+
+    products.forEach(product => {
+
+        const name =
+            product.dataset.name ||
+            product.querySelector("h3")?.textContent ||
+            "";
+
+        if (
+            name
+                .toLowerCase()
+                .includes(searchTerm)
+        ) {
+
+            const price =
+                getOfficialPrice(
+                    name,
+                    product.dataset.price
+                );
+
+            results.innerHTML += `
+
+                <div
+                    class="search-result"
+                    onclick="window.location.href='shop.html'"
+                >
+
+                    <strong>
+                        ${escapeHTML(name)}
+                    </strong>
+
+                    <span>
+                        KSh ${price.toLocaleString()}
+                    </span>
+
+                </div>
+
+            `;
+
+            found++;
+
+        }
+
+    });
+
+    if (found === 0) {
+
+        results.innerHTML = `
+
+            <p>
+                No products found.
+            </p>
+
+        `;
+
+    }
+
+}
 
 
     /* EMPTY SEARCH */
